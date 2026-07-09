@@ -1,6 +1,6 @@
 ---
 id: 2026-07-14-testpost-bitte-ignorieren
-status: ready
+status: scheduled
 format: image
 channels: [facebook, instagram]
 publish_at: 2026-07-14T09:00:00+02:00
