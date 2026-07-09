@@ -1,6 +1,6 @@
 ---
 id: 2026-07-09-1731-so-entsteht-ein-angebot-3-schritte
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-09T17:31:54+02:00
