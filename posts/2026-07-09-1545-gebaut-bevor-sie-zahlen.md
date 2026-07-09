@@ -1,6 +1,6 @@
 ---
 id: 2026-07-09-1545-gebaut-bevor-sie-zahlen
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-09T15:45:38+02:00
