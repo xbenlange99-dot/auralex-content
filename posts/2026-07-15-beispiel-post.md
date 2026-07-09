@@ -1,6 +1,6 @@
 ---
 id: 2026-07-15-beispiel-post
-status: ready
+status: draft
 format: image
 channels: [facebook, instagram]
 publish_at: 2026-07-15T18:30:00+02:00
