@@ -71,13 +71,14 @@ if [ -z "${AURALEX_BLOG_ID:-}" ]; then
   exit 1
 fi
 
-PROMPT="$(cat <<PROMPT_EOF
+PROMPTFILE="$REPO/out/tick-prompt.txt"
+cat > "$PROMPTFILE" <<PROMPT_EOF
 Du verwaltest die automatische Auralex-Social-Media-Warteschlange im Repo
 ${REPO} ueber das Metricool-MCP.
 
 WICHTIG: Nutze fuer ALLE Git-Befehle die Form
-  git -C ${REPO} <befehl>
-(nicht "cd && git ..."), damit jeder Bash-Aufruf sauber mit "git" beginnt.
+  git -C ${REPO} befehl
+und niemals "cd && git ...", damit jeder Bash-Aufruf sauber mit "git" beginnt.
 
 Schritte:
 
@@ -114,8 +115,10 @@ Schritte:
       - info.publicationDate: {"dateTime": publish_at ohne Offset, "timezone":"Europe/Berlin"}
       - info.autoPublish: true, info.draft: false, info.shortener: false
       - info.instagramData: {"type":"POST","tags":[]}  (nur wenn instagram in channels)
-      - info.facebookData: {"type":"POST","boost":0,"boostPayer":"","boostBeneficiary":"","title":""}
-        (nur wenn facebook in channels)
+      - info.facebookData: {"type":"POST","title":""}
+        (nur wenn facebook in channels; KEIN "boost"-Feld setzen -- die
+        Metricool-API akzeptiert dort nur Werte >2.0 und lehnt boost:0 ab,
+        also das Feld bei unbeworbenen Posts einfach weglassen)
       Wenn der Aufruf fehlschlaegt: setze status auf "error" statt "scheduled",
       committe/pushe trotzdem (siehe c), und fahre mit dem NAECHSTEN Post fort.
       Erfinde KEINE erfolgreiche Planung, wenn der Tool-Call einen Fehler
@@ -138,10 +141,9 @@ Schritte:
 4) Gib am Ende AUSSCHLIESSLICH ein JSON-Objekt aus (keinen weiteren Text):
    {"ok": true|false, "processed": [{"id":"...", "status":"scheduled"|"error", "detail":"..."}]}
 PROMPT_EOF
-)"
 
 cd "$HOME" || exit 1
-"$CLAUDE" -p "$PROMPT" \
+"$CLAUDE" -p "$(cat "$PROMPTFILE")" \
   --dangerously-skip-permissions \
   --allowedTools "Read" "Edit" "Bash(git:*)" \
                  "mcp__metricool__getScheduledPosts" "mcp__metricool__createScheduledPost" \
