@@ -50,7 +50,16 @@ if ! git pull --ff-only >> "$LOG" 2>&1; then
   exit 1
 fi
 
-READY_COUNT=$(grep -l "^status: ready" "$REPO"/posts/*.md 2>/dev/null | wc -l | tr -d ' ')
+# Nur die Frontmatter (zwischen den ersten beiden "---"-Zeilen) pruefen, nie
+# den Caption-Text -- sonst wuerde ein Post, dessen Bildtext zufaellig mit
+# "status: ready" beginnt, faelschlich als bereit erkannt.
+READY_COUNT=0
+for f in "$REPO"/posts/*.md; do
+  [ -f "$f" ] || continue
+  if awk '/^---$/{n++; next} n==1' "$f" | grep -qx "status: ready"; then
+    READY_COUNT=$((READY_COUNT + 1))
+  fi
+done
 echo "Gefundene Posts mit status: ready = $READY_COUNT" >> "$LOG"
 if [ "$READY_COUNT" -eq 0 ]; then
   echo "Nichts zu tun." >> "$LOG"

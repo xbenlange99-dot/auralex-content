@@ -9,5 +9,5 @@ assets:
 ---
 
 Das ist ein Beispiel-Post als Vorlage. Kopiere diese Datei, passe Frontmatter
-und Text an, lege dein Bild unter assets/<deine-post-id>/ ab und setze
-status: ready, wenn er raus soll.
+und Text an, lege dein Bild unter assets/<deine-post-id>/ ab. Wenn er
+fertig ist, oben im Frontmatter auf "ready" umstellen.
