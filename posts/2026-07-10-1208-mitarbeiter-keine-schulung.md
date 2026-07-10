@@ -1,6 +1,6 @@
 ---
 id: 2026-07-10-1208-mitarbeiter-keine-schulung
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-10T12:08:28+02:00
