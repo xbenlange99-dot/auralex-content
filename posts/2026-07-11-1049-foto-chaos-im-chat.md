@@ -1,6 +1,6 @@
 ---
 id: 2026-07-11-1049-foto-chaos-im-chat
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-11T10:49:16+02:00
