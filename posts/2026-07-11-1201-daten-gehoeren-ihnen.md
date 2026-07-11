@@ -1,6 +1,6 @@
 ---
 id: 2026-07-11-1201-daten-gehoeren-ihnen
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-11T12:01:47+02:00
