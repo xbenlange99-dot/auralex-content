@@ -33,8 +33,9 @@ ein. Du brauchst dafür NIE einen Metricool-Login.
 
    - `id`: identisch zum Dateinamen (ohne `.md`) und zum Asset-Ordnernamen.
    - `format`: `image` für ein einzelnes Bild, `carousel` für mehrere Bilder.
-   - `channels`: `[facebook, instagram]`, oder nur einer davon, wenn der Post
-     nur auf einem Kanal laufen soll.
+   - `channels`: **immer `[facebook, instagram]`**, außer es gibt einen
+     konkreten Grund für nur einen Kanal (z. B. ein Format, das auf
+     Instagram nicht funktioniert). Im Zweifel beide Kanäle eintragen.
    - `publish_at`: Datum + Uhrzeit im Format `JJJJ-MM-TTTHH:MM:SS+02:00`
      (Sommerzeit) bzw. `+01:00` (Winterzeit). Wenn unsicher: frag Claude in
      deiner eigenen Session, es rechnet dir das gerne um. Gib mindestens
