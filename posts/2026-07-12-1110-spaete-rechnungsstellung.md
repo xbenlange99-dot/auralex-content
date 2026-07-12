@@ -1,6 +1,6 @@
 ---
 id: 2026-07-12-1110-spaete-rechnungsstellung
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-12T11:10:13+02:00
