@@ -1,6 +1,6 @@
 ---
 id: 2026-07-12-1658-saubere-uebergabe-steuerbuero
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-12T16:58:44+02:00
