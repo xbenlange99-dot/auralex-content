@@ -1,6 +1,6 @@
 ---
 id: 2026-07-13-1105-sprachnotiz-genuegt
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-13T11:05:56+02:00
