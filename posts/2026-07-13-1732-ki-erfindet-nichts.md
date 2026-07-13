@@ -1,6 +1,6 @@
 ---
 id: 2026-07-13-1732-ki-erfindet-nichts
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-13T17:32:17+02:00
