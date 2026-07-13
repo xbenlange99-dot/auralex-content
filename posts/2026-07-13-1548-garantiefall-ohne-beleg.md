@@ -1,6 +1,6 @@
 ---
 id: 2026-07-13-1548-garantiefall-ohne-beleg
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-13T15:48:43+02:00
