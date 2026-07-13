@@ -1,6 +1,6 @@
 ---
 id: 2026-07-13-0730-angebot-nachfassen-vergessen
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-13T07:40:54+02:00
