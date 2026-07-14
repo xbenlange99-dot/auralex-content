@@ -1,6 +1,6 @@
 ---
 id: 2026-07-14-1725-abschluss-auf-der-baustelle
-status: ready
+status: scheduled
 format: video
 channels: [facebook]
 publish_at: 2026-07-14T17:25:53+02:00
