@@ -1,6 +1,6 @@
 ---
 id: 2026-07-17-1830-nachtrag-rechenbeispiel
-status: ready
+status: scheduled
 format: video
 channels: [facebook]
 publish_at: 2026-07-17T18:30:00+02:00
