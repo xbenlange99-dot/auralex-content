@@ -1,6 +1,6 @@
 ---
 id: 2026-07-20-1830-stundenzettel-raten
-status: ready
+status: scheduled
 format: video
 channels: [facebook]
 publish_at: 2026-07-20T18:30:00+02:00
