@@ -1,6 +1,6 @@
 ---
 id: 2026-07-14-0724-unterbrechung-durch-anrufe
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-14T07:24:33+02:00
