@@ -1,6 +1,6 @@
 ---
 id: 2026-07-14-1236-saison-stress-papierkram
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-14T12:36:42+02:00
