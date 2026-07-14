@@ -1,6 +1,6 @@
 ---
 id: 2026-07-19-1830-so-entsteht-angebot
-status: draft
+status: ready
 format: video
 channels: [facebook]
 publish_at: 2026-07-19T18:30:00+02:00
