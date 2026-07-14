@@ -1,6 +1,6 @@
 ---
 id: 2026-07-15-1830-feierabend-liste
-status: ready
+status: scheduled
 format: video
 channels: [facebook]
 publish_at: 2026-07-15T18:30:00+02:00
