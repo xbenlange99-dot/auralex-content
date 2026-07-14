@@ -1,6 +1,6 @@
 ---
 id: 2026-07-14-1105-mitarbeiter-dokumentiert-nichts
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-14T11:05:17+02:00
