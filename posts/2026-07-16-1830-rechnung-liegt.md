@@ -1,6 +1,6 @@
 ---
 id: 2026-07-16-1830-rechnung-liegt
-status: ready
+status: scheduled
 format: video
 channels: [facebook]
 publish_at: 2026-07-16T18:30:00+02:00
