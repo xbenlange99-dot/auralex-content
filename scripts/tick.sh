@@ -119,6 +119,14 @@ Schritte:
         (nur wenn facebook in channels; KEIN "boost"-Feld setzen -- die
         Metricool-API akzeptiert dort nur Werte >2.0 und lehnt boost:0 ab,
         also das Feld bei unbeworbenen Posts einfach weglassen)
+      - SONDERFALL format: video (Reel): "assets" enthaelt genau EINE mp4-Datei,
+        info.media ist dann diese eine mp4-URL (gleiches raw.githubusercontent-Schema).
+        Setze info.facebookData: {"type":"REEL","title":""} statt POST (nur wenn
+        facebook in channels) und info.instagramData: {"type":"REEL","tags":[]}
+        statt POST (nur wenn instagram in channels). Alle anderen Felder wie oben.
+        Schlaegt der Aufruf mit einem Typ-Fehler fehl, versuche es fuer facebook
+        EINMAL erneut mit {"type":"POST","title":""} (Video-Post statt Reel),
+        bevor du den Post auf error setzt.
       Wenn der Aufruf fehlschlaegt: setze status auf "error" statt "scheduled",
       committe/pushe trotzdem (siehe c), und fahre mit dem NAECHSTEN Post fort.
       Erfinde KEINE erfolgreiche Planung, wenn der Tool-Call einen Fehler

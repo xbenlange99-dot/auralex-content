@@ -32,7 +32,9 @@ ein. Du brauchst dafür NIE einen Metricool-Login.
    ```
 
    - `id`: identisch zum Dateinamen (ohne `.md`) und zum Asset-Ordnernamen.
-   - `format`: `image` für ein einzelnes Bild, `carousel` für mehrere Bilder.
+   - `format`: `image` für ein einzelnes Bild, `carousel` für mehrere Bilder,
+     `video` für ein Reel (genau EINE .mp4 in `assets`, 9:16, wird auf
+     Facebook/Instagram als Reel geplant).
    - `channels`: **immer `[facebook, instagram]`**, außer es gibt einen
      konkreten Grund für nur einen Kanal (z. B. ein Format, das auf
      Instagram nicht funktioniert). Im Zweifel beide Kanäle eintragen.
