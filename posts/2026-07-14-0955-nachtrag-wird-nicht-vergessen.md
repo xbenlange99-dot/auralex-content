@@ -1,6 +1,6 @@
 ---
 id: 2026-07-14-0955-nachtrag-wird-nicht-vergessen
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-14T09:55:43+02:00
