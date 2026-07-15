@@ -1,6 +1,6 @@
 ---
 id: 2026-07-15-1547-ki-fehler-freigabe
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-15T15:47:19+02:00
