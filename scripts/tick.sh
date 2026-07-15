@@ -3,6 +3,9 @@
 # Liest posts/*.md mit status: ready, prueft Duplikate in Metricool, plant sie
 # via Metricool-MCP ein, setzt status: scheduled und pusht JEDEN Post einzeln
 # zurueck (verhindert Doppel-Postings bei einem Crash mitten im Lauf).
+# Postet je nach "channels" auf Facebook und/oder Instagram, jeweils als
+# Feed-Post/Reel PLUS zusaetzlich als Story (seit 2026-07-15, best-effort,
+# s. Schritt b2 im Prompt unten).
 #
 # Reliability-Fixes (aus der Helal-Produktion uebernommen):
 #  - launchd hat ein minimales PATH -> claude-Pfad und PATH explizit setzen.
@@ -132,7 +135,41 @@ Schritte:
       Erfinde KEINE erfolgreiche Planung, wenn der Tool-Call einen Fehler
       zurueckgab.
 
-   c) SOFORT nach (a) oder (b) fuer DIESEN Post: bearbeite NUR die
+   b2) ZUSAETZLICH zu (b) -- Story-Version (seit 2026-07-15, David-Wunsch:
+      jeder Post soll auf Facebook UND Instagram als Feed-Post/Reel PLUS als
+      Story laufen). Nur ausfuehren, wenn (b) selbst erfolgreich war (Status
+      wuerde "scheduled") ODER (a) den Post als bereits geplant erkannt hat --
+      NIE nach einem echten Fehlschlag von (b).
+
+      Pruefe zuerst per mcp__metricool__getScheduledPosts im selben
+      Zeitfenster wie (a), ob dort schon ein Eintrag existiert, dessen
+      facebookData.type bzw. instagramData.type "STORY" ist und dessen Medium
+      zu diesem Post passt (Retry-Fall, z.B. nach einem Status-Commit-Crash).
+      Falls ja: ueberspringen, nicht doppelt anlegen.
+
+      Sonst: rufe mcp__metricool__createScheduledPost ERNEUT auf, mit exakt
+      denselben Feldern wie in (b)/dem Sonderfall (blog_id, date, info.media,
+      info.providers, info.publicationDate, info.autoPublish, info.draft,
+      info.shortener), aber:
+      - info.text: "" (leerer String -- Storys zeigen ohnehin keinen
+        Caption-Text, und ein leerer Text verhindert, dass dieser
+        Story-Aufruf beim naechsten Tick faelschlich ueber den
+        Text-Abgleich aus (a) als "Haupt-Post schon geplant" erkannt wird)
+      - info.facebookData: {"type":"STORY"} statt POST/REEL (nur wenn
+        facebook in channels)
+      - info.instagramData: {"type":"STORY","tags":[]} statt POST/REEL (nur
+        wenn instagram in channels)
+
+      Dieser Story-Aufruf ist BEST-EFFORT und blockiert NICHTS: schlaegt er
+      fehl (z.B. weil die Metricool-API "STORY" als Typ nicht akzeptiert),
+      setze NICHT den Status der Datei auf "error" deswegen -- der
+      Haupt-Post aus (b) ist bereits sicher geplant, das hier ist nur der
+      Zusatzkanal. Schreib stattdessen exakt eine Zeile in dein Bash-Log
+      ("STORY-FEHLER <id>: <kurzer Grund>") und mach normal mit (c) weiter.
+      Erfinde auch hier KEINEN Erfolg, wenn der Tool-Call einen Fehler
+      zurueckgab.
+
+   c) SOFORT nach (a), (b) und (b2) fuer DIESEN Post: bearbeite NUR die
       status-Zeile im Frontmatter dieser einen Datei (ready -> scheduled,
       oder ready -> error bei Fehlschlag). Aendere sonst NICHTS an der Datei.
       Dann:

@@ -90,8 +90,8 @@ Das war's. Du musst nirgendwo sonst etwas klicken oder freigeben.
   Kundendaten, keine internen Zahlen, keine unveröffentlichten
   Ankündigungen hier reinlegen – nur fertige Marketing-Captions und -Bilder,
   die ohnehin in Kürze öffentlich werden.
-- Aktuell unterstützt: Bilder und Karussells (mehrere Bilder) auf Facebook
-  und Instagram. Videos/Reels sind aktuell noch nicht Teil dieser
-  Automatisierung.
+- Aktuell unterstützt: Bilder, Karussells (mehrere Bilder) und Videos
+  (Reels) auf Facebook und Instagram. Jeder Post läuft zusätzlich
+  automatisch auch als Story auf beiden Plattformen (seit 2026-07-15).
 
 Bei Fragen: einfach fragen, kein Problem.
