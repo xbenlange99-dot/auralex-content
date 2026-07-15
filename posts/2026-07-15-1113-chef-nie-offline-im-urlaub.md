@@ -1,6 +1,6 @@
 ---
 id: 2026-07-15-1113-chef-nie-offline-im-urlaub
-status: ready
+status: scheduled
 format: image
 channels: [facebook]
 publish_at: 2026-07-15T11:13:32+02:00
