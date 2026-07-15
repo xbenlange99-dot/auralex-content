@@ -1,6 +1,6 @@
 ---
 id: 2026-07-15-1247-aufmass-zettel-verloren
-status: ready
+status: scheduled
 format: video
 channels: [facebook]
 publish_at: 2026-07-15T12:47:56+02:00
