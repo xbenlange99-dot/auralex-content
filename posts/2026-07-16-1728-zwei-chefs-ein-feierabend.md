@@ -1,6 +1,6 @@
 ---
 id: 2026-07-16-1728-zwei-chefs-ein-feierabend
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-16T17:28:12+02:00
