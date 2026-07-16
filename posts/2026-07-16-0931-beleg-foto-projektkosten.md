@@ -1,6 +1,6 @@
 ---
 id: 2026-07-16-0931-beleg-foto-projektkosten
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-16T09:31:27+02:00
