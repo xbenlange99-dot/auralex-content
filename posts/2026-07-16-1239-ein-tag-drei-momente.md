@@ -1,6 +1,6 @@
 ---
 id: 2026-07-16-1239-ein-tag-drei-momente
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-16T12:39:21+02:00
