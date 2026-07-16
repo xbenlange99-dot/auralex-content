@@ -1,6 +1,6 @@
 ---
 id: 2026-07-16-1611-noch-eben-falle
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-16T16:11:07+02:00
