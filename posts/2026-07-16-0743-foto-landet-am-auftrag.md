@@ -1,6 +1,6 @@
 ---
 id: 2026-07-16-0743-foto-landet-am-auftrag
-status: ready
+status: scheduled
 format: image
 channels: [facebook, instagram]
 publish_at: 2026-07-16T07:43:31+02:00
