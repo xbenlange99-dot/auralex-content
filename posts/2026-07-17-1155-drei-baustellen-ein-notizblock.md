@@ -1,6 +1,6 @@
 ---
 id: 2026-07-17-1155-drei-baustellen-ein-notizblock
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-17T11:55:04+02:00
