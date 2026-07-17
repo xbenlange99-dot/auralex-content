@@ -1,6 +1,6 @@
 ---
 id: 2026-07-17-0808-verlorener-bon-jackentasche
-status: ready
+status: scheduled
 format: image
 channels: [facebook, instagram]
 publish_at: 2026-07-17T08:08:10+02:00
