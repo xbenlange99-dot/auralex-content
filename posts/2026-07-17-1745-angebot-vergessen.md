@@ -1,6 +1,6 @@
 ---
 id: 2026-07-17-1745-angebot-vergessen
-status: draft
+status: ready
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-17T17:45:00+02:00
