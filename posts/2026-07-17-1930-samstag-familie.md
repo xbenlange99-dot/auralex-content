@@ -1,6 +1,6 @@
 ---
 id: 2026-07-17-1930-samstag-familie
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-17T19:30:00+02:00
