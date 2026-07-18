@@ -1,6 +1,6 @@
 ---
 id: 2026-07-18-1210-preis-aus-dem-bauch
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-18T12:10:13+02:00
