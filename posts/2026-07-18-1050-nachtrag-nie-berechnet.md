@@ -1,6 +1,6 @@
 ---
 id: 2026-07-18-1050-nachtrag-nie-berechnet
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-18T10:50:24+02:00
