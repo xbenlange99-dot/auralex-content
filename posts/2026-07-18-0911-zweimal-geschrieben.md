@@ -1,6 +1,6 @@
 ---
 id: 2026-07-18-0911-zweimal-geschrieben
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-18T09:11:08+02:00
