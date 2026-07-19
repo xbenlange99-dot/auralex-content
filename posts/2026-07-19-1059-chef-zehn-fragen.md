@@ -1,6 +1,6 @@
 ---
 id: 2026-07-19-1059-chef-zehn-fragen
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-19T10:59:53+02:00
