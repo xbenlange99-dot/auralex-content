@@ -1,6 +1,6 @@
 ---
 id: 2026-07-20-1248-zettel-unleserlich
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-20T12:48:27+02:00
