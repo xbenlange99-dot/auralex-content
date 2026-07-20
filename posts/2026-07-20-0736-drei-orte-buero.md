@@ -1,6 +1,6 @@
 ---
 id: 2026-07-20-0736-drei-orte-buero
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-20T07:36:07+02:00
