@@ -1,6 +1,6 @@
 ---
 id: 2026-07-20-1049-sein-wort-gegen-ihres
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-20T10:49:12+02:00
