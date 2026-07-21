@@ -1,6 +1,6 @@
 ---
 id: 2026-07-21-0741-auftrag-draufgezahlt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-21T07:41:50+02:00
