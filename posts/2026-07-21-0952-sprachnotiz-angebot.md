@@ -1,6 +1,6 @@
 ---
 id: 2026-07-21-0952-sprachnotiz-angebot
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-21T09:52:50+02:00
