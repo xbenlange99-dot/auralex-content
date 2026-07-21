@@ -1,6 +1,6 @@
 ---
 id: 2026-07-21-1059-ueberstunden-nie-abgerechnet
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-21T10:59:29+02:00
