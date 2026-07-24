@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Auralex Content Publisher – Tick-Skript, laeuft alle 15 Min via launchd.
+# Auralex Content Publisher – Tick-Skript, laeuft taeglich um 07:00 via launchd.
 # Liest posts/*.md mit status: ready, prueft Duplikate in Metricool, plant sie
 # via Metricool-MCP ein, setzt status: scheduled und pusht JEDEN Post einzeln
 # zurueck (verhindert Doppel-Postings bei einem Crash mitten im Lauf).
@@ -22,8 +22,9 @@
 #  - launchd hat ein minimales PATH -> claude-Pfad und PATH explizit setzen.
 #  - Das Metricool-MCP ist im $HOME-Scope konfiguriert -> claude MUSS mit
 #    cwd=$HOME gestartet werden, sonst wird das MCP nicht geladen.
-#  - Lockfile verhindert ueberlappende Laeufe, falls ein Tick laenger als
-#    15 Min dauert.
+#  - Lockfile verhindert ueberlappende Laeufe, z. B. wenn der taegliche
+#    Lauf sich mit einem manuellen posten.command-Aufruf ueberschneidet
+#    oder ein Lauf haengen bleibt.
 #  - git pull passiert VOR dem Claude-Aufruf als expliziter, laut
 #    fehlschlagender Schritt (kein stiller Fehlschlag).
 

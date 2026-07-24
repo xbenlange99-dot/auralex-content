@@ -48,8 +48,10 @@ ein. Du brauchst dafür NIE einen Metricool-Login.
      Instagram nicht funktioniert). Im Zweifel beide Kanäle eintragen.
    - `publish_at`: Datum + Uhrzeit im Format `JJJJ-MM-TTTHH:MM:SS+02:00`
      (Sommerzeit) bzw. `+01:00` (Winterzeit). Wenn unsicher: frag Claude in
-     deiner eigenen Session, es rechnet dir das gerne um. Gib mindestens
-     ~1 Stunde Vorlauf, damit der automatische Durchlauf sicher vorher läuft.
+     deiner eigenen Session, es rechnet dir das gerne um. Der automatische
+     Durchlauf prüft nur einmal täglich um 07:00 Uhr, ob etwas mit
+     `status: ready` wartet – setzt du das erst NACH 07:00 Uhr, greift es
+     erst am nächsten Tag. Plane also entsprechend Vorlauf ein.
    - `assets`: die Dateinamen aus deinem Asset-Ordner, in Post-Reihenfolge.
 
 4. **Text schreiben**: alles unterhalb der zweiten `---`-Linie ist die
@@ -58,9 +60,9 @@ ein. Du brauchst dafür NIE einen Metricool-Login.
 
 5. **Wenn der Post wirklich fertig zum Posten ist**, ändere ganz oben im
    Frontmatter `status: draft` zu `status: ready`. Das ist der entscheidende
-   Schritt – ALLES mit `status: ready` wird automatisch (innerhalb von ca.
-   15 Minuten) in Metricool eingeplant und dann zur `publish_at`-Zeit
-   veröffentlicht.
+   Schritt – ALLES mit `status: ready` wird beim nächsten täglichen Lauf um
+   07:00 Uhr automatisch in Metricool eingeplant und dann zur
+   `publish_at`-Zeit veröffentlicht.
 
    Solange `status: draft` steht, passiert gar nichts – du kannst also in
    Ruhe an einem Post arbeiten, bevor du ihn "scharf schaltest".
