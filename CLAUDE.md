@@ -35,6 +35,14 @@ ein. Du brauchst dafür NIE einen Metricool-Login.
    - `format`: `image` für ein einzelnes Bild, `carousel` für mehrere Bilder,
      `video` für ein Reel (genau EINE .mp4 in `assets`, 9:16, wird auf
      Facebook/Instagram als Reel geplant).
+   - `cover` (optional, seit 2026-07-20, nur bei `format: video` relevant):
+     Dateiname eines Bilds im selben Asset-Ordner (z. B. `cover.jpg`), das
+     als Thumbnail/Cover für das Reel verwendet werden soll, statt Frame 0
+     des Videos. Grund: unsere Reels starten oft mit einem kurzen
+     Schwarzbild-Intro, das sonst als hässliches schwarzes Cover im
+     Profil-Grid landet. Falls Metricool das Cover-Feld beim automatischen
+     Einplanen (per API) noch nicht übernimmt, bitte kurz Bescheid geben,
+     dann schauen wir uns an, wie wir es reinbekommen.
    - `channels`: **immer `[facebook, instagram]`**, außer es gibt einen
      konkreten Grund für nur einen Kanal (z. B. ein Format, das auf
      Instagram nicht funktioniert). Im Zweifel beide Kanäle eintragen.
