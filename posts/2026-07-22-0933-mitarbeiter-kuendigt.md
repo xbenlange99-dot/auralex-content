@@ -1,9 +1,9 @@
 ---
 id: 2026-07-22-0933-mitarbeiter-kuendigt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-07-22T09:33:10+02:00
+publish_at: 2026-07-24T19:00:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
