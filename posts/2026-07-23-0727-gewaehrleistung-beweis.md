@@ -1,9 +1,9 @@
 ---
 id: 2026-07-23-0727-gewaehrleistung-beweis
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-07-23T07:27:24+02:00
+publish_at: 2026-07-25T15:30:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
