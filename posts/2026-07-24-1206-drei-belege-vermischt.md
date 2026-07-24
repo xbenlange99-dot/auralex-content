@@ -1,6 +1,6 @@
 ---
 id: 2026-07-24-1206-drei-belege-vermischt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-24T12:06:00+02:00
