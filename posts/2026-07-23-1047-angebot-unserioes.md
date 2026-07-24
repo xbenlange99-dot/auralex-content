@@ -1,9 +1,9 @@
 ---
 id: 2026-07-23-1047-angebot-unserioes
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-07-23T10:47:29+02:00
+publish_at: 2026-07-26T07:30:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
