@@ -1,9 +1,9 @@
 ---
 id: 2026-07-22-0726-foto-projektkosten
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-07-22T07:26:11+02:00
+publish_at: 2026-07-24T17:00:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
