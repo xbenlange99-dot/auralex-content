@@ -1,9 +1,9 @@
 ---
 id: 2026-07-22-1611-feierabend-doppelschicht
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-07-22T16:11:17+02:00
+publish_at: 2026-07-25T11:30:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
