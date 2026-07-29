@@ -1,6 +1,6 @@
 ---
 id: 2026-07-28-0736-falsche-adresse
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-29T13:35:00+02:00
