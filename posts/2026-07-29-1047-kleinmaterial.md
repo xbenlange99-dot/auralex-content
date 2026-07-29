@@ -1,6 +1,6 @@
 ---
 id: 2026-07-29-1047-kleinmaterial
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-29T14:15:00+02:00
