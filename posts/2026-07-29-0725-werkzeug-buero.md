@@ -1,6 +1,6 @@
 ---
 id: 2026-07-29-0725-werkzeug-buero
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-29T14:05:00+02:00
