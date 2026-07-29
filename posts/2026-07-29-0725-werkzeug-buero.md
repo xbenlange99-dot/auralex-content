@@ -3,7 +3,7 @@ id: 2026-07-29-0725-werkzeug-buero
 status: ready
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-07-29T07:25:06+02:00
+publish_at: 2026-07-29T14:05:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4

@@ -3,7 +3,7 @@ id: 2026-07-27-1054-mehr-baustellen
 status: ready
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-07-27T10:54:42+02:00
+publish_at: 2026-07-29T13:15:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4

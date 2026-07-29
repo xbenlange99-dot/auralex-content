@@ -3,7 +3,7 @@ id: 2026-07-26-0958-gleicher-nachname
 status: ready
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-07-26T09:58:42+02:00
+publish_at: 2026-07-29T12:45:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4

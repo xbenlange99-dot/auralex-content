@@ -3,7 +3,7 @@ id: 2026-07-28-1611-stunden-abtippen
 status: ready
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-07-28T16:11:46+02:00
+publish_at: 2026-07-29T13:55:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
