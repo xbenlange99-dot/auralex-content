@@ -1,6 +1,6 @@
 ---
 id: 2026-07-25-1217-urlaub-vertretung
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-29T12:52:00+02:00
