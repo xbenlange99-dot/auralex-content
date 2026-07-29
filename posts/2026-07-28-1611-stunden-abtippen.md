@@ -1,6 +1,6 @@
 ---
 id: 2026-07-28-1611-stunden-abtippen
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-29T13:55:00+02:00
