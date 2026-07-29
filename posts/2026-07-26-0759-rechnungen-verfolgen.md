@@ -1,6 +1,6 @@
 ---
 id: 2026-07-26-0759-rechnungen-verfolgen
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-29T12:40:00+02:00
