@@ -1,6 +1,6 @@
 ---
 id: 2026-07-26-1645-dreckige-haende
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-29T13:00:00+02:00
