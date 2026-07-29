@@ -1,6 +1,6 @@
 ---
 id: 2026-07-27-1054-mehr-baustellen
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-29T13:15:00+02:00
