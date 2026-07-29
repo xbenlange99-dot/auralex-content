@@ -3,7 +3,7 @@ id: 2026-07-29-1047-kleinmaterial
 status: ready
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-07-29T10:47:50+02:00
+publish_at: 2026-07-29T14:15:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
