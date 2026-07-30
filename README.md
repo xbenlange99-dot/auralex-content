@@ -1,7 +1,7 @@
 # Auralex Content
 
-Warteschlange für die Auralex-Posts (Facebook/Instagram) und Davids Personal-Brand-Posts
-(TikTok/LinkedIn). Post-Markdown in `posts/`, Medien in `assets/<post-id>/`,
+Warteschlange für die Auralex-Posts auf Facebook und Instagram.
+Post-Markdown in `posts/`, Medien in `assets/<post-id>/`,
 `status: ready` setzen, committen, pushen — ein Skript auf Bens Mac plant den Rest
 täglich um 07:00 in Metricool ein.
 

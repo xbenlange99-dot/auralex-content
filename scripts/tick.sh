@@ -7,16 +7,13 @@
 # Feed-Post/Reel PLUS zusaetzlich als Story (seit 2026-07-15, best-effort,
 # s. Schritt b2 im Prompt unten).
 #
-# Zwei getrennte Metricool-Brands in einer Pipeline (seit 2026-07-15):
-#  - Auralex (Firma): channels facebook/instagram, Blog-Id $AURALEX_BLOG_ID.
-#  - David Schnell (Personal Brand): channels tiktok/linkedin, Blog-Id
-#    $DAVID_BLOG_ID. Bis die Metricool-Brand fuer David existiert und die
-#    Variable in der launchd-plist gesetzt ist, werden seine ready-Posts pro
-#    Tick uebersprungen (kein Fehler, siehe Schritt 0 im Prompt) statt das
-#    Skript abzubrechen. Setup dann: DAVID_BLOG_ID in
-#    ~/Library/LaunchAgents/com.auralex.metricool-publisher.plist ergaenzen.
-#  - Ein einzelner Post darf channels nur aus EINER der beiden Gruppen
-#    befuellen, nie gemischt (unterschiedliche Metricool-Brands/BlogIds).
+# EINE Metricool-Brand: Auralex (Firma), channels facebook/instagram,
+# Blog-Id $AURALEX_BLOG_ID.
+# Bis 30.07.2026 gab es hier eine zweite Brand fuer "David Schnell (Personal
+# Brand)" mit tiktok/linkedin und $DAVID_BLOG_ID. Ben hat entschieden: Davids
+# Personal Brand wird nicht bespielt. Die Logik ist ersatzlos ausgebaut, ein
+# Post mit tiktok/linkedin in "channels" ist jetzt ein Konfigurationsfehler.
+# Rueckholbar ueber die git-Historie (Commit "Davids Personal Brand ausgebaut").
 #
 # Reliability-Fixes (aus der Helal-Produktion uebernommen):
 #  - launchd hat ein minimales PATH -> claude-Pfad und PATH explizit setzen.
@@ -89,12 +86,9 @@ fi
 PROMPTFILE="$REPO/out/tick-prompt.txt"
 cat > "$PROMPTFILE" <<PROMPT_EOF
 Du verwaltest die automatische Auralex-Social-Media-Warteschlange im Repo
-${REPO} ueber das Metricool-MCP. Es gibt ZWEI getrennte Metricool-Brands in
-dieser Pipeline:
-  - Auralex (Firma), Netzwerke facebook/instagram, blogId ${AURALEX_BLOG_ID}
-  - David Schnell (Personal Brand), Netzwerke tiktok/linkedin, blogId
-    "${DAVID_BLOG_ID:-}" (leerer String = die Metricool-Brand fuer David
-    existiert noch nicht, siehe Schritt 0)
+${REPO} ueber das Metricool-MCP. Es gibt genau EINE Metricool-Brand in dieser
+Pipeline: Auralex (Firma), Netzwerke facebook/instagram, blogId
+${AURALEX_BLOG_ID}.
 
 WICHTIG: Nutze fuer ALLE Git-Befehle die Form
   git -C ${REPO} befehl
@@ -114,22 +108,11 @@ Schritte:
 
    Fuer jeden Post:
 
-   0) BlogId und Kanal-Zuordnung bestimmen (VOR jedem Tool-Call fuer diesen
-      Post):
+   0) Kanal-Pruefung (VOR jedem Tool-Call fuer diesen Post):
       - channels enthaelt ausschliesslich facebook und/oder instagram
         -> blogId = ${AURALEX_BLOG_ID}. Weiter mit (a).
-      - channels enthaelt ausschliesslich tiktok und/oder linkedin
-        -> blogId = "${DAVID_BLOG_ID:-}".
-        Ist dieser Wert ein leerer String: ueberspringe diesen Post
-        VOLLSTAENDIG (kein Tool-Call, KEINE Status-Aenderung an der Datei,
-        kein Commit). Schreib exakt eine Zeile ins Bash-Log
-        ("SKIP <id>: DAVID_BLOG_ID noch nicht gesetzt, Metricool-Brand fuer
-        David existiert noch nicht") und mach mit dem naechsten Post weiter.
-        Ist der Wert nicht leer: weiter mit (a).
-      - Jeder andere Fall (channels mischt Auralex- und David-Netzwerke im
-        selben Post; ein Netzwerk-Wert ist unbekannt; format: text taucht
-        zusammen mit einem anderen Kanal als ausschliesslich linkedin auf;
-        tiktok taucht mit einem anderen format als video auf): das ist ein
+      - Jeder andere Fall (ein Netzwerk-Wert ist unbekannt oder gehoert nicht
+        zu Auralex, z. B. tiktok oder linkedin): das ist ein
         Konfigurationsfehler, kein Tool-Call. Setze status auf "error" mit
         einer kurzen Begruendung im Bash-Log, committe/pushe (siehe c), und
         mach mit dem naechsten Post weiter.
@@ -147,14 +130,11 @@ Schritte:
       - blog_id: die in Schritt 0 bestimmte blogId
       - date: publish_at ohne Zeitzonen-Suffix, Format YYYY-MM-DDTHH:MM:SS
       - info.text: der Caption-Body aus der Markdown-Datei (unveraendert!).
-        Bei format: text ist das der komplette LinkedIn-Text.
       - info.media: fuer jeden Dateinamen in "assets" die URL
         https://raw.githubusercontent.com/xbenlange99-dot/auralex-content/main/assets/<id>/<dateiname>
         in der Reihenfolge der Liste (Reihenfolge = Karussell-Reihenfolge).
-        Bei format: text gibt es keine assets, info.media bleibt [].
-      - info.providers: ein Eintrag pro Netzwerk in "channels", also je nach
-        Frontmatter eine Kombination aus {"network":"facebook"},
-        {"network":"instagram"}, {"network":"tiktok"}, {"network":"linkedin"}
+      - info.providers: ein Eintrag pro Netzwerk in "channels", also
+        {"network":"facebook"} und/oder {"network":"instagram"}
       - info.publicationDate: {"dateTime": publish_at ohne Offset, "timezone":"Europe/Berlin"}
       - info.autoPublish: true, info.draft: false, info.shortener: false
       - info.instagramData: {"type":"POST","tags":[]}  (nur wenn instagram in channels)
@@ -162,30 +142,16 @@ Schritte:
         (nur wenn facebook in channels; KEIN "boost"-Feld setzen -- die
         Metricool-API akzeptiert dort nur Werte >2.0 und lehnt boost:0 ab,
         also das Feld bei unbeworbenen Posts einfach weglassen)
-      - info.tiktokData: {"disableComment":false,"disableDuet":false,
-        "disableStitch":false,"privacyOption":"PUBLIC_TO_EVERYONE",
-        "commercialContentThirdParty":false,"commercialContentOwnBrand":false,
-        "autoAddMusic":false} (nur wenn tiktok in channels; David postet
-        organisch, keine Commercial-Content-Kennzeichnung)
-      - info.linkedinData: {"type":"post","publishImagesAsPDF":false,
-        "previewIncluded":true} (nur wenn linkedin in channels)
-      - SONDERFALL format: video (Reel/TikTok-Clip): "assets" enthaelt genau
+      - SONDERFALL format: video (Reel): "assets" enthaelt genau
         EINE mp4-Datei, info.media ist dann diese eine mp4-URL (gleiches
         raw.githubusercontent-Schema).
         - facebook in channels: info.facebookData: {"type":"REEL","title":""}
           statt POST.
         - instagram in channels: info.instagramData: {"type":"REEL","tags":[]}
           statt POST.
-        - tiktok ist in dieser Pipeline immer Video, kein weiterer Typ noetig
-          (info.tiktokData wie oben).
-        Schlaegt der Aufruf fuer facebook/instagram mit einem Typ-Fehler fehl,
-        versuche es EINMAL erneut mit {"type":"POST","title":""} bzw.
-        {"type":"POST","tags":[]} (Video-Post statt Reel), bevor du den Post
-        auf error setzt. Fuer tiktok gibt es diesen Retry nicht.
-      - SONDERFALL format: text (nur channels: [linkedin], reiner Textpost
-        ohne Medium): info.media bleibt [], info.linkedinData wie oben mit
-        "type":"post". Diese Kombination wurde in Schritt 0 bereits als
-        gueltig bestaetigt.
+        Schlaegt der Aufruf mit einem Typ-Fehler fehl, versuche es EINMAL
+        erneut mit {"type":"POST","title":""} bzw. {"type":"POST","tags":[]}
+        (Video-Post statt Reel), bevor du den Post auf error setzt.
       Wenn der Aufruf fehlschlaegt: setze status auf "error" statt "scheduled",
       committe/pushe trotzdem (siehe c), und fahre mit dem NAECHSTEN Post fort.
       Erfinde KEINE erfolgreiche Planung, wenn der Tool-Call einen Fehler
@@ -193,10 +159,7 @@ Schritte:
 
    b2) ZUSAETZLICH zu (b) -- Story-Version (seit 2026-07-15, David-Wunsch:
       jeder Auralex-Post soll auf Facebook UND Instagram als Feed-Post/Reel
-      PLUS als Story laufen). GILT NUR fuer Posts, deren channels facebook
-      und/oder instagram enthalten. Fuer tiktok/linkedin (Davids Kanaele)
-      existiert kein Story-Schritt -- ueberspringe b2 fuer solche Posts
-      komplett und mach direkt mit (c) weiter.
+      PLUS als Story laufen).
 
       Nur ausfuehren, wenn (b) selbst erfolgreich war (Status
       wuerde "scheduled") ODER (a) den Post als bereits geplant erkannt hat --

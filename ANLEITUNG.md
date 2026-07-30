@@ -44,9 +44,7 @@ ein. Du brauchst dafür NIE einen Metricool-Login.
      schwarzes Cover im Profil-Grid landet.
    - `channels`: **immer `[facebook, instagram]`**, außer es gibt einen
      konkreten Grund für nur einen Kanal. Im Zweifel beide Kanäle eintragen.
-     Deine TikTok-/LinkedIn-Posts sind ein eigener Kanal-Satz
-     (`[tiktok, linkedin]`) – **niemals in einem Post mischen**, das sind
-     zwei getrennte Metricool-Konten.
+     Andere Kanäle gibt es hier nicht – nur die beiden Auralex-Firmenkanäle.
    - `publish_at`: Datum + Uhrzeit im Format `JJJJ-MM-TTTHH:MM:SS+02:00`
      (Sommerzeit) bzw. `+01:00` (Winterzeit). Wenn unsicher: frag Claude in
      deiner eigenen Session, es rechnet dir das gerne um. **Die Zeit muss in

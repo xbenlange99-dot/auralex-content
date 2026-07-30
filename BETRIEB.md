@@ -14,11 +14,10 @@ Mechanik, bekannte Fallen, Historie. Die Bedienung steht in `CLAUDE.md`/`ANLEITU
 | Lockfile `.tick.lock/` | hier | verhindert überlappende Läufe, Crash-Schutz nach 30 Min |
 | `out/tick.log` | hier (gitignored) | was der letzte Lauf getan hat — **erste Anlaufstelle bei Problemen** |
 
-Zwei Metricool-Brands in einer Pipeline: **Auralex** (`AURALEX_BLOG_ID=6521208`,
-facebook/instagram) und **David Schnell** (`DAVID_BLOG_ID`, tiktok/linkedin).
-`DAVID_BLOG_ID` ist bis heute nicht gesetzt — Davids `ready`-Posts werden pro Lauf
-stillschweigend übersprungen, ohne Fehler. Das ist Absicht, aber es heißt auch:
-**Davids Posts gehen aktuell nicht raus, egal was im Frontmatter steht.**
+**Eine Metricool-Brand:** Auralex (`AURALEX_BLOG_ID=6521208`, facebook/instagram).
+Bis 30.07.2026 gab es eine zweite für „David Schnell (Personal Brand)"
+(tiktok/linkedin, `DAVID_BLOG_ID`) — ausgebaut, siehe Historie. Ein Post mit
+`tiktok` oder `linkedin` in `channels` ist jetzt ein Konfigurationsfehler.
 
 `cwd=$HOME` ist kein Versehen: das Metricool-MCP ist im HOME-Scope konfiguriert und
 wird sonst nicht geladen.
@@ -46,8 +45,6 @@ Kein Fehler, sondern der Rhythmus. Wer nicht warten will: `posten.command`.
 
 ## Offen
 
-- **`DAVID_BLOG_ID` fehlt.** Solange die Metricool-Brand für David nicht existiert,
-  bleiben seine 6 LinkedIn-Posts liegen. Danach in der launchd-plist ergänzen.
 - **Kein Alarm bei Fehlschlag.** Der Lauf scheitert still ins Log. Vorschlag, falls es
   wieder abreißt: in `tick.sh` bei „nicht autorisiert" eine sichtbare Meldung
   (`osascript -e 'display notification …'`) statt stillem Log-Eintrag.
@@ -78,6 +75,14 @@ auf beiden Kanälen, einzeln committet und gepusht: `notdienst-aufschlag` 13:30,
 `lieferschein-verschwindet` 21:30, `entsorgung-nicht-berechnet`. Nebenfund dabei: die
 Auto-Reel-Pipeline erzeugt Posts, deren `publish_at` schon bei Erzeugung in der
 Vergangenheit liegt — läuft direkt in Falle 2.
+
+**30.07.2026, 13:15** — **Davids Personal Brand ausgebaut** (Bens Entscheidung: „Wir
+machen nichts mit Davids LinkedIn"). Entfernt: die 6 LinkedIn-Entwürfe (alle `draft`,
+`publish_at`-Platzhalter vom 21.07., nie veröffentlicht), die komplette Zweit-Brand-Logik
+in `tick.sh` (BlogId-Weiche, `tiktokData`, `linkedinData`, `format: text`, die
+b2-Ausnahme) und `DAVID_BLOG_ID` aus `posten.command`. Die Handoff-Dokumente vom 15.07.
+liegen in `~/Claude-Archiv/2026-07-30-david-personal-brand/`. Es ist nie ein Post über
+diese Kanäle rausgegangen — die Metricool-Brand für David existierte nie.
 
 **30.07.2026, 13:00** — Rolle „Publikus" aufgelöst. Inhaltliche Hoheit liegt bei
 Promoticus (`~/Projekte/Auralex/Marketing/`), das Ausliefern ist reine Mechanik ohne

@@ -42,7 +42,7 @@ Daraus folgt die wichtigste Regel dieses Ordners:
 id: 2026-07-30-1240-entsorgung-nicht-berechnet   # = Dateiname ohne .md = Asset-Ordner
 status: draft                                     # draft | ready | scheduled | error
 format: video                                     # image | carousel | video
-channels: [facebook, instagram]                   # NIE mit [tiktok, linkedin] mischen
+channels: [facebook, instagram]                   # nur diese beiden, s. u.
 publish_at: 2026-07-31T07:30:00+02:00             # +02:00 Sommer, +01:00 Winter
 anlass: A0                                        # Kaufanlass A0–A6 (Promoticus)
 stufe: 3                                          # Awareness-Stufe 1–5 (Promoticus)
@@ -57,9 +57,10 @@ Alles unter der zweiten `---`-Linie ist die Caption, 1:1 wie sie draußen steht.
 - **`anlass` und `stufe` sind Pflicht** (seit 30.07.2026). Ohne sie kann im Quartal
   niemand auswerten, welche Inhalte gewirkt haben — dann bleibt `ERFAHRUNGEN.md` für
   immer leer. Die Bedeutungen stehen dort.
-- **`channels` nie gemischt:** `[facebook, instagram]` gehen an die Auralex-Brand,
-  `[tiktok, linkedin]` an Davids Personal Brand — zwei verschiedene Metricool-Brands.
-  Ein Post kann nur zu einer gehören.
+- **Nur `facebook` und `instagram`.** Es gibt genau eine Metricool-Brand (Auralex).
+  `tiktok` oder `linkedin` in `channels` ist ein Konfigurationsfehler und setzt den
+  Post auf `error`. Davids Personal Brand wurde am 30.07.2026 auf Bens Entscheidung
+  ersatzlos ausgebaut — nicht ohne seine ausdrückliche Ansage wieder einführen.
 - **`publish_at` nie in der Vergangenheit.** Metricool lehnt das hart ab
   („Publication date cannot be in the past"), der Post landet in `status: error`.
 - **`status: scheduled` setzt das Skript**, nie ein Mensch. Und was `scheduled` ist,
