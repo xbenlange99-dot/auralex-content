@@ -1,6 +1,6 @@
 ---
 id: 2026-07-29-1717-notiz-feierabend
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-30T18:30:00+02:00
