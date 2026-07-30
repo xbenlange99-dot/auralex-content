@@ -1,9 +1,9 @@
 ---
 id: 2026-07-30-1240-entsorgung-nicht-berechnet
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-07-30T12:40:44+02:00
+publish_at: 2026-07-30T14:45:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
