@@ -22,7 +22,7 @@ Automatisierten Lauf **wieder einrichten**, aber **nicht mehr alle 15 Minuten** 
 5. **Wenn es läuft**: Ben kurz Bescheid geben. Die SYSTEMKARTE (`~/Assistent/SYSTEMKARTE.md`, Punkt 3 „Laufende Vorhaben" + Änderungslog) muss dann noch nachgezogen werden — sag Ben, dass Schlaubi das übernimmt, sobald er es weiß.
 
 ## Status
-- [ ] Metricool-Login/Erstlauf-Status geprüft
+- [x] Metricool-Login/Erstlauf-Status geprüft
 - [x] Automatik auf 07:00 täglich umgestellt (launchd-Job `com.auralex.metricool-publisher` läuft, `StartCalendarInterval` 7:00)
 - [ ] Doku (`tick.sh`-Kommentar, `CLAUDE.md`) aktualisiert
 - [ ] Ben + Schlaubi (SYSTEMKARTE) informiert
@@ -86,3 +86,28 @@ Beobachtung sagen. Vorschlag, falls es doch wieder abreißt: `tick.sh` bei
 "nicht autorisiert" eine sichtbare Benachrichtigung schicken (z. B.
 `osascript -e 'display notification ...'`), statt dass es wie jetzt 2+ Tage
 lang still vor sich hin scheitert, bis Ben zufällig nachfragt.
+
+## Nachtrag 30.07.2026, 12:45 (Publikus, Login bestätigt + Nachtrag erledigt)
+
+**Ben hat den Login erledigt.** Verifiziert per `getBrandSettings` (Brand
+"Auralex", id 6521208, timezone Europe/Berlin, facebook/instagram verbunden)
+und `getScheduledPosts` — beide liefen sauber. Metricool-MCP ist ab jetzt in
+dieser Session voll funktionsfähig.
+
+**Alle 5 liegen gebliebenen ready-Posts nachgezogen** (Ben-Wunsch: alle noch
+heute), jeweils Reel + Story auf Facebook/Instagram, Status auf `scheduled`,
+einzeln committet + gepusht:
+- `notdienst-aufschlag` → 13:30
+- `konkurrent` → 16:00
+- `notiz-feierabend` → 18:30
+- `eigene-zeit` → 20:00 (Nebenfund: vom Auto-Reel-Generator erzeugt, hatte
+  denselben Blocker, war Ben nicht bekannt)
+- `lieferschein-verschwindet` → 21:30 (gleicher Nebenfund)
+
+**Ein sechster, ganz frisch generierter Post** (`entsorgung-nicht-berechnet`,
+publish_at bereits wieder in der Vergangenheit) kam während der Bearbeitung
+per Auto-Reel-Pipeline dazu — noch NICHT nachgezogen, mit Ben abzustimmen.
+
+**Login hält vorerst:** kein erneuter Autorisierungsfehler während der
+gesamten Session-Nutzung. Endgültige Aussage zur Refresh-Token-Lebensdauer
+erst nach dem morgigen 07:00-Tick möglich (`out/tick.log` prüfen).
