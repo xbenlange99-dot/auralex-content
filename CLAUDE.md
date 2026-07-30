@@ -1,107 +1,81 @@
-# Auralex Content – so postest du
+# auralex-content — Ablage und Auslieferung der Auralex-Posts
 
-Hey! Dieses Repo ist die Warteschlange für Auralex-Posts auf Facebook und
-Instagram. Du legst hier deine Grafiken und Texte ab, markierst sie als
-fertig – und ein automatischer Prozess plant sie dann direkt in Metricool
-ein. Du brauchst dafür NIE einen Metricool-Login.
+Dieser Ordner ist **kein Teammitglied und keine Rolle**. Er ist die Warteschlange:
+hier liegen die fertigen Posts, und ein Skript trägt sie zum vereinbarten Zeitpunkt
+nach Metricool. Es gibt hier nichts zu entscheiden — entschieden wird woanders.
 
-## So postest du etwas Neues
+**Wer entscheidet, was gepostet wird:** Promoticus, `~/Projekte/Auralex/Marketing/`.
+Dort liegen Strategie (`STRATEGIE.md`), Botschaften (`BOTSCHAFTEN.md`) und die belegten
+Erfahrungen (`ERFAHRUNGEN.md`). Wer hier Text schreibt, ohne die gelesen zu haben,
+schreibt am Plan vorbei.
 
-1. **Ordner für die Grafiken anlegen** unter `assets/<post-id>/`, z. B.
-   `assets/2026-07-20-kundenfeedback/`. Lege dort deine Bilder ab
-   (`slide-01.jpg`, `slide-02.jpg`, ... – bei einem Karussell zählt die
-   alphabetische Reihenfolge der Dateinamen als Anzeigereihenfolge).
+*(Bis 30.07.2026 hieß diese Aufgabe „Publikus" und war als eigene Rolle geführt. Sie
+ist aufgelöst: Inhalte macht Promoticus, das Ausliefern macht das Skript. Siehe
+`~/Assistent/SYSTEMKARTE.md`, Änderungslog.)*
 
-2. **Markdown-Datei anlegen** unter `posts/`, gleicher Name wie der
-   Asset-Ordner plus `.md`, z. B. `posts/2026-07-20-kundenfeedback.md`.
-   Kopiere am einfachsten `posts/2026-07-15-beispiel-post.md` als Vorlage.
+## Der Weg eines Posts
 
-3. **Frontmatter ausfüllen** (der Block zwischen den `---`-Linien oben):
+```
+Promoticus schreibt posts/<id>.md + assets/<id>/     status: draft
+        ↓  (Post ist fertig)                         status: ready
+        ↓  git commit + push  ← nötig, s. u.
+07:00 launchd → scripts/tick.sh → Metricool-MCP      status: scheduled
+        ↓
+Metricool veröffentlicht zur publish_at-Zeit
+```
 
-   ```yaml
-   ---
-   id: 2026-07-20-kundenfeedback
-   status: draft
-   format: carousel          # image = ein Bild, carousel = mehrere Bilder
-   channels: [facebook, instagram]
-   publish_at: 2026-07-20T18:30:00+02:00
-   assets:
-     - slide-01.jpg
-     - slide-02.jpg
-   ---
-   ```
+Eilfall zwischendurch: `scripts/posten.command` doppelklicken. Ein Lauf, dann Ende.
 
-   - `id`: identisch zum Dateinamen (ohne `.md`) und zum Asset-Ordnernamen.
-   - `format`: `image` für ein einzelnes Bild, `carousel` für mehrere Bilder,
-     `video` für ein Reel (genau EINE .mp4 in `assets`, 9:16, wird auf
-     Facebook/Instagram als Reel geplant).
-   - `cover` (optional, seit 2026-07-20, nur bei `format: video` relevant):
-     Dateiname eines Bilds im selben Asset-Ordner (z. B. `cover.jpg`), das
-     als Thumbnail/Cover für das Reel verwendet werden soll, statt Frame 0
-     des Videos. Grund: unsere Reels starten oft mit einem kurzen
-     Schwarzbild-Intro, das sonst als hässliches schwarzes Cover im
-     Profil-Grid landet. Falls Metricool das Cover-Feld beim automatischen
-     Einplanen (per API) noch nicht übernimmt, bitte kurz Bescheid geben,
-     dann schauen wir uns an, wie wir es reinbekommen.
-   - `channels`: **immer `[facebook, instagram]`**, außer es gibt einen
-     konkreten Grund für nur einen Kanal (z. B. ein Format, das auf
-     Instagram nicht funktioniert). Im Zweifel beide Kanäle eintragen.
-   - `publish_at`: Datum + Uhrzeit im Format `JJJJ-MM-TTTHH:MM:SS+02:00`
-     (Sommerzeit) bzw. `+01:00` (Winterzeit). Wenn unsicher: frag Claude in
-     deiner eigenen Session, es rechnet dir das gerne um. Der automatische
-     Durchlauf prüft nur einmal täglich um 07:00 Uhr, ob etwas mit
-     `status: ready` wartet – setzt du das erst NACH 07:00 Uhr, greift es
-     erst am nächsten Tag. Plane also entsprechend Vorlauf ein.
-   - `assets`: die Dateinamen aus deinem Asset-Ordner, in Post-Reihenfolge.
+**Warum GitHub?** Nur weil Metricool die Bilder und Videos von einer öffentlichen URL
+laden muss. Es ist kein Entwicklungs-Remote und kein Backup — es ist der Bilder-Hoster.
+Daraus folgt die wichtigste Regel dieses Ordners:
 
-4. **Text schreiben**: alles unterhalb der zweiten `---`-Linie ist die
-   Caption, die 1:1 so gepostet wird. Schreib sie also genau so, wie sie
-   später auf Facebook/Instagram stehen soll.
+> **Das Repo ist öffentlich.** Hier liegen ausschließlich Captions und Medien, die
+> ohnehin in Kürze öffentlich sind. Keine Strategiepapiere, keine Briefings, keine
+> Kundendaten, keine Zahlen, keine unveröffentlichten Ankündigungen. Interne Doku
+> gehört nach `~/Projekte/Auralex/Marketing/`.
 
-5. **Wenn der Post wirklich fertig zum Posten ist**, ändere ganz oben im
-   Frontmatter `status: draft` zu `status: ready`. Das ist der entscheidende
-   Schritt – ALLES mit `status: ready` wird beim nächsten täglichen Lauf um
-   07:00 Uhr automatisch in Metricool eingeplant und dann zur
-   `publish_at`-Zeit veröffentlicht.
+## Frontmatter — der Vertrag
 
-   Solange `status: draft` steht, passiert gar nichts – du kannst also in
-   Ruhe an einem Post arbeiten, bevor du ihn "scharf schaltest".
+```yaml
+---
+id: 2026-07-30-1240-entsorgung-nicht-berechnet   # = Dateiname ohne .md = Asset-Ordner
+status: draft                                     # draft | ready | scheduled | error
+format: video                                     # image | carousel | video
+channels: [facebook, instagram]                   # NIE mit [tiktok, linkedin] mischen
+publish_at: 2026-07-31T07:30:00+02:00             # +02:00 Sommer, +01:00 Winter
+anlass: A0                                        # Kaufanlass A0–A6 (Promoticus)
+stufe: 3                                          # Awareness-Stufe 1–5 (Promoticus)
+assets:
+  - reel.mp4
+cover: cover.jpg                                  # optional, nur bei format: video
+---
+```
 
-6. **Committen und pushen** über GitHub Desktop:
-   - Änderungen erscheinen links in der Liste.
-   - Kurze Commit-Message eingeben (z. B. "Post Kundenfeedback fertig").
-   - "Commit to main" klicken, dann "Push origin".
+Alles unter der zweiten `---`-Linie ist die Caption, 1:1 wie sie draußen steht.
 
-Das war's. Du musst nirgendwo sonst etwas klicken oder freigeben.
+- **`anlass` und `stufe` sind Pflicht** (seit 30.07.2026). Ohne sie kann im Quartal
+  niemand auswerten, welche Inhalte gewirkt haben — dann bleibt `ERFAHRUNGEN.md` für
+  immer leer. Die Bedeutungen stehen dort.
+- **`channels` nie gemischt:** `[facebook, instagram]` gehen an die Auralex-Brand,
+  `[tiktok, linkedin]` an Davids Personal Brand — zwei verschiedene Metricool-Brands.
+  Ein Post kann nur zu einer gehören.
+- **`publish_at` nie in der Vergangenheit.** Metricool lehnt das hart ab
+  („Publication date cannot be in the past"), der Post landet in `status: error`.
+- **`status: scheduled` setzt das Skript**, nie ein Mensch. Und was `scheduled` ist,
+  wird nicht mehr angefasst — die Datei steuert dann nichts mehr, der Post liegt
+  bereits in Metricool.
 
-## Status-Werte – was bedeuten sie?
+## Beim Arbeiten in diesem Ordner
 
-- `draft` – noch in Arbeit, wird ignoriert.
-- `ready` – fertig, wird beim nächsten automatischen Durchlauf eingeplant.
-- `scheduled` – wurde erfolgreich in Metricool eingeplant. **Diesen Wert
-  setzt das System selbst, du musst hier nichts tun.** Sobald du das siehst,
-  weißt du: der Post läuft.
-- `error` – etwas ist beim Einplanen schiefgelaufen (z. B. Metricool war
-  kurzzeitig nicht erreichbar). Sag in dem Fall kurz Bescheid, dann schaut
-  sich das jemand an.
+1. **Erst `git pull`**, sonst Konflikt beim Pushen.
+2. Änderungen **einzeln committen und pushen**. Das Skript tut das auch so — ein Crash
+   mitten im Lauf darf keine Doppel-Postings erzeugen.
+3. `status: ready` ist der scharfe Schalter. Solange `draft` steht, passiert nichts.
+4. Der 07:00-Lauf prüft **einmal täglich**. Wer um 09:00 auf `ready` stellt, ist erst
+   am nächsten Morgen dran — oder startet `posten.command` selbst.
 
-## Ein paar Regeln
+Wenn etwas nicht durchläuft: `BETRIEB.md` — dort stehen die bekannten Fallen samt
+Ursache, und `out/tick.log` zeigt, was der letzte Lauf getan hat.
 
-- **Bevor du anfängst zu arbeiten**: in GitHub Desktop einmal "Fetch origin"
-  bzw. "Pull" klicken, damit du auf dem neuesten Stand bist. Sonst kann es
-  beim Pushen zu einer Konfliktmeldung kommen.
-- Ändere niemals den Status eines Posts, der schon `scheduled` ist – der
-  läuft bereits, eine nachträgliche Änderung der Datei ändert NICHTS mehr
-  an dem, was tatsächlich gepostet wird (das passiert schon drüben in
-  Metricool). Willst du einen bereits eingeplanten Post noch anpassen oder
-  stoppen, sag kurz Bescheid.
-- Dieses Repo ist **öffentlich auf GitHub** (aus rein technischen Gründen –
-  Metricool muss die Bilder von irgendwo laden können). Also: keine
-  Kundendaten, keine internen Zahlen, keine unveröffentlichten
-  Ankündigungen hier reinlegen – nur fertige Marketing-Captions und -Bilder,
-  die ohnehin in Kürze öffentlich werden.
-- Aktuell unterstützt: Bilder, Karussells (mehrere Bilder) und Videos
-  (Reels) auf Facebook und Instagram. Jeder Post läuft zusätzlich
-  automatisch auch als Story auf beiden Plattformen (seit 2026-07-15).
-
-Bei Fragen: einfach fragen, kein Problem.
+Für David gibt es eine eigene Anleitung ohne Technik: `ANLEITUNG.md`.
