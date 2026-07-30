@@ -4,10 +4,14 @@ Dieser Ordner ist **kein Teammitglied und keine Rolle**. Er ist die Warteschlang
 hier liegen die fertigen Posts, und ein Skript trägt sie zum vereinbarten Zeitpunkt
 nach Metricool. Es gibt hier nichts zu entscheiden — entschieden wird woanders.
 
-**Wer entscheidet, was gepostet wird:** Promoticus, `~/Projekte/Auralex/Marketing/`.
-Dort liegen Strategie (`STRATEGIE.md`), Botschaften (`BOTSCHAFTEN.md`) und die belegten
-Erfahrungen (`ERFAHRUNGEN.md`). Wer hier Text schreibt, ohne die gelesen zu haben,
-schreibt am Plan vorbei.
+**Woher die Posts kommen:** aus einem Generator, der **bei David läuft** (git-Identität
+`auralex-ai <info@auralex-ai.de>`, Commits „Auto-Reel …, live-generiert"). Er pusht Reels
+samt Video fertig hierher. Fast alle 115 Posts stammen daher.
+
+**Wer entscheidet, was gepostet werden *sollte*:** Promoticus, `~/Projekte/Auralex/Marketing/`
+— Strategie, Botschaften, belegte Erfahrungen. **Achtung, das ist heute nicht verbunden:**
+Davids Generator kennt diese Vorgaben nicht. Wer hier etwas ändert, ändert nichts an dem,
+was der Generator morgen produziert.
 
 *(Bis 30.07.2026 hieß diese Aufgabe „Publikus" und war als eigene Rolle geführt. Sie
 ist aufgelöst: Inhalte macht Promoticus, das Ausliefern macht das Skript. Siehe
@@ -16,10 +20,9 @@ ist aufgelöst: Inhalte macht Promoticus, das Ausliefern macht das Skript. Siehe
 ## Der Weg eines Posts
 
 ```
-Promoticus schreibt posts/<id>.md + assets/<id>/     status: draft
-        ↓  (Post ist fertig)                         status: ready
-        ↓  git commit + push  ← nötig, s. u.
-07:00 launchd → scripts/tick.sh → Metricool-MCP      status: scheduled
+Davids Generator erzeugt posts/<id>.md + assets/<id>/  und pusht hierher
+        ↓  (Post ist fertig)                           status: ready
+07:00 launchd → scripts/tick.sh → Metricool-MCP        status: scheduled
         ↓
 Metricool veröffentlicht zur publish_at-Zeit
 ```

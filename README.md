@@ -14,4 +14,6 @@ laden muss. Nur fertige Captions und Medien, nichts Internes.
 | [CLAUDE.md](./CLAUDE.md) | Claude-Sessions — Frontmatter-Vertrag, Regeln, Zuständigkeit |
 | [BETRIEB.md](./BETRIEB.md) | wenn etwas nicht durchläuft — Mechanik, bekannte Fallen |
 
-Was gepostet wird, entscheidet Promoticus in `~/Projekte/Auralex/Marketing/`.
+Die Posts erzeugt ein Generator bei David und pusht sie hierher. Die Marketing-Vorgaben
+(Strategie, Botschaften) liegen bei Promoticus in `~/Projekte/Auralex/Marketing/` —
+beides ist heute nicht miteinander verbunden, siehe `CLAUDE.md`.
