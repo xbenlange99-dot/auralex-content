@@ -1,9 +1,9 @@
 ---
 id: 2026-07-30-1100-lieferschein-verschwindet
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-07-30T11:00:56+02:00
+publish_at: 2026-07-30T21:30:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
