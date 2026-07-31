@@ -1,6 +1,6 @@
 ---
 id: 2026-07-31-0811-rechnung-liegt-seit-freitag
-status: ready
+status: draft
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-31T08:11:34+02:00

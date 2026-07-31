@@ -1,6 +1,6 @@
 ---
 id: 2026-07-31-1157-mappe-wird-jeden-abend-dicker
-status: ready
+status: draft
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-31T11:57:24+02:00
