@@ -18,6 +18,11 @@ Metricool veröffentlicht zur publish_at-Zeit
 
 Eilfall: `scripts/posten.command` doppelklicken — ein Lauf, dann Ende.
 
+Der Lauf verschiebt Posts, deren `publish_at` schon vorbei ist, auf den nächsten Tag
+(bzw. um sieben Tage, wenn Text oder Hashtag einen Wochentag nennen), statt sie auf
+`error` zu setzen. Grund: Der Generator setzt `publish_at` auf die Erzeugungszeit, der
+Lauf ist aber nur einmal täglich — alles nach 07:00 wäre sonst automatisch verbrannt.
+
 ## Frontmatter
 
 ```yaml
@@ -44,7 +49,11 @@ Alles unter der zweiten `---`-Linie ist die Caption, 1:1 wie sie draußen steht.
   `status: error`.
 - **`status: scheduled` setzt das Skript, nie ein Mensch.** Was `scheduled` ist, wird nicht
   mehr angefasst — der Post liegt bereits in Metricool.
-- `anlass` und `stufe` sind Pflicht, sonst lässt sich später nicht auswerten, was gewirkt hat.
+- `anlass` und `stufe` **sollen** gesetzt werden, sonst lässt sich später nicht auswerten,
+  was gewirkt hat. Tatsächlich trägt sie (Stand 01.08.2026) **1 von 124 Posts**, und auch
+  dieser nur mit `TBD`. Nichts erzwingt sie — weder der Generator noch `tick.sh`. Die in
+  `../Marketing/BOTSCHAFTEN.md` angekündigte Auswertung ist damit heute nicht möglich.
+  Wer das ändern will, muss beim Generator ansetzen, nicht hier.
 - **Erst `git pull`**, dann arbeiten. Änderungen einzeln committen und pushen — ein Crash
   mitten im Lauf darf keine Doppel-Postings erzeugen.
 - Der 07:00-Lauf prüft **einmal täglich**. Wer um 09:00 auf `ready` stellt, ist am nächsten

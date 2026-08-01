@@ -62,7 +62,7 @@ Kein Fehler, sondern der Rhythmus. Wer nicht warten will: `posten.command`.
 
 **24.07.2026** — Umstellung vom 15-Minuten-Dauerjob auf täglich 07:00 (Bens
 ausdrücklicher Beschluss für genau diesen Job). Das alte Plist liegt archiviert unter
-`~/Claude-Archiv/2026-07-22/launchagents-gestoppt/com.auralex.metricool-publisher.plist`
+`~/Archiv/Claude-Archiv/2026-07-22/launchagents-gestoppt/com.auralex.metricool-publisher.plist`
 — nur nachschlagen, nicht zurückkopieren. Lockfile-Logik beibehalten.
 
 **30.07.2026, 07:00** — Lauf scheitert, 3 `ready`-Posts bleiben liegen (Falle 1).
@@ -81,11 +81,11 @@ machen nichts mit Davids LinkedIn"). Entfernt: die 6 LinkedIn-Entwürfe (alle `d
 `publish_at`-Platzhalter vom 21.07., nie veröffentlicht), die komplette Zweit-Brand-Logik
 in `tick.sh` (BlogId-Weiche, `tiktokData`, `linkedinData`, `format: text`, die
 b2-Ausnahme) und `DAVID_BLOG_ID` aus `posten.command`. Die Handoff-Dokumente vom 15.07.
-liegen in `~/Claude-Archiv/2026-07-30-david-personal-brand/`. Es ist nie ein Post über
+liegen in `~/Archiv/Claude-Archiv/2026-07-30-david-personal-brand/`. Es ist nie ein Post über
 diese Kanäle rausgegangen — die Metricool-Brand für David existierte nie.
 
 **30.07.2026, 13:00** — Die eigene Zuständigkeit fürs Ausliefern ist aufgelöst. Inhaltliche
-Hoheit liegt beim Marketing (`~/Projekte/Auralex/Marketing/`), das Ausliefern ist reine
+Hoheit liegt beim Marketing (`~/Arbeit/Auralex/Marketing/`), das Ausliefern ist reine
 Mechanik ohne eigene Zuständigkeit. Gleichzeitig aufgeräumt: verwaister git-Worktree entfernt, interne
 Strategiedokumente aus dem öffentlichen Repo geholt, Doku getrennt in `CLAUDE.md`
 (Session), `ANLEITUNG.md` (David) und diese Datei (Betrieb).
