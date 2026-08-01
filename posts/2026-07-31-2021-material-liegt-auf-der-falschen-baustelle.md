@@ -1,6 +1,6 @@
 ---
 id: 2026-07-31-2021-material-liegt-auf-der-falschen-baustelle
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-08-03T18:30:00+02:00
