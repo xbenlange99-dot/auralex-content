@@ -30,7 +30,7 @@ set -uo pipefail
 export HOME="/Users/bl"
 export PATH="/Users/bl/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 CLAUDE="/Users/bl/.local/bin/claude"
-REPO="/Users/bl/Code/auralex-content"
+REPO="/Users/bl/Arbeit/Auralex/content"
 LOG="$REPO/out/tick.log"
 LOCKDIR="$REPO/.tick.lock"
 

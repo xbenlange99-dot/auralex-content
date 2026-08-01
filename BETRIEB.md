@@ -27,7 +27,7 @@ wird sonst nicht geladen.
 **1. „Metricool-MCP nicht autorisiert" → gar nichts wird eingeplant**
 Das Login ist ein OAuth-Browser-Flow und lässt sich in keiner headless-Session
 nachholen. Symptom: jeder Lauf bricht mit derselben Meldung ab, tagelang still.
-Fix: Terminal.app → `cd ~/Code/auralex-content` → `claude` → `/mcp` → Login im Browser
+Fix: Terminal.app → `cd ~/Arbeit/Auralex/content` → `claude` → `/mcp` → Login im Browser
 bestätigen. **Das kann nur Ben**, keine Session von sich aus.
 Am 28.–30.07. hat das 2 Tage lang unbemerkt jeden Lauf gekillt, bis Ben zufällig
 nachfragte. Login am 30.07. erledigt, seither läuft es.
@@ -54,7 +54,7 @@ Kein Fehler, sondern der Rhythmus. Wer nicht warten will: `posten.command`.
   zeigt sich erst über mehrere Tage. Beobachten via `out/tick.log`.
 - **Ein Post steht auf `status: error`:** `2026-07-15-0730-am-monatsende-nichts-suchen`
   (`publish_at` 15.07., längst vorbei — Falle 2). Braucht einen neuen Zeitpunkt oder
-  wird verworfen. Entscheidung liegt bei Promoticus/Ben.
+  wird verworfen. Entscheidung liegt bei Marketing/Ben.
 - **`.git` ist 203 MB** (Videos in der Historie, wachsend). Noch unkritisch, aber
   jeder `git pull` im launchd-Lauf zieht daran. Irgendwann Thema.
 
@@ -84,8 +84,8 @@ b2-Ausnahme) und `DAVID_BLOG_ID` aus `posten.command`. Die Handoff-Dokumente vom
 liegen in `~/Claude-Archiv/2026-07-30-david-personal-brand/`. Es ist nie ein Post über
 diese Kanäle rausgegangen — die Metricool-Brand für David existierte nie.
 
-**30.07.2026, 13:00** — Rolle „Publikus" aufgelöst. Inhaltliche Hoheit liegt bei
-Promoticus (`~/Projekte/Auralex/Marketing/`), das Ausliefern ist reine Mechanik ohne
-eigenen Namen. Gleichzeitig aufgeräumt: verwaister git-Worktree entfernt, interne
+**30.07.2026, 13:00** — Die eigene Zuständigkeit fürs Ausliefern ist aufgelöst. Inhaltliche
+Hoheit liegt beim Marketing (`~/Projekte/Auralex/Marketing/`), das Ausliefern ist reine
+Mechanik ohne eigene Zuständigkeit. Gleichzeitig aufgeräumt: verwaister git-Worktree entfernt, interne
 Strategiedokumente aus dem öffentlichen Repo geholt, Doku getrennt in `CLAUDE.md`
 (Session), `ANLEITUNG.md` (David) und diese Datei (Betrieb).
