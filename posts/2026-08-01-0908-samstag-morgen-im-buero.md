@@ -1,6 +1,6 @@
 ---
 id: 2026-08-01-0908-samstag-morgen-im-buero
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-08-08T09:08:00+02:00
