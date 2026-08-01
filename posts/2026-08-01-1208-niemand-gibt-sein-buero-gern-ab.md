@@ -3,7 +3,7 @@ id: 2026-08-01-1208-niemand-gibt-sein-buero-gern-ab
 status: ready
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-01T12:08:29+02:00
+publish_at: 2026-08-02T17:00:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4

@@ -109,6 +109,7 @@ if [ -z "${AURALEX_BLOG_ID:-}" ]; then
 fi
 
 PROMPTFILE="$REPO/out/tick-prompt.txt"
+JETZT=$(date '+%Y-%m-%dT%H:%M:%S')   # fuer die Zeitpunkt-Pruefung im Prompt (Schritt 0b)
 cat > "$PROMPTFILE" <<PROMPT_EOF
 Du verwaltest die automatische Auralex-Social-Media-Warteschlange im Repo
 ${REPO} ueber das Metricool-MCP. Es gibt genau EINE Metricool-Brand in dieser
@@ -141,6 +142,29 @@ Schritte:
         Konfigurationsfehler, kein Tool-Call. Setze status auf "error" mit
         einer kurzen Begruendung im Bash-Log, committe/pushe (siehe c), und
         mach mit dem naechsten Post weiter.
+
+   0b) Zeitpunkt-Pruefung (nach Schritt 0, VOR Schritt a):
+      Davids Generator setzt publish_at auf die Erzeugungszeit des Posts. Der
+      Tick laeuft aber nur einmal taeglich um 07:00. Jeder Post, der nach 07:00
+      entsteht, hat beim naechsten Lauf ein publish_at in der Vergangenheit --
+      Metricool lehnt das hart ab und der Post landet in status: error. Das ist
+      eine Folge des Taktes, kein Redaktionsfehler, und darf den Post nicht
+      verbrennen.
+
+      Aktuelle Zeit beim Start dieses Laufs: ${JETZT} (Europe/Berlin).
+      Rechne ausschliesslich damit -- du hast kein Werkzeug, um die Uhr selbst
+      abzufragen. Wenn publish_at weniger als 60 Minuten danach liegt,
+      verschiebe:
+      - Nennt der Caption-Text oder ein Hashtag einen Wochentag (Montag bis
+        Sonntag, auch "Samstagsfrage" o. ae.)? Dann in Schritten von 7 Tagen
+        verschieben, bis der Zeitpunkt mehr als 60 Minuten in der Zukunft
+        liegt -- sonst stimmt die Aussage des Posts nicht mehr zum Tag.
+      - Sonst in Schritten von 1 Tag verschieben, bis derselbe Abstand erreicht
+        ist. Uhrzeit in beiden Faellen unveraendert lassen.
+      Das neue publish_at wird in Schritt (c) zusammen mit dem Status in die
+      Datei geschrieben (ein Commit), und die Verschiebung kommt in das
+      "detail"-Feld des Abschlussberichts ("publish_at 01.08. 12:08 -> 02.08.
+      12:08, Takt").
 
    a) Sicherheitscheck vor dem Planen: rufe mcp__metricool__getScheduledPosts
       auf mit einem Zeitfenster von publish_at minus 3 Stunden bis publish_at
@@ -220,9 +244,11 @@ Schritte:
 
    c) SOFORT nach Schritt 0/(a)/(b)/(b2) fuer DIESEN Post (ausser beim
       SKIP-Fall aus Schritt 0 -- der aendert an der Datei nichts und committet
-      auch nichts): bearbeite NUR die status-Zeile im Frontmatter dieser
-      einen Datei (ready -> scheduled, oder ready -> error bei Fehlschlag).
-      Aendere sonst NICHTS an der Datei. Dann:
+      auch nichts): bearbeite im Frontmatter dieser einen Datei die
+      status-Zeile (ready -> scheduled, oder ready -> error bei Fehlschlag)
+      und, falls Schritt 0b eine Verschiebung ergeben hat, die
+      publish_at-Zeile. Aendere sonst NICHTS an der Datei, insbesondere nicht
+      den Caption-Text. Dann:
         git -C ${REPO} add posts/<datei>.md
         git -C ${REPO} commit -m "chore: <id> -> scheduled"
         git -C ${REPO} push

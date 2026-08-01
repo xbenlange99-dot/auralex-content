@@ -3,7 +3,7 @@ id: 2026-08-01-0908-samstag-morgen-im-buero
 status: ready
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-01T09:08:42+02:00
+publish_at: 2026-08-08T09:08:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
