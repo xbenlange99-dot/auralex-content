@@ -1,6 +1,6 @@
 ---
 id: 2026-08-01-1035-aufmass-fertig-angebot-liegt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-08-02T10:35:00+02:00
