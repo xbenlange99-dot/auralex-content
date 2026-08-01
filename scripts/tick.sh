@@ -37,6 +37,31 @@ LOCKDIR="$REPO/.tick.lock"
 mkdir -p "$(dirname "$LOG")"
 echo "=== $(date) ===" >> "$LOG"
 
+# --- Sichtbarer Alarm bei Fehlschlag (Trap, deckt JEDEN Ausstieg ab) ---
+# Bis 01.08.2026 scheiterte der Lauf still: launchd wertet den Rueckgabewert
+# nicht aus, und niemand liest tick.log praeventiv. Zwei Ausfaelle (gesperrter
+# Claude-Zugang, toter Pfad nach dem Umzug) blieben so tagelang unbemerkt.
+# Der Trap sitzt bewusst VOR allen Pruefungen, damit auch ein frueher Abbruch
+# (claude fehlt, git-Konflikt, blogId fehlt) sichtbar wird.
+STATUSDATEI="$REPO/out/LETZTER-LAUF.txt"
+LOCK_GESETZT=0   # nur der Lauf, der das Lock gesetzt hat, raeumt es wieder ab
+abschluss() {
+  RC=$?
+  [ "$LOCK_GESETZT" -eq 1 ] && rmdir "$LOCKDIR" 2>/dev/null
+  if [ "$RC" -ne 0 ]; then
+    GRUND=$(grep -iE 'fehler|error|disabled|denied|failed|refused' "$LOG" | tail -1 | cut -c1-200)
+    {
+      echo "FEHLGESCHLAGEN  $(date '+%Y-%m-%d %H:%M')  rc=$RC"
+      echo "${GRUND:-kein Grund im Log gefunden}"
+      echo "Vollstaendig: $LOG"
+    } > "$STATUSDATEI"
+    /usr/bin/osascript -e 'display notification "Posts wurden nicht eingeplant. Details: Auralex/content/out/LETZTER-LAUF.txt" with title "Auralex-Publisher fehlgeschlagen" sound name "Basso"' >/dev/null 2>&1
+  else
+    echo "OK  $(date '+%Y-%m-%d %H:%M')  ${READY_COUNT:-0} Post(s) verarbeitet" > "$STATUSDATEI"
+  fi
+}
+trap abschluss EXIT
+
 if [ ! -x "$CLAUDE" ]; then
   echo "FEHLER: claude nicht gefunden/ausfuehrbar unter $CLAUDE" >> "$LOG"
   exit 1
@@ -53,7 +78,7 @@ if [ -d "$LOCKDIR" ]; then
   rmdir "$LOCKDIR" 2>/dev/null
 fi
 mkdir "$LOCKDIR" || { echo "Konnte Lock nicht setzen - ueberspringe." >> "$LOG"; exit 0; }
-trap 'rmdir "$LOCKDIR" 2>/dev/null' EXIT
+LOCK_GESETZT=1   # ab hier raeumt der EXIT-Trap das Lock wieder ab
 
 # --- git pull: expliziter, sichtbarer Schritt ---
 cd "$REPO" || exit 1
@@ -221,4 +246,4 @@ cd "$REPO" || exit 1  # project-scope MCP (.mcp.json im Repo) statt frueher HOME
 RC=$?
 
 echo "--- fertig (rc=$RC) $(date) ---" >> "$LOG"
-exit $RC
+exit $RC   # Statusdatei und Benachrichtigung erledigt der EXIT-Trap

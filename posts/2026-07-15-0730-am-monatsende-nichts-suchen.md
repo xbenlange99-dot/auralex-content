@@ -1,8 +1,8 @@
 ---
 id: 2026-07-15-0730-am-monatsende-nichts-suchen
-status: error
+status: draft
 format: image
-channels: [facebook]
+channels: [facebook, instagram]
 publish_at: 2026-07-15T07:17:46+02:00
 assets:
   - slide-01.png
