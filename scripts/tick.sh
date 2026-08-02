@@ -17,8 +17,12 @@
 #
 # Reliability-Fixes (aus der Helal-Produktion uebernommen):
 #  - launchd hat ein minimales PATH -> claude-Pfad und PATH explizit setzen.
-#  - Das Metricool-MCP ist im $HOME-Scope konfiguriert -> claude MUSS mit
-#    cwd=$HOME gestartet werden, sonst wird das MCP nicht geladen.
+#  - Das Metricool-MCP kommt aus der .mcp.json im Repo -> claude MUSS mit
+#    cwd=$REPO gestartet werden, sonst wird das MCP nicht geladen.
+#  - Die Sendetermine rechnet dieses Skript aus, nicht das Modell. Das Modell
+#    bekommt eine fertige Tabelle (Schritt 0b im Prompt).
+#  - Ein Lauf gilt nur als erfolgreich, wenn der Abschlussbericht das belegt --
+#    claude beendet sich auch mit 0, wenn es die Arbeit verweigert hat.
 #  - Lockfile verhindert ueberlappende Laeufe, z. B. wenn der taegliche
 #    Lauf sich mit einem manuellen posten.command-Aufruf ueberschneidet
 #    oder ein Lauf haengen bleibt.
@@ -87,16 +91,89 @@ if ! git pull --ff-only >> "$LOG" 2>&1; then
   exit 1
 fi
 
+# --- Ready-Posts finden und ihren Sendetermin bestimmen ---
+#
 # Nur die Frontmatter (zwischen den ersten beiden "---"-Zeilen) pruefen, nie
 # den Caption-Text -- sonst wuerde ein Post, dessen Bildtext zufaellig mit
 # "status: ready" beginnt, faelschlich als bereit erkannt.
+#
+# Die Terminrechnung passiert hier in der Shell und NICHT mehr im Prompt.
+# Bis 02.08.2026 rechnete das Modell die Verschiebung in Prosa aus (frueher
+# Schritt 0b). Datumsarithmetik ueber Monats- und Zeitumstellungsgrenzen ist
+# nichts, was ein unbeaufsichtigter Job jede Nacht neu erwuerfeln sollte --
+# ein Rechenfehler landet ungeprueft in Metricool. Das Modell bekommt jetzt
+# eine fertige Tabelle und darf selbst nichts mehr ausrechnen.
+#
+# Die Uhrzeit ist immer Davids Uhrzeit. Verschoben wird nur der Tag, und nur
+# so weit wie noetig: Davids Generator setzt publish_at auf die Erzeugungszeit,
+# der Lauf ist aber einmal taeglich -- alles, was nach dem Lauf entsteht, hat
+# am naechsten Morgen zwangslaeufig einen Zeitpunkt in der Vergangenheit.
+# Nennt der Text einen Wochentag, wird in 7-Tage-Schritten verschoben, damit
+# die Aussage des Posts zum Tag passt ("Samstagsfrage"); sonst taeglich.
+#
+# Gerechnet wird in Zivilzeit ("-v" VOR "-f", sonst schluckt date die
+# Verschiebung stillschweigend), nicht in Sekunden: 7 Tage auf den 24.10. um
+# 09:00 ergeben so den 31.10. um 09:00, waehrend reine Epoch-Arithmetik ueber
+# die Zeitumstellung auf 08:00 verrutschen wuerde.
+VORLAUF_SEK=3600      # Mindestabstand zwischen Lauf und Sendetermin
+JETZT_SEK=$(date +%s)
 READY_COUNT=0
+PLANTABELLE=""
+
 for f in "$REPO"/posts/*.md; do
   [ -f "$f" ] || continue
-  if awk '/^---$/{n++; next} n==1' "$f" | grep -qx "status: ready"; then
-    READY_COUNT=$((READY_COUNT + 1))
+  awk '/^---$/{n++; next} n==1' "$f" | grep -qx "status: ready" || continue
+  READY_COUNT=$((READY_COUNT + 1))
+
+  DATEI=$(basename "$f")
+  PID="${DATEI%.md}"
+  ROH=$(awk '/^---$/{n++; next} n==1' "$f" | sed -n 's/^publish_at:[[:space:]]*//p' | head -1)
+  ZIVIL="${ROH%%+*}"      # Offset abschneiden -- publish_at ist immer Berliner Ortszeit
+  ZIVIL="${ZIVIL%%Z*}"
+
+  if ! ZIEL_SEK=$(date -j -f "%Y-%m-%dT%H:%M:%S" "$ZIVIL" +%s 2>/dev/null); then
+    echo "FEHLER: $PID hat kein lesbares publish_at ('$ROH')." >> "$LOG"
+    PLANTABELLE="${PLANTABELLE}${PID} | UNLESBAR | publish_at nicht interpretierbar
+"
+    continue
   fi
+
+  if awk '/^---$/{n++; next} n>=2' "$f" | grep -qiE 'montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonnabend|sonntag'; then
+    SCHRITT=7
+  else
+    SCHRITT=1
+  fi
+
+  ZIEL="$ZIVIL"
+  TAGE=0
+  while [ "$ZIEL_SEK" -lt $((JETZT_SEK + VORLAUF_SEK)) ] && [ "$TAGE" -lt 400 ]; do
+    ZIEL=$(date -j -v+${SCHRITT}d -f "%Y-%m-%dT%H:%M:%S" "$ZIEL" "+%Y-%m-%dT%H:%M:%S")
+    ZIEL_SEK=$(date -j -f "%Y-%m-%dT%H:%M:%S" "$ZIEL" +%s)
+    TAGE=$((TAGE + SCHRITT))
+  done
+
+  # Reissleine: der Zaehler oben deckt gut ein Jahr ab. Wer hier landet, hat
+  # einen Post aus einer anderen Zeitrechnung -- lieber sichtbar liegen lassen
+  # als mit einem Termin in der Vergangenheit an Metricool schicken.
+  if [ "$ZIEL_SEK" -lt $((JETZT_SEK + VORLAUF_SEK)) ]; then
+    echo "FEHLER: $PID liegt zu weit in der Vergangenheit ('$ROH'), Termin nicht bestimmbar." >> "$LOG"
+    PLANTABELLE="${PLANTABELLE}${PID} | UNLESBAR | publish_at liegt zu weit in der Vergangenheit
+"
+    continue
+  fi
+
+  OFFSET=$(date -j -f "%Y-%m-%dT%H:%M:%S" "$ZIEL" +%z)   # +0200 / +0100
+  OFFSET="${OFFSET:0:3}:${OFFSET:3:2}"                    # -> +02:00
+  if [ "$TAGE" -eq 0 ]; then
+    HINWEIS="unveraendert"
+  else
+    HINWEIS="verschoben um $TAGE Tag(e) (Original $ZIVIL), Uhrzeit unveraendert"
+  fi
+  PLANTABELLE="${PLANTABELLE}${PID} | ${ZIEL}${OFFSET} | ${HINWEIS}
+"
+  echo "Termin $PID -> ${ZIEL}${OFFSET} ($HINWEIS)" >> "$LOG"
 done
+
 echo "Gefundene Posts mit status: ready = $READY_COUNT" >> "$LOG"
 if [ "$READY_COUNT" -eq 0 ]; then
   echo "Nichts zu tun." >> "$LOG"
@@ -109,7 +186,6 @@ if [ -z "${AURALEX_BLOG_ID:-}" ]; then
 fi
 
 PROMPTFILE="$REPO/out/tick-prompt.txt"
-JETZT=$(date '+%Y-%m-%dT%H:%M:%S')   # fuer die Zeitpunkt-Pruefung im Prompt (Schritt 0b)
 cat > "$PROMPTFILE" <<PROMPT_EOF
 Du verwaltest die automatische Auralex-Social-Media-Warteschlange im Repo
 ${REPO} ueber das Metricool-MCP. Es gibt genau EINE Metricool-Brand in dieser
@@ -143,28 +219,26 @@ Schritte:
         einer kurzen Begruendung im Bash-Log, committe/pushe (siehe c), und
         mach mit dem naechsten Post weiter.
 
-   0b) Zeitpunkt-Pruefung (nach Schritt 0, VOR Schritt a):
-      Davids Generator setzt publish_at auf die Erzeugungszeit des Posts. Der
-      Tick laeuft aber nur einmal taeglich um 07:00. Jeder Post, der nach 07:00
-      entsteht, hat beim naechsten Lauf ein publish_at in der Vergangenheit --
-      Metricool lehnt das hart ab und der Post landet in status: error. Das ist
-      eine Folge des Taktes, kein Redaktionsfehler, und darf den Post nicht
-      verbrennen.
+   0b) Sendetermin (nach Schritt 0, VOR Schritt a):
+      Der Termin ist bereits ausgerechnet. Rechne selbst NICHTS aus, leite
+      nichts her und pruefe keine Zeitpunkte gegen die Uhr -- nimm ausschliess-
+      lich den Wert aus dieser Tabelle (Format: id | Sendetermin | Hinweis):
 
-      Aktuelle Zeit beim Start dieses Laufs: ${JETZT} (Europe/Berlin).
-      Rechne ausschliesslich damit -- du hast kein Werkzeug, um die Uhr selbst
-      abzufragen. Wenn publish_at weniger als 60 Minuten danach liegt,
-      verschiebe:
-      - Nennt der Caption-Text oder ein Hashtag einen Wochentag (Montag bis
-        Sonntag, auch "Samstagsfrage" o. ae.)? Dann in Schritten von 7 Tagen
-        verschieben, bis der Zeitpunkt mehr als 60 Minuten in der Zukunft
-        liegt -- sonst stimmt die Aussage des Posts nicht mehr zum Tag.
-      - Sonst in Schritten von 1 Tag verschieben, bis derselbe Abstand erreicht
-        ist. Uhrzeit in beiden Faellen unveraendert lassen.
-      Das neue publish_at wird in Schritt (c) zusammen mit dem Status in die
-      Datei geschrieben (ein Commit), und die Verschiebung kommt in das
-      "detail"-Feld des Abschlussberichts ("publish_at 01.08. 12:08 -> 02.08.
-      12:08, Takt").
+${PLANTABELLE}
+      Steht bei einem Post "UNLESBAR", plane ihn nicht ein: setze status auf
+      "error", committe/pushe (siehe c) und mach mit dem naechsten weiter.
+
+      Der Sendetermin ersetzt publish_at aus der Datei vollstaendig, auch wenn
+      dir der Wert seltsam vorkommt. Steht im Hinweis "verschoben", schreibst
+      du ihn in Schritt (c) in die publish_at-Zeile und nennst die Verschiebung
+      im "detail"-Feld des Abschlussberichts. Steht dort "unveraendert",
+      bleibt die Datei bei publish_at unangetastet.
+
+      Hintergrund, nur zur Einordnung: Davids Generator setzt publish_at auf
+      die Erzeugungszeit, der Lauf ist aber einmal taeglich. Was nach dem Lauf
+      entsteht, liegt am naechsten Morgen zwangslaeufig in der Vergangenheit;
+      Metricool lehnt das hart ab. Die Uhrzeit bleibt dabei immer Davids
+      Uhrzeit, verschoben wird nur der Tag.
 
    a) Sicherheitscheck vor dem Planen: rufe mcp__metricool__getScheduledPosts
       auf mit einem Zeitfenster von publish_at minus 3 Stunden bis publish_at
@@ -177,14 +251,15 @@ Schritte:
 
    b) Andernfalls rufe mcp__metricool__createScheduledPost auf mit:
       - blog_id: die in Schritt 0 bestimmte blogId
-      - date: publish_at ohne Zeitzonen-Suffix, Format YYYY-MM-DDTHH:MM:SS
+      - date: der Sendetermin aus Schritt 0b ohne Zeitzonen-Suffix,
+        Format YYYY-MM-DDTHH:MM:SS
       - info.text: der Caption-Body aus der Markdown-Datei (unveraendert!).
       - info.media: fuer jeden Dateinamen in "assets" die URL
         https://raw.githubusercontent.com/xbenlange99-dot/auralex-content/main/assets/<id>/<dateiname>
         in der Reihenfolge der Liste (Reihenfolge = Karussell-Reihenfolge).
       - info.providers: ein Eintrag pro Netzwerk in "channels", also
         {"network":"facebook"} und/oder {"network":"instagram"}
-      - info.publicationDate: {"dateTime": publish_at ohne Offset, "timezone":"Europe/Berlin"}
+      - info.publicationDate: {"dateTime": derselbe Sendetermin ohne Offset, "timezone":"Europe/Berlin"}
       - info.autoPublish: true, info.draft: false, info.shortener: false
       - info.instagramData: {"type":"POST","tags":[]}  (nur wenn instagram in channels)
       - info.facebookData: {"type":"POST","title":""}
@@ -246,9 +321,10 @@ Schritte:
       SKIP-Fall aus Schritt 0 -- der aendert an der Datei nichts und committet
       auch nichts): bearbeite im Frontmatter dieser einen Datei die
       status-Zeile (ready -> scheduled, oder ready -> error bei Fehlschlag)
-      und, falls Schritt 0b eine Verschiebung ergeben hat, die
-      publish_at-Zeile. Aendere sonst NICHTS an der Datei, insbesondere nicht
-      den Caption-Text. Dann:
+      und, falls die Tabelle in Schritt 0b "verschoben" sagt, die
+      publish_at-Zeile auf den Sendetermin aus der Tabelle (mit Offset, exakt
+      wie dort geschrieben). Aendere sonst NICHTS an der Datei, insbesondere
+      nicht den Caption-Text. Dann:
         git -C ${REPO} add posts/<datei>.md
         git -C ${REPO} commit -m "chore: <id> -> scheduled"
         git -C ${REPO} push
@@ -264,12 +340,43 @@ Schritte:
 PROMPT_EOF
 
 cd "$REPO" || exit 1  # project-scope MCP (.mcp.json im Repo) statt frueher HOME-Scope
+LAUFAUSGABE=$(mktemp)
 "$CLAUDE" -p "$(cat "$PROMPTFILE")" \
   --dangerously-skip-permissions \
   --allowedTools "Read" "Edit" "Bash(git:*)" \
                  "mcp__metricool__getScheduledPosts" "mcp__metricool__createScheduledPost" \
-  >> "$LOG" 2>&1
+  > "$LAUFAUSGABE" 2>&1
 RC=$?
+cat "$LAUFAUSGABE" >> "$LOG"
+
+# --- Ergebnis pruefen, nicht nur den Rueckgabewert ---
+# Claude beendet sich mit 0, auch wenn es den Auftrag gar nicht ausgefuehrt hat
+# (nicht autorisiertes MCP, gesperrter Zugang). Am 29. und 30.07.2026 blieben so
+# 22 bzw. 3 Posts liegen, waehrend die Statusdatei "OK" meldete. Ein Lauf gilt
+# deshalb nur als erfolgreich, wenn der Abschlussbericht aus Schritt 4 da ist
+# und ok:true sagt.
+if [ "$RC" -eq 0 ]; then
+  if ! grep -q '"ok"' "$LAUFAUSGABE"; then
+    echo "FEHLER: Lauf endete ohne Abschlussbericht - $READY_COUNT Post(s) blieben unbearbeitet. Grund steht in der Ausgabe darueber (haeufig: Metricool-MCP nicht autorisiert oder Claude-Zugang gesperrt)." >> "$LOG"
+    RC=1
+  elif grep -qE '"ok"[[:space:]]*:[[:space:]]*false' "$LAUFAUSGABE"; then
+    echo "FEHLER: Abschlussbericht meldet ok:false - mindestens ein Post wurde nicht eingeplant." >> "$LOG"
+    RC=1
+  elif grep -qE '"status"[[:space:]]*:[[:space:]]*"(error|skipped)"' "$LAUFAUSGABE"; then
+    echo "FEHLER: Abschlussbericht enthaelt Posts mit status error/skipped - diese wurden NICHT eingeplant." >> "$LOG"
+    RC=1
+  else
+    # Auch ein halb abgearbeiteter Lauf ist ein Fehlschlag: der Bericht muss
+    # ueber JEDEN ready-Post Auskunft geben, sonst ist stillschweigend etwas
+    # liegen geblieben.
+    BERICHTET=$(grep -o '"status"[[:space:]]*:' "$LAUFAUSGABE" | wc -l | tr -d ' ')
+    if [ "$BERICHTET" -ne "$READY_COUNT" ]; then
+      echo "FEHLER: Bericht deckt $BERICHTET von $READY_COUNT ready-Post(s) ab - der Rest blieb unbearbeitet." >> "$LOG"
+      RC=1
+    fi
+  fi
+fi
+rm -f "$LAUFAUSGABE"
 
 echo "--- fertig (rc=$RC) $(date) ---" >> "$LOG"
 exit $RC   # Statusdatei und Benachrichtigung erledigt der EXIT-Trap

@@ -1,26 +1,36 @@
 # Betrieb — Publisher: wie er läuft, was schiefgeht, was dann zu tun ist
 
-Stand 30.07.2026. Diese Datei war bis dahin `AUFTRAG.md` (Auftrag „Posting-Rhythmus auf
-täglich 07:00 umstellen" — **erledigt**). Sie ist jetzt das Betriebsprotokoll:
-Mechanik, bekannte Fallen, Historie. Die Bedienung steht in `CLAUDE.md`/`ANLEITUNG.md`.
+Stand 02.08.2026. Betriebsprotokoll: Mechanik, bekannte Fallen, Historie.
+Die Bedienung steht in `CLAUDE.md`/`ANLEITUNG.md`.
 
 ## Mechanik
 
 | Teil | Wo | Was er tut |
 |---|---|---|
 | launchd-Job `com.auralex.metricool-publisher` | `~/Library/LaunchAgents/` | startet `tick.sh` täglich 07:00 (`StartCalendarInterval`) |
-| `scripts/tick.sh` | hier | `git pull` → startet `claude` headless mit `cwd=$HOME` → Metricool-MCP → je Post `scheduled` + einzelner Commit + Push |
+| `scripts/tick.sh` | hier | `git pull` → Sendetermine rechnen → startet `claude` headless mit `cwd=$REPO` → Metricool-MCP → je Post `scheduled` + einzelner Commit + Push |
 | `scripts/posten.command` | hier | derselbe Lauf, manuell per Doppelklick. Für Eilfälle |
 | Lockfile `.tick.lock/` | hier | verhindert überlappende Läufe, Crash-Schutz nach 30 Min |
 | `out/tick.log` | hier (gitignored) | was der letzte Lauf getan hat — **erste Anlaufstelle bei Problemen** |
+| `out/LETZTER-LAUF.txt` | hier (gitignored) | eine Zeile: OK oder FEHLGESCHLAGEN mit Grund. Bei Fehlschlag zusätzlich eine Systemmeldung mit Ton |
 
 **Eine Metricool-Brand:** Auralex (`AURALEX_BLOG_ID=6521208`, facebook/instagram).
 Bis 30.07.2026 gab es eine zweite für „David Schnell (Personal Brand)"
 (tiktok/linkedin, `DAVID_BLOG_ID`) — ausgebaut, siehe Historie. Ein Post mit
 `tiktok` oder `linkedin` in `channels` ist jetzt ein Konfigurationsfehler.
 
-`cwd=$HOME` ist kein Versehen: das Metricool-MCP ist im HOME-Scope konfiguriert und
-wird sonst nicht geladen.
+Der Lauf startet `claude` mit `cwd=$REPO`, weil das Metricool-MCP über die `.mcp.json`
+im Repo kommt. Von einem anderen Verzeichnis aus wird es nicht geladen, und der Lauf
+scheitert mit „nicht autorisiert" (Falle 1).
+
+**Die Sendetermine rechnet `tick.sh` selbst aus**, bevor `claude` überhaupt startet, und
+übergibt sie als fertige Tabelle. Das Modell bekommt den Auftrag, selbst nichts
+auszurechnen. Grund: Datumsarithmetik über Monats- und Zeitumstellungsgrenzen ist nichts,
+was ein unbeaufsichtigter Job jede Nacht neu erwürfeln sollte — ein Rechenfehler landet
+ungeprüft in Metricool. Wer daran etwas ändert: gerechnet wird in Zivilzeit
+(`date -j -v+Nd -f …`, das `-v` **vor** dem `-f`, sonst schluckt `date` die Verschiebung
+stillschweigend), nicht in Sekunden. Sonst verrutscht die Uhrzeit über die
+Zeitumstellung um eine Stunde.
 
 ## Bekannte Fallen
 
@@ -34,27 +44,46 @@ nachfragte. Login am 30.07. erledigt, seither läuft es.
 Prüfen ob autorisiert: `claude mcp list` — dort darf bei `metricool` kein
 „Needs authentication" stehen.
 
-**2. `publish_at` in der Vergangenheit → `status: error`**
-Metricool lehnt hart ab („Publication date cannot be in the past"). Tritt vor allem
-auf, wenn Posts wegen Falle 1 liegengeblieben sind und ihr Zeitpunkt inzwischen
-vorbei ist. **Nicht automatisch verschieben** — mit Ben klären, weil die Tageszeit oft
-zum Inhalt gehört (ein Feierabend-Post gehört nicht auf 09:00).
+**2. `publish_at` in der Vergangenheit → wird verschoben, nicht verbrannt**
+Metricool lehnt einen Zeitpunkt in der Vergangenheit hart ab („Publication date cannot
+be in the past"). Weil Davids Generator `publish_at` auf die Erzeugungszeit setzt, der
+Lauf aber nur einmal täglich prüft, wäre das der Normalfall statt der Ausnahme. Deshalb
+verschiebt `tick.sh` auf den nächsten Tag, an dem der Zeitpunkt mindestens eine Stunde
+in der Zukunft liegt. **Die Uhrzeit bleibt dabei immer unangetastet** — die Tageszeit
+gehört zum Inhalt, ein Feierabend-Post gehört nicht auf 09:00. Nennt der Text einen
+Wochentag („Samstagsfrage"), wird in 7-Tage-Schritten verschoben, damit die Aussage zum
+Tag passt. Was verschoben wurde, steht in `out/tick.log` und im `detail`-Feld des
+Abschlussberichts.
 
-**3. `ready` nach 07:00 gesetzt → liegt einen Tag**
-Kein Fehler, sondern der Rhythmus. Wer nicht warten will: `posten.command`.
+**3. `ready` nach 07:00 gesetzt → geht am Folgetag raus**
+Kein Fehler, sondern der Rhythmus: ein Lauf pro Tag. Der Post behält seine Uhrzeit und
+läuft am nächsten Tag zu genau dieser Uhrzeit. Wer nicht warten will: `posten.command`.
+
+## Woran man einen Fehlschlag merkt
+
+`tick.sh` wertet nicht den Rückgabewert von `claude` aus, sondern das Ergebnis. Das ist
+der Unterschied, der zählt: `claude` beendet sich auch dann mit 0, wenn es die Arbeit
+verweigert hat (nicht autorisiertes MCP, gesperrter Zugang). Am 29. und 30.07.2026 blieben
+so 22 bzw. 3 Posts liegen, während die Statusdatei „OK" meldete.
+
+Ein Lauf gilt nur als erfolgreich, wenn der Abschlussbericht da ist, `ok:true` sagt, kein
+Post auf `error`/`skipped` steht **und** der Bericht genauso viele Posts abdeckt, wie
+`ready` waren. Jeder andere Ausgang schreibt FEHLGESCHLAGEN in `out/LETZTER-LAUF.txt` und
+löst eine Systemmeldung mit Ton aus.
 
 ## Offen
 
-- **Kein Alarm bei Fehlschlag.** Der Lauf scheitert still ins Log. Vorschlag, falls es
-  wieder abreißt: in `tick.sh` bei „nicht autorisiert" eine sichtbare Meldung
-  (`osascript -e 'display notification …'`) statt stillem Log-Eintrag.
 - **Refresh-Token-Lebensdauer unbekannt.** Claude Code legt MCP-OAuth-Credentials
   nutzerweit auf der Platte ab, nicht sessiongebunden — eine einmalige Anmeldung
   sollte also auch für die headless-Läufe reichen. Ob Metricools Token dauerhaft hält,
   zeigt sich erst über mehrere Tage. Beobachten via `out/tick.log`.
-- **Ein Post steht auf `status: error`:** `2026-07-15-0730-am-monatsende-nichts-suchen`
-  (`publish_at` 15.07., längst vorbei — Falle 2). Braucht einen neuen Zeitpunkt oder
-  wird verworfen. Entscheidung liegt bei Marketing/Ben.
+- **Ein Rückstau landet an einem Tag.** Steht der Job eine Woche still, werden alle
+  liegengebliebenen Posts auf denselben nächsten Tag verschoben — jeder behält seine
+  Uhrzeit, aber der Tag ist voll. Bisher nicht eingetreten, seit der Alarm greift auch
+  unwahrscheinlich. Wenn es stört: Tagesobergrenze in `tick.sh` einziehen.
+- **Drei Posts von Davids Generator hängen als `draft`** (`anfrage-schneller` vom 30.07.,
+  `rechnung-liegt-seit-freitag` und `mappe-wird-jeden-abend-dicker` vom 31.07.). Sein
+  Generator liefert sonst `ready`. Mit David klären: Absicht oder Aussetzer.
 - **`.git` ist 203 MB** (Videos in der Historie, wachsend). Noch unkritisch, aber
   jeder `git pull` im launchd-Lauf zieht daran. Irgendwann Thema.
 
