@@ -1,0 +1,18 @@
+---
+id: 2026-08-03-1102-wer-fasst-die-angebote-nach
+status: ready
+format: video
+channels: [facebook, instagram]
+publish_at: 2026-08-03T11:02:12+02:00
+cover: cover.jpg
+assets:
+  - reel-01.mp4
+---
+
+»Ich melde mich.«
+
+Und dann? Nichts.
+
+Drei Angebote draußen, und Sie wissen bei keinem, ob es noch lebt. Nachfassen kann nur, wer den Stand überhaupt sieht.
+
+#handwerk #handwerksbetrieb #meisterbetrieb #baustelle #angebot #handwerkerleben
