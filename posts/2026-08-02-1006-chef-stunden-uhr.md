@@ -1,9 +1,9 @@
 ---
 id: 2026-08-02-1006-chef-stunden-uhr
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-02T10:06:17+02:00
+publish_at: 2026-08-03T10:06:17+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
