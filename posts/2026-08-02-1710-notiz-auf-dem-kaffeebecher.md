@@ -1,9 +1,9 @@
 ---
 id: 2026-08-02-1710-notiz-auf-dem-kaffeebecher
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-02T17:10:48+02:00
+publish_at: 2026-08-03T17:10:48+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
