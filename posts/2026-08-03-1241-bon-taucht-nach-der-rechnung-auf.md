@@ -1,9 +1,9 @@
 ---
 id: 2026-08-03-1241-bon-taucht-nach-der-rechnung-auf
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-03T12:41:02+02:00
+publish_at: 2026-08-10T12:41:02+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
