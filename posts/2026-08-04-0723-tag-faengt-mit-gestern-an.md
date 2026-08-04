@@ -1,9 +1,9 @@
 ---
 id: 2026-08-04-0723-tag-faengt-mit-gestern-an
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-04T07:23:28+02:00
+publish_at: 2026-08-05T07:23:28+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
