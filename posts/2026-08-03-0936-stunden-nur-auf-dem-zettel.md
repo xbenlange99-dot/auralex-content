@@ -1,9 +1,9 @@
 ---
 id: 2026-08-03-0936-stunden-nur-auf-dem-zettel
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-03T09:36:30+02:00
+publish_at: 2026-08-04T09:36:30+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
