@@ -1,9 +1,9 @@
 ---
 id: 2026-08-04-0947-farbton-von-damals
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-04T09:47:13+02:00
+publish_at: 2026-08-05T09:47:13+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
