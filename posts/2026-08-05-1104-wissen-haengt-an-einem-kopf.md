@@ -1,9 +1,9 @@
 ---
 id: 2026-08-05-1104-wissen-haengt-an-einem-kopf
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-05T11:04:56+02:00
+publish_at: 2026-08-06T11:04:56+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
