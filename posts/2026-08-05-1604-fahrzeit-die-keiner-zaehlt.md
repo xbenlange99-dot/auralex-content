@@ -1,9 +1,9 @@
 ---
 id: 2026-08-05-1604-fahrzeit-die-keiner-zaehlt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-05T16:04:42+02:00
+publish_at: 2026-08-06T16:04:42+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
