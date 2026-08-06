@@ -1,9 +1,9 @@
 ---
 id: 2026-08-05-0943-mietgeraet-nie-weiterberechnet
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-05T09:43:38+02:00
+publish_at: 2026-08-12T09:43:38+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
