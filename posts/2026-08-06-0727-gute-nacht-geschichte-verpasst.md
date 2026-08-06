@@ -1,9 +1,9 @@
 ---
 id: 2026-08-06-0727-gute-nacht-geschichte-verpasst
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-06T07:27:16+02:00
+publish_at: 2026-08-07T07:27:16+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
