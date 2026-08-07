@@ -1,9 +1,9 @@
 ---
 id: 2026-08-06-1245-helm-ab-stunden-laufen-weiter
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-06T12:48:32+02:00
+publish_at: 2026-08-07T12:48:32+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
