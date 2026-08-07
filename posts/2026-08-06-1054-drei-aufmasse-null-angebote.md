@@ -1,9 +1,9 @@
 ---
 id: 2026-08-06-1054-drei-aufmasse-null-angebote
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-06T10:54:11+02:00
+publish_at: 2026-08-07T10:54:11+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
