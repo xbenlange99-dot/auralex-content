@@ -1,6 +1,6 @@
 ---
 id: 2026-08-08-1215-aufmass-handruecken
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-08-13T12:15:22+02:00
