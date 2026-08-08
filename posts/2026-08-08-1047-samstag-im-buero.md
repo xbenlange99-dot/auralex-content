@@ -1,9 +1,9 @@
 ---
 id: 2026-08-08-1047-samstag-im-buero
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-08T10:47:57+02:00
+publish_at: 2026-08-15T10:47:57+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
