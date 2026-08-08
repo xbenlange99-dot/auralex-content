@@ -1,6 +1,6 @@
 # Betrieb — Publisher: wie er läuft, was schiefgeht, was dann zu tun ist
 
-Stand 02.08.2026. Betriebsprotokoll: Mechanik, bekannte Fallen, Historie.
+Stand 08.08.2026. Betriebsprotokoll: Mechanik, bekannte Fallen, Historie.
 Die Bedienung steht in `CLAUDE.md`/`ANLEITUNG.md`.
 
 ## Mechanik
@@ -10,7 +10,7 @@ Die Bedienung steht in `CLAUDE.md`/`ANLEITUNG.md`.
 | launchd-Job `com.auralex.metricool-publisher` | `~/Library/LaunchAgents/` | startet `tick.sh` täglich 07:00 (`StartCalendarInterval`) |
 | `scripts/tick.sh` | hier | `git pull` → Sendetermine rechnen → startet `claude` headless mit `cwd=$REPO` → Metricool-MCP → je Post `scheduled` + einzelner Commit + Push |
 | `scripts/posten.command` | hier | derselbe Lauf, manuell per Doppelklick. Für Eilfälle |
-| Lockfile `.tick.lock/` | hier | verhindert überlappende Läufe, Crash-Schutz nach 30 Min |
+| Lockfile `.tick.lock/` | hier | verhindert überlappende Läufe, Crash-Schutz nach 60 Min |
 | `out/tick.log` | hier (gitignored) | was der letzte Lauf getan hat — **erste Anlaufstelle bei Problemen** |
 | `out/LETZTER-LAUF.txt` | hier (gitignored) | eine Zeile: OK oder FEHLGESCHLAGEN mit Grund. Bei Fehlschlag zusätzlich eine Systemmeldung mit Ton |
 
@@ -31,6 +31,23 @@ ungeprüft in Metricool. Wer daran etwas ändert: gerechnet wird in Zivilzeit
 (`date -j -v+Nd -f …`, das `-v` **vor** dem `-f`, sonst schluckt `date` die Verschiebung
 stillschweigend), nicht in Sekunden. Sonst verrutscht die Uhrzeit über die
 Zeitumstellung um eine Stunde.
+
+**Ein Lauf hat seit 08.08.2026 bis zu drei Versuche** (120 s Pause dazwischen). Wiederholt
+wird nur bei erkennbaren Transportfehlern — `API Error`, `Connection closed`,
+`fetch failed`, `ECONNRESET`, `Overloaded`, `502/503/529`. Bei „nicht autorisiert"
+(Falle 1) und bei fehlender `AURALEX_BLOG_ID` bricht der Lauf sofort ab: das fällt bei
+jedem Versuch identisch aus, drei Anläufe würden nur den Alarm verzögern.
+
+Wiederholt wird der **komplette** Arbeitsteil, nicht nur der `claude`-Aufruf — Funktion
+`versuch()` in `tick.sh`. Das ist wichtig: ein halb durchgelaufener Versuch hat Posts
+schon auf `scheduled` gestellt und committet, der nächste muss Plantabelle und
+`READY_COUNT` deshalb neu bilden. Sonst schlägt die Prüfung „Bericht deckt N von M ab"
+grundlos an. Doppelte Postings kann ein Wiederholen nicht erzeugen: Schritt (a) im
+Prompt prüft vor jedem Einplanen ein ±3-h-Fenster gegen Metricool.
+
+Im Log steht pro Anlauf `--- Versuch N/3 ---`, in der Schlusszeile die Zahl der
+gebrauchten Versuche. Wer dort dauerhaft mehr als 1 sieht, hat ein Netzproblem, keinen
+Zufall.
 
 ## Bekannte Fallen
 
@@ -118,3 +135,26 @@ Hoheit liegt beim Marketing (`~/Arbeit/Auralex/Marketing/`), das Ausliefern ist 
 Mechanik ohne eigene Zuständigkeit. Gleichzeitig aufgeräumt: verwaister git-Worktree entfernt, interne
 Strategiedokumente aus dem öffentlichen Repo geholt, Doku getrennt in `CLAUDE.md`
 (Session), `ANLEITUNG.md` (David) und diese Datei (Betrieb).
+
+**08.08.2026, 07:10** — Lauf fehlgeschlagen, ein neuer Fehlermodus. Bens Mac war um 07:00
+aus, launchd hat den Job um 07:10 nachgeholt, und der `claude`-Aufruf starb um 07:17 an
+`API Error: Connection closed mid-response` — **bevor** ein einziger Metricool-Call
+rausging. Nichts eingeplant, nichts doppelt. Weder Falle 1 noch 2: reiner
+Transportfehler, und genau dafür gab es bis dahin keine Absicherung. Ein Lauf hatte einen
+Versuch, ein Netz-Schluckauf kostete den ganzen Tag.
+
+**08.08.2026, 14:37** — Nachhol-Lauf, 6 Posts statt der 3 vom Morgen (Davids Generator
+hatte zwischenzeitlich drei weitere gepusht). Alle eingeplant. Vier Sendetermine liefen
+über die Automatik, drei wurden vorher von Hand umdatiert, weil sie sonst auf Sonntag
+gefallen wären: `wunschzettel` → Di 11.08. 12:13, `mal-eben-nie-berechnet` → Mo 10.08.
+09:09, `aufmass-handruecken` → Do 13.08. 12:15. Hintergrund: die Automatik verschiebt nur
+auf den nächsten Tag, was am Wochenende zwangsläufig im Leeren landet — in 152 Posts gibt
+es keinen einzigen Sonntagspost. **Wer einen Rückstau nachholt, sollte die Zieltage vorher
+gegenrechnen**, statt die Automatik blind laufen zu lassen. Simulieren lässt sich das mit
+der Terminlogik aus `tick.sh` (Zeilen um `VORLAUF_SEK`), ohne den Lauf zu starten.
+
+**08.08.2026, 14:40** — Retry eingebaut (drei Versuche, nur bei Transportfehlern, s.
+Mechanik), Lock-Stale-Grenze von 30 auf 60 Minuten angehoben. Die Schleife ist gegen vier
+Szenarien geprüft — Sofort-Erfolg, dreimal transient, Auth-Fehler ohne Wiederholung,
+Erfolg erst im dritten Anlauf — plus ein Trockenlauf mit null `ready`-Posts, der den
+`return`-Pfad der neuen Funktion `versuch()` abdeckt.

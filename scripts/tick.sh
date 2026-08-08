@@ -74,11 +74,14 @@ fi
 # --- Lock: verhindert ueberlappende Ticks ---
 if [ -d "$LOCKDIR" ]; then
   LOCK_AGE=$(( $(date +%s) - $(stat -f %m "$LOCKDIR" 2>/dev/null || echo 0) ))
-  if [ "$LOCK_AGE" -lt 1800 ]; then
-    echo "Vorheriger Lauf noch aktiv (Lock < 30 Min alt) - ueberspringe diesen Tick." >> "$LOG"
+  # 60 statt frueher 30 Minuten: seit dem Retry (s. unten) darf ein Lauf bis zu
+  # drei Versuche mit je 120 s Pause brauchen, ohne dass ein nachfolgender Tick
+  # das Lock faelschlich fuer verwaist haelt.
+  if [ "$LOCK_AGE" -lt 3600 ]; then
+    echo "Vorheriger Lauf noch aktiv (Lock < 60 Min alt) - ueberspringe diesen Tick." >> "$LOG"
     exit 0
   fi
-  echo "Alter Lock (> 30 Min) gefunden, vermutlich abgestuerzter Lauf - entferne ihn." >> "$LOG"
+  echo "Alter Lock (> 60 Min) gefunden, vermutlich abgestuerzter Lauf - entferne ihn." >> "$LOG"
   rmdir "$LOCKDIR" 2>/dev/null
 fi
 mkdir "$LOCKDIR" || { echo "Konnte Lock nicht setzen - ueberspringe." >> "$LOG"; exit 0; }
@@ -115,6 +118,17 @@ fi
 # Verschiebung stillschweigend), nicht in Sekunden: 7 Tage auf den 24.10. um
 # 09:00 ergeben so den 31.10. um 09:00, waehrend reine Epoch-Arithmetik ueber
 # die Zeitumstellung auf 08:00 verrutschen wuerde.
+
+# --- Ein Arbeitsversuch: scannen, planen, pruefen ---------------------------
+# Kapselung fuer den Retry weiter unten. Bewusst der GANZE Arbeitsteil und
+# nicht nur der claude-Aufruf: ein halb durchgelaufener Versuch stellt Posts
+# schon auf "scheduled" und committet sie. Ein zweiter Versuch muss deshalb
+# Plantabelle UND READY_COUNT neu bilden, sonst schlaegt die Pruefung
+# "Bericht deckt N von M ab" grundlos an. Der Funktionsrumpf ist absichtlich
+# nicht eingerueckt -- das Prompt-Heredoc weiter unten geht 1:1 an das Modell.
+WIEDERHOLBAR=0        # setzt versuch(): 1 = transienter Fehler, erneut versuchen
+versuch() {
+WIEDERHOLBAR=0
 VORLAUF_SEK=3600      # Mindestabstand zwischen Lauf und Sendetermin
 JETZT_SEK=$(date +%s)
 READY_COUNT=0
@@ -177,12 +191,12 @@ done
 echo "Gefundene Posts mit status: ready = $READY_COUNT" >> "$LOG"
 if [ "$READY_COUNT" -eq 0 ]; then
   echo "Nichts zu tun." >> "$LOG"
-  exit 0
+  return 0
 fi
 
 if [ -z "${AURALEX_BLOG_ID:-}" ]; then
   echo "FEHLER: AURALEX_BLOG_ID ist nicht gesetzt, aber $READY_COUNT Post(s) warten. Siehe Setup-Checkliste (blogId per mcp__metricool__getBrands ermitteln, in der launchd-plist eintragen)." >> "$LOG"
-  exit 1
+  return 1   # Konfigurationsfehler, WIEDERHOLBAR bleibt 0 - ein Retry aendert nichts
 fi
 
 PROMPTFILE="$REPO/out/tick-prompt.txt"
@@ -376,7 +390,41 @@ if [ "$RC" -eq 0 ]; then
     fi
   fi
 fi
+# --- Wiederholbar oder endgueltig? ---
+# Am 08.08.2026 starb der Lauf an "API Error: Connection closed mid-response",
+# bevor ein einziger Metricool-Call rausging -- ein Transportfehler kostete
+# damit den kompletten Tag. Solche Abbrueche werden wiederholt.
+# NICHT wiederholt wird ein nicht autorisiertes MCP (Falle 1 in BETRIEB.md):
+# das faellt bei jedem Versuch identisch aus und laesst sich nur interaktiv von
+# Ben im Browser loesen -- drei Versuche verzoegern dort nur den Alarm.
+if [ "$RC" -ne 0 ]; then
+  if grep -qiE 'needs authentication|not authorized|nicht autorisiert|unauthorized' "$LAUFAUSGABE"; then
+    echo "Nicht wiederholbar: Metricool-MCP ist nicht autorisiert. Das kann nur Ben interaktiv beheben (BETRIEB.md, Falle 1)." >> "$LOG"
+  elif grep -qiE 'API Error|Connection closed|Connection error|fetch failed|socket hang up|ECONNRESET|ETIMEDOUT|Overloaded|\b(502|503|529)\b' "$LAUFAUSGABE"; then
+    WIEDERHOLBAR=1
+  fi
+fi
 rm -f "$LAUFAUSGABE"
+return $RC
+}
+# --- Ende versuch() ---------------------------------------------------------
 
-echo "--- fertig (rc=$RC) $(date) ---" >> "$LOG"
+# --- Bis zu drei Versuche ---------------------------------------------------
+# Ein Wiederholen ist gefahrlos: Schritt (a) im Prompt prueft vor jedem Planen
+# per getScheduledPosts ein +-3-h-Fenster gegen Metricool und ueberspringt, was
+# ein abgebrochener Vorversuch schon eingeplant hat.
+MAX_VERSUCHE=3
+RC=1
+for VERSUCH in $(seq 1 "$MAX_VERSUCHE"); do
+  echo "--- Versuch $VERSUCH/$MAX_VERSUCHE $(date) ---" >> "$LOG"
+  versuch
+  RC=$?
+  [ "$RC" -eq 0 ] && break
+  [ "$WIEDERHOLBAR" -eq 1 ] || break
+  [ "$VERSUCH" -lt "$MAX_VERSUCHE" ] || { echo "Auch der $MAX_VERSUCHE. Versuch scheiterte - gebe auf." >> "$LOG"; break; }
+  echo "Transienter Fehler - naechster Versuch in 120 s." >> "$LOG"
+  sleep 120
+done
+
+echo "--- fertig (rc=$RC, Versuche: $VERSUCH) $(date) ---" >> "$LOG"
 exit $RC   # Statusdatei und Benachrichtigung erledigt der EXIT-Trap
