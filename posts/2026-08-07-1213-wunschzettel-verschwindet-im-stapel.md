@@ -1,6 +1,6 @@
 ---
 id: 2026-08-07-1213-wunschzettel-verschwindet-im-stapel
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-08-11T12:13:30+02:00
