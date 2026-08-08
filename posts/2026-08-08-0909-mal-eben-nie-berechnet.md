@@ -3,7 +3,7 @@ id: 2026-08-08-0909-mal-eben-nie-berechnet
 status: ready
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-08T09:09:08+02:00
+publish_at: 2026-08-10T09:09:08+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4

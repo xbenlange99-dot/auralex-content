@@ -3,7 +3,7 @@ id: 2026-08-08-1215-aufmass-handruecken
 status: ready
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-08T12:15:22+02:00
+publish_at: 2026-08-13T12:15:22+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
