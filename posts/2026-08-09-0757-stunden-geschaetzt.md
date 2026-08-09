@@ -1,9 +1,9 @@
 ---
 id: 2026-08-09-0757-stunden-geschaetzt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-09T07:57:49+02:00
+publish_at: 2026-08-10T07:57:49+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
