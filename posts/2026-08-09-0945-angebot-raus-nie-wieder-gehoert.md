@@ -1,9 +1,9 @@
 ---
 id: 2026-08-09-0945-angebot-raus-nie-wieder-gehoert
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-09T09:45:03+02:00
+publish_at: 2026-08-16T09:45:03+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
