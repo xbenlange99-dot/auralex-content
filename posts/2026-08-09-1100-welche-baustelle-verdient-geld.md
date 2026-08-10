@@ -1,9 +1,9 @@
 ---
 id: 2026-08-09-1100-welche-baustelle-verdient-geld
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-09T11:00:33+02:00
+publish_at: 2026-08-10T11:00:33+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
