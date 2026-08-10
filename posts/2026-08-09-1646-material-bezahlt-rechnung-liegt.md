@@ -1,9 +1,9 @@
 ---
 id: 2026-08-09-1646-material-bezahlt-rechnung-liegt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-09T16:46:59+02:00
+publish_at: 2026-08-10T16:46:59+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
