@@ -1,9 +1,9 @@
 ---
 id: 2026-08-10-0952-wer-zuerst-antwortet-gewinnt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-10T09:52:22+02:00
+publish_at: 2026-08-11T09:52:22+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
