@@ -1,9 +1,9 @@
 ---
 id: 2026-08-10-1551-fahrzeit-auf-keinem-zettel
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-10T15:51:50+02:00
+publish_at: 2026-08-11T15:51:50+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
