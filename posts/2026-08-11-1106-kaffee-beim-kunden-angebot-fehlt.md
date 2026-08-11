@@ -1,0 +1,14 @@
+---
+id: 2026-08-11-1106-kaffee-beim-kunden-angebot-fehlt
+status: ready
+format: video
+channels: [facebook, instagram]
+publish_at: 2026-08-11T11:06:47+02:00
+cover: cover.jpg
+assets:
+  - reel-01.mp4
+---
+
+Der Termin lief super. Der Kaffee war gut, der Handschlag saß. Unterschrieben hat der Kunde trotzdem woanders. Der Grund steht in keinem Angebot, er steht im Kalender.
+
+#handwerk #handwerksbetrieb #heizungsbauer #shk #meisterbetrieb #angebot
