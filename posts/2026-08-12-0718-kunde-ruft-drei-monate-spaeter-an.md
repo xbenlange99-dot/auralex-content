@@ -1,9 +1,9 @@
 ---
 id: 2026-08-12-0718-kunde-ruft-drei-monate-spaeter-an
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-12T07:18:48+02:00
+publish_at: 2026-08-14T07:18:48+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
