@@ -1,9 +1,9 @@
 ---
 id: 2026-08-12-1232-aufmass-massband-zeit
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-12T12:32:59+02:00
+publish_at: 2026-08-13T12:32:59+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
