@@ -1,9 +1,9 @@
 ---
 id: 2026-08-12-1730-chef-krank-mappe-bleibt-zu
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-12T17:30:58+02:00
+publish_at: 2026-08-13T17:30:58+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
