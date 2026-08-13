@@ -1,9 +1,9 @@
 ---
 id: 2026-08-11-0944-stammkunde-nach-drei-jahren
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-11T09:44:12+02:00
+publish_at: 2026-08-13T09:44:12+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
