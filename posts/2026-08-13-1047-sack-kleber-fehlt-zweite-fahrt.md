@@ -1,9 +1,9 @@
 ---
 id: 2026-08-13-1047-sack-kleber-fehlt-zweite-fahrt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-13T10:47:57+02:00
+publish_at: 2026-08-14T10:47:57+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
