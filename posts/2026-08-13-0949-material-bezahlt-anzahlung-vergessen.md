@@ -1,9 +1,9 @@
 ---
 id: 2026-08-13-0949-material-bezahlt-anzahlung-vergessen
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-13T09:49:45+02:00
+publish_at: 2026-08-14T09:49:45+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
