@@ -1,9 +1,9 @@
 ---
 id: 2026-08-13-1231-noch-eben-mitgemacht
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-13T12:31:36+02:00
+publish_at: 2026-08-14T12:31:36+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
