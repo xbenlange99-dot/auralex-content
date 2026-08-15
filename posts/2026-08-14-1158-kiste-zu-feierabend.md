@@ -1,9 +1,9 @@
 ---
 id: 2026-08-14-1158-kiste-zu-feierabend
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-14T11:58:27+02:00
+publish_at: 2026-08-16T11:58:27+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
