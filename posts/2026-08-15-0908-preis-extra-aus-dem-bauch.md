@@ -1,9 +1,9 @@
 ---
 id: 2026-08-15-0908-preis-extra-aus-dem-bauch
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-15T09:08:42+02:00
+publish_at: 2026-08-16T09:08:42+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
