@@ -1,9 +1,9 @@
 ---
 id: 2026-08-15-1209-absprache-vom-termin
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-15T12:09:10+02:00
+publish_at: 2026-08-16T12:09:10+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
