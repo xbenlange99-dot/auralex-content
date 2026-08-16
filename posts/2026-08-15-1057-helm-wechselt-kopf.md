@@ -1,9 +1,9 @@
 ---
 id: 2026-08-15-1057-helm-wechselt-kopf
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-15T10:57:36+02:00
+publish_at: 2026-08-22T10:57:36+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
