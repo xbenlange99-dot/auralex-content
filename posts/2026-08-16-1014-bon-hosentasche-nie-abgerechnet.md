@@ -1,9 +1,9 @@
 ---
 id: 2026-08-16-1014-bon-hosentasche-nie-abgerechnet
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-16T10:14:06+02:00
+publish_at: 2026-08-17T10:14:06+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
