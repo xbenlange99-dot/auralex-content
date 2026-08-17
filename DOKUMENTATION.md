@@ -39,7 +39,7 @@ assets:
 - `publish_at` ist Berliner Ortszeit mit `+02:00` im Sommer und `+01:00` im Winter.
 - `assets` enthält die Mediendateien in Veröffentlichungsreihenfolge.
 
-Alles nach dem zweiten `---` ist die Caption und wird unverändert an Metricool übergeben. Weitere Frontmatter-Felder werden vom Publisher nicht benötigt. Insbesondere wird ein vorhandenes `cover` nicht an Metricool übertragen.
+Alles nach dem zweiten `---` ist die Caption und wird unverändert an Metricool übergeben. Weitere Frontmatter-Felder werden vom Publisher nicht benötigt. Separate Vorschaubilder und ein `cover`-Feld werden nicht erzeugt oder gespeichert, weil Metricool für diesen Ablauf ausschließlich die unter `assets` genannten Medien erhält.
 
 ## Statusablauf
 
@@ -102,9 +102,15 @@ Ist das Metricool-MCP nicht autorisiert, muss Ben im Verzeichnis `/Users/bl/Arbe
 
 Der automatische Lauf vom 17. August 2026 endete um 07:02 Uhr mit `ok: true` und plante fünf Hauptbeiträge samt Story-Versionen. Dieser Befund belegt den technischen Publisher-Lauf.
 
+## Aufbewahrung
+
+- Ein Post und sein gleichnamiger Asset-Ordner bleiben mindestens 30 Tage über `publish_at` hinaus im Repository.
+- Eine Löschung ist erst zulässig, wenn die Veröffentlichung in Metricool bestätigt ist. Post-Datei und Asset-Ordner werden dann immer gemeinsam entfernt.
+- `draft`, `ready` und noch nicht veröffentlichte `scheduled`-Beiträge werden nicht durch eine Aufräumroutine gelöscht.
+- Die Bereinigung erfolgt derzeit manuell. Das Entfernen alter Arbeitsdateien verkleinert nicht automatisch die bestehende Git-Historie; eine Historienbereinigung oder ein Wechsel des Medienhosters ist eine getrennte technische Entscheidung.
+
 ## Bekannte technische Grenzen
 
 - Die Lebensdauer des Metricool-OAuth-Refresh-Tokens ist nicht dokumentiert.
-- Das Frontmatter-Feld `cover` wird nicht verwendet.
 - Ein Rückstau besitzt keine Tagesobergrenze.
-- Die Git-Historie wächst durch Videos kontinuierlich und benötigt langfristig eine Aufbewahrungsregel.
+- Die Git-Historie wächst trotz der Aufbewahrungsregel weiter, solange GitHub selbst als Medienhoster dient.

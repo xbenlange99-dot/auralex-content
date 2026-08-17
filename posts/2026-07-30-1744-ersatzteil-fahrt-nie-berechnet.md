@@ -4,7 +4,6 @@ status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-30T17:44:07+02:00
-cover: cover.jpg
 assets:
   - reel-01.mp4
 ---

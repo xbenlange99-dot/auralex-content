@@ -28,7 +28,7 @@ assets:
 
 Gültige Statuswerte: `draft`, `ready`, `scheduled`, `error`. Gültige Formate: `image`, `carousel`, `video`. Gültige Kanäle: ausschließlich `facebook` und `instagram`. Alles nach dem zweiten `---` ist die Caption und wird unverändert ausgeliefert.
 
-Weitere Frontmatter-Felder werden vom Publisher nicht benötigt. Ein `cover`-Feld wird vom aktuellen Publisher nicht an Metricool übertragen.
+Weitere Frontmatter-Felder werden vom Publisher nicht benötigt. Ein `cover`-Feld und separate Vorschaubilder gehören nicht in den Post-Vertrag.
 
 ## Betriebsregeln
 
@@ -39,6 +39,7 @@ Weitere Frontmatter-Felder werden vom Publisher nicht benötigt. Ein `cover`-Fel
 - Für Git ausschließlich `git -C /Users/bl/Arbeit/Auralex/content ...` verwenden.
 - `.mcp.json`, `.gitignore`, `scripts/`, `posts/`, `assets/` und `out/` sind Bestandteile des laufenden Publishers. Nicht löschen oder verschieben.
 - Der letzte Zustand steht in `out/LETZTER-LAUF.txt`, Details in `out/tick.log`.
+- Veröffentlichte Posts und Medien frühestens 30 Tage nach `publish_at` und nur nach bestätigter Veröffentlichung gemeinsam entfernen. Die Bereinigung erfolgt derzeit manuell.
 
 Weitere Einzelheiten zu Terminberechnung, Metricool-Payload, Duplikatschutz, Git-Sicherung und Wiederholungen stehen in `DOKUMENTATION.md`.
 

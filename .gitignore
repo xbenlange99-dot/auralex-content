@@ -2,4 +2,6 @@
 out/
 .tick.lock/
 .codex/
+.claude/settings.local.json
 AGENTS.md
+assets/*/cover.jpg
