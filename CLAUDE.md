@@ -1,6 +1,6 @@
 # Auralex Content – Laufzeitregeln
 
-Dieses öffentliche Repo ist ausschließlich Warteschlange und Medienhoster für den Auralex-Publisher. Marketing- und Content-Entscheidungen stehen lokal in `../Marketing/STRATEGIE.md` und gehören nicht hierher.
+Dieses öffentliche Repo ist ausschließlich Warteschlange und Medienhoster für den Auralex-Publisher. Die vollständige technische Beschreibung steht in `DOKUMENTATION.md`.
 
 ## Was hier liegen darf
 
@@ -21,8 +21,6 @@ status: draft
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-08-18T07:30:00+02:00
-anlass: A0
-stufe: 3
 assets:
   - reel-01.mp4
 ---
@@ -30,7 +28,7 @@ assets:
 
 Gültige Statuswerte: `draft`, `ready`, `scheduled`, `error`. Gültige Formate: `image`, `carousel`, `video`. Gültige Kanäle: ausschließlich `facebook` und `instagram`. Alles nach dem zweiten `---` ist die Caption und wird unverändert ausgeliefert.
 
-`anlass` und `stufe` nicht raten oder weglassen. Fehlen sie, muss der Generator korrigiert werden. Ein `cover`-Feld wird vom aktuellen Publisher nicht an Metricool übertragen.
+Weitere Frontmatter-Felder werden vom Publisher nicht benötigt. Ein `cover`-Feld wird vom aktuellen Publisher nicht an Metricool übertragen.
 
 ## Betriebsregeln
 
@@ -41,5 +39,7 @@ Gültige Statuswerte: `draft`, `ready`, `scheduled`, `error`. Gültige Formate: 
 - Für Git ausschließlich `git -C /Users/bl/Arbeit/Auralex/content ...` verwenden.
 - `.mcp.json`, `.gitignore`, `scripts/`, `posts/`, `assets/` und `out/` sind Bestandteile des laufenden Publishers. Nicht löschen oder verschieben.
 - Der letzte Zustand steht in `out/LETZTER-LAUF.txt`, Details in `out/tick.log`.
+
+Weitere Einzelheiten zu Terminberechnung, Metricool-Payload, Duplikatschutz, Git-Sicherung und Wiederholungen stehen in `DOKUMENTATION.md`.
 
 Bei „Metricool-MCP nicht autorisiert“ muss Ben im Verzeichnis `/Users/bl/Arbeit/Auralex/content` eine interaktive Claude-Sitzung öffnen und den Browser-Login über `/mcp` erneuern. Headless-Läufe können das nicht selbst beheben.

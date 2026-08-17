@@ -4,8 +4,6 @@ status: draft
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-07-30T16:09:17+02:00
-anlass: TBD
-stufe: TBD
 assets:
   - reel-01.mp4
 cover: cover.jpg

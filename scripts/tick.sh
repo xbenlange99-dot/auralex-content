@@ -394,12 +394,12 @@ fi
 # Am 08.08.2026 starb der Lauf an "API Error: Connection closed mid-response",
 # bevor ein einziger Metricool-Call rausging -- ein Transportfehler kostete
 # damit den kompletten Tag. Solche Abbrueche werden wiederholt.
-# NICHT wiederholt wird ein nicht autorisiertes MCP (siehe CLAUDE.md):
+# NICHT wiederholt wird ein nicht autorisiertes MCP (siehe DOKUMENTATION.md):
 # das faellt bei jedem Versuch identisch aus und laesst sich nur interaktiv von
 # Ben im Browser loesen -- drei Versuche verzoegern dort nur den Alarm.
 if [ "$RC" -ne 0 ]; then
   if grep -qiE 'needs authentication|not authorized|nicht autorisiert|unauthorized' "$LAUFAUSGABE"; then
-    echo "Nicht wiederholbar: Metricool-MCP ist nicht autorisiert. Das kann nur Ben interaktiv beheben (siehe CLAUDE.md)." >> "$LOG"
+    echo "Nicht wiederholbar: Metricool-MCP ist nicht autorisiert. Das kann nur Ben interaktiv beheben (siehe DOKUMENTATION.md)." >> "$LOG"
   elif grep -qiE 'API Error|Connection closed|Connection error|fetch failed|socket hang up|ECONNRESET|ETIMEDOUT|Overloaded|\b(502|503|529)\b' "$LAUFAUSGABE"; then
     WIEDERHOLBAR=1
   fi
