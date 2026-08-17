@@ -1,3 +1,5 @@
 .DS_Store
 out/
 .tick.lock/
+.codex/
+AGENTS.md
