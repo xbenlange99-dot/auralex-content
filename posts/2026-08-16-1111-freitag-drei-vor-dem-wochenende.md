@@ -1,9 +1,9 @@
 ---
 id: 2026-08-16-1111-freitag-drei-vor-dem-wochenende
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-16T11:11:45+02:00
+publish_at: 2026-08-23T11:11:45+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
