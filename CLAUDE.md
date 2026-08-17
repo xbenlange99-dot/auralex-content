@@ -1,62 +1,45 @@
-# auralex-content
+# Auralex Content – Laufzeitregeln
 
-Warteschlange für Auralex-Posts. Ein Skript trägt sie zum eingetragenen Zeitpunkt nach
-Metricool. Hier wird nichts entschieden, nur abgelegt und ausgeliefert.
+Dieses öffentliche Repo ist ausschließlich Warteschlange und Medienhoster für den Auralex-Publisher. Marketing- und Content-Entscheidungen stehen lokal in `../Marketing/STRATEGIE.md` und gehören nicht hierher.
 
-> **Das GitHub-Repo ist öffentlich.** Es dient nur als Bilder-Hoster, weil Metricool die
-> Medien von einer öffentlichen URL laden muss. Hier liegen ausschließlich Captions und
-> Medien, die ohnehin in Kürze öffentlich sind — keine Strategiepapiere, keine Briefings,
-> keine Kundendaten, keine unveröffentlichten Ankündigungen.
+## Was hier liegen darf
 
-## Ablauf
+- fertige Captions unter `posts/`
+- veröffentlichbare Medien unter `assets/<post-id>/`
+- Publisher-Konfiguration und Skripte
 
-```
-Davids Generator erzeugt posts/<id>.md + assets/<id>/ und pusht hierher   status: ready
-07:00 launchd → scripts/tick.sh → Metricool                              status: scheduled
-Metricool veröffentlicht zur publish_at-Zeit
-```
+Keine Kundendaten, internen Zahlen, Strategiepapiere, Zugangsdaten oder unveröffentlichten Ankündigungen ablegen. Metricool lädt die Medien über öffentliche Raw-GitHub-URLs.
 
-Eilfall: `scripts/posten.command` doppelklicken — ein Lauf, dann Ende.
+## Post-Vertrag
 
-Der Lauf verschiebt Posts, deren `publish_at` schon vorbei ist, auf den nächsten Tag
-(bzw. um sieben Tage, wenn Text oder Hashtag einen Wochentag nennen), statt sie auf
-`error` zu setzen. Grund: Der Generator setzt `publish_at` auf die Erzeugungszeit, der
-Lauf ist aber nur einmal täglich — alles nach 07:00 wäre sonst automatisch verbrannt.
-
-## Frontmatter
+Jede Datei `posts/<id>.md` braucht einen gleichnamigen Asset-Ordner und dieses Frontmatter:
 
 ```yaml
-id: 2026-07-30-1240-entsorgung-nicht-berechnet   # = Dateiname ohne .md = Asset-Ordner
-status: draft                                     # draft | ready | scheduled | error
-format: video                                     # image | carousel | video
+---
+id: 2026-08-17-beispiel
+status: draft
+format: video
 channels: [facebook, instagram]
-publish_at: 2026-07-31T07:30:00+02:00             # +02:00 Sommer, +01:00 Winter
-anlass: A0                                        # Kaufanlass A0–A6
-stufe: 3                                          # Awareness-Stufe 1–5
-assets: [reel.mp4]
-cover: cover.jpg                                  # nur bei format: video
+publish_at: 2026-08-18T07:30:00+02:00
+anlass: A0
+stufe: 3
+assets:
+  - reel-01.mp4
+---
 ```
 
-Alles unter der zweiten `---`-Linie ist die Caption, 1:1 wie sie draußen steht.
+Gültige Statuswerte: `draft`, `ready`, `scheduled`, `error`. Gültige Formate: `image`, `carousel`, `video`. Gültige Kanäle: ausschließlich `facebook` und `instagram`. Alles nach dem zweiten `---` ist die Caption und wird unverändert ausgeliefert.
 
-## Was man beim Lesen nicht sieht
+`anlass` und `stufe` nicht raten oder weglassen. Fehlen sie, muss der Generator korrigiert werden. Ein `cover`-Feld wird vom aktuellen Publisher nicht an Metricool übertragen.
 
-- Die Posts kommen aus einem Generator, der **bei David läuft** (git-Identität
-  `auralex-ai <info@auralex-ai.de>`). Er pusht hierher.
-- **Nur `facebook` und `instagram`** sind angebunden — eine einzige Metricool-Brand.
-  `tiktok` oder `linkedin` in `channels` setzt den Post auf `error`.
-- **`publish_at` nie in der Vergangenheit.** Metricool lehnt hart ab, der Post landet in
-  `status: error`.
-- **`status: scheduled` setzt das Skript, nie ein Mensch.** Was `scheduled` ist, wird nicht
-  mehr angefasst — der Post liegt bereits in Metricool.
-- `anlass` und `stufe` **sollen** gesetzt werden, sonst lässt sich später nicht auswerten,
-  was gewirkt hat. Tatsächlich trägt sie fast kein Post, und nichts erzwingt sie — weder
-  der Generator noch `tick.sh`. Die in `../Marketing/BOTSCHAFTEN.md` angekündigte
-  Auswertung ist damit nicht möglich. Wer das ändern will, muss beim Generator ansetzen.
-- **Erst `git pull`**, dann arbeiten. Änderungen einzeln committen und pushen — ein Crash
-  mitten im Lauf darf keine Doppel-Postings erzeugen.
-- Der 07:00-Lauf prüft **einmal täglich**. Wer um 09:00 auf `ready` stellt, ist am nächsten
-  Morgen dran.
+## Betriebsregeln
 
-Bekannte Fallen: `BETRIEB.md`. Was der letzte Lauf getan hat: `out/tick.log`.
-Anleitung für David ohne Technik: `ANLEITUNG.md`.
+- Der automatische Lauf startet täglich um 07:00 Uhr über `scripts/tick.sh`; `scripts/posten.command` startet denselben Lauf manuell.
+- Nur `status: ready` wird verarbeitet. `scheduled` niemals zurücksetzen oder nachträglich verändern; die maßgebliche Fassung liegt dann bereits in Metricool.
+- Jeder Haupt-Post wird zusätzlich als Story auf denselben Kanälen angelegt. Ein Story-Fehler ist Best Effort und ändert den erfolgreichen Haupt-Post nicht auf `error`.
+- Vor Änderungen immer `git pull --ff-only`. Posts werden einzeln committet und gepusht; nicht mehrere Statuswechsel bündeln.
+- Für Git ausschließlich `git -C /Users/bl/Arbeit/Auralex/content ...` verwenden.
+- `.mcp.json`, `.gitignore`, `scripts/`, `posts/`, `assets/` und `out/` sind Bestandteile des laufenden Publishers. Nicht löschen oder verschieben.
+- Der letzte Zustand steht in `out/LETZTER-LAUF.txt`, Details in `out/tick.log`.
+
+Bei „Metricool-MCP nicht autorisiert“ muss Ben im Verzeichnis `/Users/bl/Arbeit/Auralex/content` eine interaktive Claude-Sitzung öffnen und den Browser-Login über `/mcp` erneuern. Headless-Läufe können das nicht selbst beheben.

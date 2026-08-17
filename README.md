@@ -1,19 +1,9 @@
 # Auralex Content
 
-Warteschlange für die Auralex-Posts auf Facebook und Instagram.
-Post-Markdown in `posts/`, Medien in `assets/<post-id>/`,
-`status: ready` setzen, committen, pushen — ein Skript auf Bens Mac plant den Rest
-täglich um 07:00 in Metricool ein.
+Öffentliche Warteschlange und Medienhoster für Auralex-Posts auf Facebook und Instagram.
 
-**Dieses Repo ist öffentlich**, weil Metricool die Medien von einer öffentlichen URL
-laden muss. Nur fertige Captions und Medien, nichts Internes.
+Der Generator legt fertige Captions in `posts/` und Medien in `assets/` ab. Ein Publisher auf Bens Mac übernimmt `status: ready` täglich um 07:00 Uhr nach Metricool und setzt erfolgreich eingeplante Posts auf `scheduled`.
 
-| Datei | Für wen |
-|---|---|
-| [ANLEITUNG.md](./ANLEITUNG.md) | David — wie man einen Post ablegt, ohne Technik |
-| [CLAUDE.md](./CLAUDE.md) | Claude-Sessions — Frontmatter-Vertrag, Regeln, Zuständigkeit |
-| [BETRIEB.md](./BETRIEB.md) | wenn etwas nicht durchläuft — Mechanik, bekannte Fallen |
+Technischer Vertrag und Betriebsregeln: `CLAUDE.md`.
 
-Die Posts erzeugt ein Generator bei David und pusht sie hierher. Die Marketing-Vorgaben
-(Strategie, Botschaften) liegen in `~/Arbeit/Auralex/Marketing/` —
-beides ist heute nicht miteinander verbunden, siehe `CLAUDE.md`.
+In dieses Repo gehören ausschließlich Inhalte, die veröffentlicht werden dürfen. Keine Strategie, Kundendaten, internen Zahlen oder Zugangsdaten.
