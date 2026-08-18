@@ -1,9 +1,9 @@
 ---
 id: 2026-08-18-0715-kaffee-kalt-jede-frage-beim-chef
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-18T07:15:14+02:00
+publish_at: 2026-08-19T07:15:14+02:00
 assets:
   - reel-01.mp4
 ---
