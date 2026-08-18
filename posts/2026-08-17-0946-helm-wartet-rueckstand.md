@@ -1,9 +1,9 @@
 ---
 id: 2026-08-17-0946-helm-wartet-rueckstand
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-17T09:46:41+02:00
+publish_at: 2026-08-24T09:46:41+02:00
 assets:
   - reel-01.mp4
 ---
