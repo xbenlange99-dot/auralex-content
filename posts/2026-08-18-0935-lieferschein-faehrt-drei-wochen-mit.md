@@ -1,9 +1,9 @@
 ---
 id: 2026-08-18-0935-lieferschein-faehrt-drei-wochen-mit
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-18T09:35:18+02:00
+publish_at: 2026-08-19T09:35:18+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
