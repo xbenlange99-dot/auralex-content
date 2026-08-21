@@ -1,9 +1,9 @@
 ---
 id: 2026-08-19-0945-zwei-stunden-anfahrt-nichts-vorbereitet
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-19T09:45:09+02:00
+publish_at: 2026-08-26T09:45:09+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
