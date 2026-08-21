@@ -1,6 +1,6 @@
 # Auralex Metricool-Publisher
 
-**Technischer Stand: 17. August 2026**
+**Technischer Stand: 21. August 2026**
 
 Dieses öffentliche GitHub-Repo ist Warteschlange und Medienhoster für die Veröffentlichung von Auralex-Beiträgen über Metricool.
 
@@ -98,9 +98,17 @@ Bei Transportfehlern wie Verbindungsabbruch, Timeout, Überlastung oder HTTP 502
 - `out/tick.log` enthält den vollständigen Ablauf.
 - Bei einem Fehlschlag zeigt macOS zusätzlich eine Mitteilung an.
 
-Ist das Metricool-MCP nicht autorisiert, muss Ben im Verzeichnis `/Users/bl/Arbeit/Auralex/content` eine interaktive Claude-Sitzung öffnen und den Browser-Login über `/mcp` erneuern. Ein Headless-Lauf kann den OAuth-Dialog nicht durchführen.
+### Abgelaufene Metricool-Anmeldung
 
-Der automatische Lauf vom 17. August 2026 endete um 07:02 Uhr mit `ok: true` und plante fünf Hauptbeiträge samt Story-Versionen. Dieser Befund belegt den technischen Publisher-Lauf.
+Ein Metricool-Zugang gilt eine Stunde. Der Lauf tauscht ihn zu Beginn selbst gegen einen frischen; Metricool entwertet dabei den bisherigen Erneuerungsschlüssel und gibt einen neuen aus. Misslingt dieser Tausch, antwortet Metricool mit einem Serverfehler statt mit einer Ablehnung, das MCP bleibt unautorisiert und der Lauf plant nichts ein.
+
+Der Lauf erkennt diesen Fall, wiederholt ihn nicht und meldet ihn als abgelaufene Anmeldung. Die Mitteilung und `out/LETZTER-LAUF.txt` nennen dann den Befehl:
+
+    claude mcp login metricool
+
+Nach der Bestätigung im Browser holt `scripts/posten.command` den Rückstau nach. Ein unbeaufsichtigter Lauf kann den Browser-Login nicht selbst durchführen.
+
+Voraussetzung für diesen Befehl ist, dass `metricool` in `~/.claude.json` unter dem Projekteintrag `/Users/bl/Arbeit/Auralex/content` als freigegebener `.mcp.json`-Server steht. Die Freigabe in `.claude/settings.local.json` gilt nur für Sitzungen, nicht für die Kommandozeile.
 
 ## Aufbewahrung
 
@@ -111,6 +119,6 @@ Der automatische Lauf vom 17. August 2026 endete um 07:02 Uhr mit `ok: true` und
 
 ## Bekannte technische Grenzen
 
-- Die Lebensdauer des Metricool-OAuth-Refresh-Tokens ist nicht dokumentiert.
+- Der Metricool-Zugang gilt eine Stunde und wird bei jedem Lauf erneuert. Scheitert die Erneuerung, hilft nur ein Browser-Login durch einen Menschen; der Publisher steht bis dahin still.
 - Ein Rückstau besitzt keine Tagesobergrenze.
 - Die Git-Historie wächst trotz der Aufbewahrungsregel weiter, solange GitHub selbst als Medienhoster dient.

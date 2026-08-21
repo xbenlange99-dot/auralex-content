@@ -48,18 +48,33 @@ echo "=== $(date) ===" >> "$LOG"
 # Der Trap sitzt bewusst VOR allen Pruefungen, damit auch ein frueher Abbruch
 # (claude fehlt, git-Konflikt, blogId fehlt) sichtbar wird.
 STATUSDATEI="$REPO/out/LETZTER-LAUF.txt"
-LOCK_GESETZT=0   # nur der Lauf, der das Lock gesetzt hat, raeumt es wieder ab
+LOCK_GESETZT=0        # nur der Lauf, der das Lock gesetzt hat, raeumt es wieder ab
+ANMELDUNG_KAPUTT=0    # setzt versuch(): 1 = Metricool-Anmeldung abgelaufen
 abschluss() {
   RC=$?
   [ "$LOCK_GESETZT" -eq 1 ] && rmdir "$LOCKDIR" 2>/dev/null
   if [ "$RC" -ne 0 ]; then
-    GRUND=$(grep -iE 'fehler|error|disabled|denied|failed|refused' "$LOG" | tail -1 | cut -c1-200)
+    if [ "$ANMELDUNG_KAPUTT" -eq 1 ]; then
+      GRUND="Metricool-Anmeldung abgelaufen - der Lauf hat NICHTS eingeplant."
+      HINWEIS="Beheben: Terminal oeffnen und ausfuehren:  claude mcp login metricool
+Im Browser bei Metricool bestaetigen, danach $REPO/scripts/posten.command starten."
+      MELDUNG="Anmeldung abgelaufen. Terminal: claude mcp login metricool"
+    else
+      GRUND=$(grep -iE 'fehler|error|disabled|denied|failed|refused' "$LOG" | tail -1 | cut -c1-200)
+      GRUND="${GRUND:-kein Grund im Log gefunden}"
+      HINWEIS="Vollstaendig: $LOG"
+      MELDUNG="Posts nicht eingeplant: ${GRUND:0:90}"
+    fi
     {
       echo "FEHLGESCHLAGEN  $(date '+%Y-%m-%d %H:%M')  rc=$RC"
-      echo "${GRUND:-kein Grund im Log gefunden}"
-      echo "Vollstaendig: $LOG"
+      echo "$GRUND"
+      echo "$HINWEIS"
     } > "$STATUSDATEI"
-    /usr/bin/osascript -e 'display notification "Posts wurden nicht eingeplant. Details: Auralex/content/out/LETZTER-LAUF.txt" with title "Auralex-Publisher fehlgeschlagen" sound name "Basso"' >/dev/null 2>&1
+    # Anfuehrungszeichen und Backslashes raus: der Text stammt teils aus dem Log
+    # und wuerde die AppleScript-Zeichenkette sonst zerreissen -- dann kaeme gar
+    # keine Mitteilung, also ausgerechnet beim Fehlschlag Stille.
+    MELDUNG=$(printf '%s' "$MELDUNG" | tr -d '"\\')
+    /usr/bin/osascript -e "display notification \"$MELDUNG\" with title \"Auralex-Publisher fehlgeschlagen\" sound name \"Basso\"" >/dev/null 2>&1
   else
     echo "OK  $(date '+%Y-%m-%d %H:%M')  ${READY_COUNT:-0} Post(s) verarbeitet" > "$STATUSDATEI"
   fi
@@ -129,6 +144,7 @@ fi
 WIEDERHOLBAR=0        # setzt versuch(): 1 = transienter Fehler, erneut versuchen
 versuch() {
 WIEDERHOLBAR=0
+ANMELDUNG_KAPUTT=0
 VORLAUF_SEK=3600      # Mindestabstand zwischen Lauf und Sendetermin
 JETZT_SEK=$(date +%s)
 READY_COUNT=0
@@ -399,7 +415,8 @@ fi
 # Ben im Browser loesen -- drei Versuche verzoegern dort nur den Alarm.
 if [ "$RC" -ne 0 ]; then
   if grep -qiE 'needs authentication|not authorized|nicht autorisiert|unauthorized' "$LAUFAUSGABE"; then
-    echo "Nicht wiederholbar: Metricool-MCP ist nicht autorisiert. Das kann nur Ben interaktiv beheben (siehe DOKUMENTATION.md)." >> "$LOG"
+    echo "Nicht wiederholbar: Metricool-Anmeldung abgelaufen. Beheben mit: claude mcp login metricool (siehe DOKUMENTATION.md)." >> "$LOG"
+    ANMELDUNG_KAPUTT=1
   elif grep -qiE 'API Error|Connection closed|Connection error|fetch failed|socket hang up|ECONNRESET|ETIMEDOUT|Overloaded|\b(502|503|529)\b' "$LAUFAUSGABE"; then
     WIEDERHOLBAR=1
   fi
