@@ -1,9 +1,9 @@
 ---
 id: 2026-08-20-0739-bar-bezahlt-rechnung-trotzdem-raus
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-20T07:39:01+02:00
+publish_at: 2026-08-22T07:39:01+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
