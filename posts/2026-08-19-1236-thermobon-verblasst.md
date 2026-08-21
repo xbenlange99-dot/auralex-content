@@ -1,9 +1,9 @@
 ---
 id: 2026-08-19-1236-thermobon-verblasst
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-19T12:36:27+02:00
+publish_at: 2026-08-21T12:36:27+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
