@@ -1,9 +1,9 @@
 ---
 id: 2026-08-20-1547-zusatzauftrag-im-nebensatz
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-20T15:47:54+02:00
+publish_at: 2026-08-21T15:47:54+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
