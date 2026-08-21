@@ -1,9 +1,9 @@
 ---
 id: 2026-08-20-1732-millimeter-am-bau-ungefaehr-im-buero
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-20T17:32:40+02:00
+publish_at: 2026-08-21T17:32:40+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
