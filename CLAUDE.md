@@ -43,4 +43,4 @@ Weitere Frontmatter-Felder werden vom Publisher nicht benötigt. Ein `cover`-Fel
 
 Weitere Einzelheiten zu Terminberechnung, Metricool-Payload, Duplikatschutz, Git-Sicherung und Wiederholungen stehen in `DOKUMENTATION.md`.
 
-Bei „Metricool-MCP nicht autorisiert“ muss Ben im Verzeichnis `/Users/bl/Arbeit/Auralex/content` eine interaktive Claude-Sitzung öffnen und den Browser-Login über `/mcp` erneuern. Headless-Läufe können das nicht selbst beheben.
+Meldet der Lauf eine abgelaufene Metricool-Anmeldung, behebt Ben das im Terminal mit `claude mcp login metricool`, bestätigt im Browser und startet danach `scripts/posten.command`. Headless-Läufe können den Browser-Login nicht selbst durchführen.
