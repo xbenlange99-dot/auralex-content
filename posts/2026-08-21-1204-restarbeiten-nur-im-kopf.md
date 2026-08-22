@@ -1,9 +1,9 @@
 ---
 id: 2026-08-21-1204-restarbeiten-nur-im-kopf
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-21T12:04:11+02:00
+publish_at: 2026-08-28T12:04:11+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
