@@ -1,9 +1,9 @@
 ---
 id: 2026-08-22-1036-monteur-zahlt-aus-eigener-tasche
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-22T10:36:22+02:00
+publish_at: 2026-08-23T10:36:22+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
