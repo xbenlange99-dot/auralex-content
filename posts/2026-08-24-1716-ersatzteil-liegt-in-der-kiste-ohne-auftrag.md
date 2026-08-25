@@ -1,9 +1,9 @@
 ---
 id: 2026-08-24-1716-ersatzteil-liegt-in-der-kiste-ohne-auftrag
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-24T17:16:17+02:00
+publish_at: 2026-08-25T17:16:17+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
