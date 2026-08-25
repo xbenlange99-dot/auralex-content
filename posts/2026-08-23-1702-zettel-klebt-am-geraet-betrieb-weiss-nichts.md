@@ -1,9 +1,9 @@
 ---
 id: 2026-08-23-1702-zettel-klebt-am-geraet-betrieb-weiss-nichts
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-23T17:02:27+02:00
+publish_at: 2026-08-30T17:02:27+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
