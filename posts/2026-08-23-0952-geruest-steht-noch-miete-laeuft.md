@@ -1,9 +1,9 @@
 ---
 id: 2026-08-23-0952-geruest-steht-noch-miete-laeuft
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-23T09:52:46+02:00
+publish_at: 2026-08-30T09:52:46+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
