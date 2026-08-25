@@ -1,9 +1,9 @@
 ---
 id: 2026-08-24-1240-vorgewerk-nicht-fertig-keiner-haelt-es-fest
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-24T12:40:47+02:00
+publish_at: 2026-08-25T12:40:47+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
