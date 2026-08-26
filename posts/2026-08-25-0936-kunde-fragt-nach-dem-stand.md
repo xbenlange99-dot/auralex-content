@@ -1,9 +1,9 @@
 ---
 id: 2026-08-25-0936-kunde-fragt-nach-dem-stand
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-25T09:36:48+02:00
+publish_at: 2026-08-26T09:36:48+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
