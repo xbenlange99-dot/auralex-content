@@ -1,9 +1,9 @@
 ---
 id: 2026-08-25-1054-kassenbon-verblasst-im-handschuhfach
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-25T10:54:33+02:00
+publish_at: 2026-08-26T10:54:33+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
