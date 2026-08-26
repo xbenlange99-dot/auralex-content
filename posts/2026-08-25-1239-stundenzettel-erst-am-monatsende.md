@@ -1,9 +1,9 @@
 ---
 id: 2026-08-25-1239-stundenzettel-erst-am-monatsende
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-25T12:39:36+02:00
+publish_at: 2026-08-26T12:39:36+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
