@@ -1,9 +1,9 @@
 ---
 id: 2026-08-25-1555-stand-nach-dem-urlaub-nur-im-kopf
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-25T15:55:42+02:00
+publish_at: 2026-08-26T15:55:42+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
