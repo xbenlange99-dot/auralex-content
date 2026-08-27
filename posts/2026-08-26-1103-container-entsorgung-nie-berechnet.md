@@ -1,9 +1,9 @@
 ---
 id: 2026-08-26-1103-container-entsorgung-nie-berechnet
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-26T11:03:56+02:00
+publish_at: 2026-09-02T11:03:56+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
