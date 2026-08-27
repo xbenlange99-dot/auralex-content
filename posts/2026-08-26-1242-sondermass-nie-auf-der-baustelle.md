@@ -1,9 +1,9 @@
 ---
 id: 2026-08-26-1242-sondermass-nie-auf-der-baustelle
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-26T12:42:24+02:00
+publish_at: 2026-09-02T12:42:24+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
