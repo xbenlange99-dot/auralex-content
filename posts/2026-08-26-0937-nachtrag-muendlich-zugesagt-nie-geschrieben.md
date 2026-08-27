@@ -1,9 +1,9 @@
 ---
 id: 2026-08-26-0937-nachtrag-muendlich-zugesagt-nie-geschrieben
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-26T09:37:41+02:00
+publish_at: 2026-08-27T09:37:41+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
