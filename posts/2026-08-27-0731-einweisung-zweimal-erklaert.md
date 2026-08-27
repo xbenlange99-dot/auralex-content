@@ -1,9 +1,9 @@
 ---
 id: 2026-08-27-0731-einweisung-zweimal-erklaert
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-27T07:31:24+02:00
+publish_at: 2026-08-28T07:31:24+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
