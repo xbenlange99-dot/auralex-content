@@ -1,9 +1,9 @@
 ---
 id: 2026-08-26-1606-abschlag-raus-schlussrechnung-nie
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-26T16:06:35+02:00
+publish_at: 2026-08-27T16:06:35+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
