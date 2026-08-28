@@ -1,9 +1,9 @@
 ---
 id: 2026-08-27-1048-gewaehrleistung-was-verbaut-wurde
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-27T10:48:55+02:00
+publish_at: 2026-09-03T10:48:55+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
