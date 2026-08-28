@@ -1,9 +1,9 @@
 ---
 id: 2026-08-28-0753-nachunternehmer-ohne-nachweis
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-28T07:53:25+02:00
+publish_at: 2026-08-29T07:53:25+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
