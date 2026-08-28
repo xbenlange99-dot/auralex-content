@@ -1,9 +1,9 @@
 ---
 id: 2026-08-27-0945-werkstattzeit-keine-rechnung
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-27T09:45:58+02:00
+publish_at: 2026-09-03T09:45:58+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
