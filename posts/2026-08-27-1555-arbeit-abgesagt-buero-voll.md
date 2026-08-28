@@ -1,9 +1,9 @@
 ---
 id: 2026-08-27-1555-arbeit-abgesagt-buero-voll
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-27T15:55:42+02:00
+publish_at: 2026-08-28T15:55:42+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
