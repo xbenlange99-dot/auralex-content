@@ -11,9 +11,9 @@ assets:
 
 »Machen Sie mir das so wie letztes Jahr beim Nachbarn.«
 
-Sie sagen zu. Abends suchen Sie den alten Auftrag und finden ihn nicht.
+Sie sagen zu. Und finden abends den alten Auftrag nicht mehr wieder.
 
-Das Angebot von damals liegt in irgendeinem Ordner, die Fotos waren auf einem Handy, das es nicht mehr gibt, und was genau verbaut wurde, weiß auch keiner mehr. Also schätzen Sie. Und geschätzt geht fast immer zu Ihren Lasten aus.
+Das Angebot in irgendeinem Ordner, die Fotos auf einem Handy, das es nicht mehr gibt. Also schätzen Sie. Und geschätzt geht fast immer zu Ihren Lasten aus.
 
 Finden Sie Ihren Auftrag von letztem Jahr?
 
