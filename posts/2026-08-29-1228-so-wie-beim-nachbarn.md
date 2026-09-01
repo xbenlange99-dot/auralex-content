@@ -1,9 +1,9 @@
 ---
 id: 2026-08-29-1228-so-wie-beim-nachbarn
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-29T12:28:22+02:00
+publish_at: 2026-09-01T12:28:22+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
