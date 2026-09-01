@@ -1,9 +1,9 @@
 ---
 id: 2026-08-28-1201-angebot-aelter-als-der-preis
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-08-28T12:01:08+02:00
+publish_at: 2026-09-01T12:01:08+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
