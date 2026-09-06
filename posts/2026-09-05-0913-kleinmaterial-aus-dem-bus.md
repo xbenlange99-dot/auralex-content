@@ -1,9 +1,9 @@
 ---
 id: 2026-09-05-0913-kleinmaterial-aus-dem-bus
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-05T09:13:18+02:00
+publish_at: 2026-09-06T09:13:18+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
