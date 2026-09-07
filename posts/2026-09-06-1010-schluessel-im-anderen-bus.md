@@ -1,9 +1,9 @@
 ---
 id: 2026-09-06-1010-schluessel-im-anderen-bus
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-06T10:10:36+02:00
+publish_at: 2026-09-13T10:10:36+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
