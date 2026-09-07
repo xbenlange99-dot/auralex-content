@@ -1,9 +1,9 @@
 ---
 id: 2026-09-06-1051-kunde-fragt-nach-dem-lohnanteil
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-06T10:51:16+02:00
+publish_at: 2026-09-07T10:51:16+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
