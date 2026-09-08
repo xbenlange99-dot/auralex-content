@@ -1,9 +1,9 @@
 ---
 id: 2026-09-08-0733-lieferschein-blind-quittiert
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-08T07:33:09+02:00
+publish_at: 2026-09-09T07:33:09+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
