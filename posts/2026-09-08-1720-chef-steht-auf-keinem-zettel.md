@@ -1,9 +1,9 @@
 ---
 id: 2026-09-08-1720-chef-steht-auf-keinem-zettel
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-08T17:20:14+02:00
+publish_at: 2026-09-15T17:20:14+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
