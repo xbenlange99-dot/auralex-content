@@ -1,9 +1,9 @@
 ---
 id: 2026-09-09-0734-kunde-streicht-regiestunden
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-09T07:34:23+02:00
+publish_at: 2026-09-10T07:34:23+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
