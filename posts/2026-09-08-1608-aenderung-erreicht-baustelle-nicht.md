@@ -1,9 +1,9 @@
 ---
 id: 2026-09-08-1608-aenderung-erreicht-baustelle-nicht
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-08T16:08:45+02:00
+publish_at: 2026-09-15T16:08:45+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
