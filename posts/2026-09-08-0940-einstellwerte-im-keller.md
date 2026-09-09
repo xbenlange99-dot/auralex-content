@@ -1,9 +1,9 @@
 ---
 id: 2026-09-08-0940-einstellwerte-im-keller
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-08T09:40:16+02:00
+publish_at: 2026-09-09T09:40:16+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
