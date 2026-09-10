@@ -1,9 +1,9 @@
 ---
 id: 2026-09-10-0729-bautrockner-laeuft-weiter
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-10T07:29:18+02:00
+publish_at: 2026-09-11T07:29:18+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
