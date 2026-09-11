@@ -1,9 +1,9 @@
 ---
 id: 2026-09-10-1737-bester-mann-kuendigt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-10T17:37:22+02:00
+publish_at: 2026-09-11T17:37:22+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
