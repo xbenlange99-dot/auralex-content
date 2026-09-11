@@ -1,9 +1,9 @@
 ---
 id: 2026-09-11-0747-schaden-war-schon-vorher-da
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-11T07:47:33+02:00
+publish_at: 2026-09-12T07:47:33+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
