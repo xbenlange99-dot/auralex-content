@@ -1,9 +1,9 @@
 ---
 id: 2026-09-12-1228-absprache-gruppenchat
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-12T12:28:16+02:00
+publish_at: 2026-09-13T12:28:16+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
