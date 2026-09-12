@@ -1,9 +1,9 @@
 ---
 id: 2026-09-12-1033-koennen-sie-da-noch-schnell
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-12T10:33:30+02:00
+publish_at: 2026-09-13T10:33:30+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
