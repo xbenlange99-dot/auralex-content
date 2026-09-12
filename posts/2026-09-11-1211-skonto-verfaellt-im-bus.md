@@ -1,9 +1,9 @@
 ---
 id: 2026-09-11-1211-skonto-verfaellt-im-bus
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-11T12:11:18+02:00
+publish_at: 2026-09-12T12:11:18+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
