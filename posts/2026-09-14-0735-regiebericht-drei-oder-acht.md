@@ -1,9 +1,9 @@
 ---
 id: 2026-09-14-0735-regiebericht-drei-oder-acht
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-14T07:35:22+02:00
+publish_at: 2026-09-21T07:35:22+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
