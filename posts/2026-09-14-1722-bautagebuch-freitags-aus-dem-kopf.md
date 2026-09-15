@@ -1,9 +1,9 @@
 ---
 id: 2026-09-14-1722-bautagebuch-freitags-aus-dem-kopf
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-14T17:22:10+02:00
+publish_at: 2026-09-21T17:22:10+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
