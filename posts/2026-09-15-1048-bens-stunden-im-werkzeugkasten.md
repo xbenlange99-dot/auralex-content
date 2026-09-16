@@ -1,9 +1,9 @@
 ---
 id: 2026-09-15-1048-bens-stunden-im-werkzeugkasten
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-15T10:48:27+02:00
+publish_at: 2026-09-22T10:48:27+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
