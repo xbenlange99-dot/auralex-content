@@ -1,9 +1,9 @@
 ---
 id: 2026-09-15-1742-zwei-kunden-heissen-mueller
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-15T17:42:19+02:00
+publish_at: 2026-09-16T17:42:19+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
