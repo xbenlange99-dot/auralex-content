@@ -1,9 +1,9 @@
 ---
 id: 2026-09-15-0947-naechster-auftrag-steht-am-zaun
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-15T09:47:11+02:00
+publish_at: 2026-09-16T09:47:11+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
