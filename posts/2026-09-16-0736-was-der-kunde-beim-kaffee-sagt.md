@@ -1,9 +1,9 @@
 ---
 id: 2026-09-16-0736-was-der-kunde-beim-kaffee-sagt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-16T07:36:00+02:00
+publish_at: 2026-09-23T07:36:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
