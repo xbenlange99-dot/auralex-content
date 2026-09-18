@@ -1,9 +1,9 @@
 ---
 id: 2026-09-17-1055-parkschein-ohne-baustelle
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-17T10:55:52+02:00
+publish_at: 2026-09-24T10:55:52+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
