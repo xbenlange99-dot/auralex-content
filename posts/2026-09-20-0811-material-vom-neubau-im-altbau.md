@@ -1,6 +1,6 @@
 ---
 id: 2026-09-20-0811-material-vom-neubau-im-altbau
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-09-20T08:11:49+02:00
