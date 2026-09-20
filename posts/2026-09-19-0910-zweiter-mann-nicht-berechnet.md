@@ -1,9 +1,9 @@
 ---
 id: 2026-09-19-0910-zweiter-mann-nicht-berechnet
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-19T09:10:47+02:00
+publish_at: 2026-09-20T09:10:47+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
