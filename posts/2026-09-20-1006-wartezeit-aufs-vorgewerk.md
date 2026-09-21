@@ -1,9 +1,9 @@
 ---
 id: 2026-09-20-1006-wartezeit-aufs-vorgewerk
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-20T10:06:42+02:00
+publish_at: 2026-09-21T10:06:42+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
