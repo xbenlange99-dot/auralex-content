@@ -9,6 +9,6 @@ assets:
   - reel-01.mp4
 ---
 
-Die Zahl war notiert. Nur eben auf dem Tankbon, und der liegt jetzt irgendwo zwischen sechzig anderen Belegen. Was machen Sie, wenn der Netzbetreiber nachfragt und der alte Zähler längst entsorgt ist?
+Die Zahl war notiert. Nur eben auf dem Tankbon, und der liegt jetzt irgendwo im Belegordner zwischen allen anderen. Was machen Sie, wenn der Netzbetreiber nachfragt und der alte Zähler längst entsorgt ist?
 
 #handwerk #handwerksbetrieb #meisterbetrieb #baustelle #elektriker #elektrobetrieb
