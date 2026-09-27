@@ -9,6 +9,6 @@ assets:
   - reel-01.mp4
 ---
 
-"Und die KI schickt das dann einfach raus?" Die Frage hören wir von fast jedem Chef. Was passiert eigentlich zwischen der Sprachnotiz von gestern Abend und dem Angebot beim Kunden, und wer drückt am Ende den Knopf?
+"Und die KI schickt das dann einfach raus?" Die Frage kommt von fast jedem Chef. Was passiert eigentlich zwischen der Sprachnotiz von gestern Abend und dem Angebot beim Kunden, und wer drückt am Ende den Knopf?
 
 #handwerk #handwerksbetrieb #meisterbetrieb #baustelle #kuenstlicheintelligenz #angebot
