@@ -1,9 +1,9 @@
 ---
 id: 2026-09-21-1108-grosshandel-theke
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-21T11:08:57+02:00
+publish_at: 2026-10-02T11:08:57+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
