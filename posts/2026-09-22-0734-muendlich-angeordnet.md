@@ -1,9 +1,9 @@
 ---
 id: 2026-09-22-0734-muendlich-angeordnet
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-22T07:34:19+02:00
+publish_at: 2026-10-06T07:34:19+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
