@@ -1,9 +1,9 @@
 ---
 id: 2026-10-05-0733-kamin-im-maerz-nur-im-kopf
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-05T07:33:30+02:00
+publish_at: 2026-10-06T07:33:30+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
