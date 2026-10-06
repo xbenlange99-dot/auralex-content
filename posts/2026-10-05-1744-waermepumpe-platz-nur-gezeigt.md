@@ -1,9 +1,9 @@
 ---
 id: 2026-10-05-1744-waermepumpe-platz-nur-gezeigt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-05T17:44:17+02:00
+publish_at: 2026-10-06T17:44:17+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
