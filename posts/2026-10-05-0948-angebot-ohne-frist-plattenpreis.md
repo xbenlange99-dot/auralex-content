@@ -1,9 +1,9 @@
 ---
 id: 2026-10-05-0948-angebot-ohne-frist-plattenpreis
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-05T09:48:23+02:00
+publish_at: 2026-10-06T09:48:23+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
