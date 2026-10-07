@@ -1,9 +1,9 @@
 ---
 id: 2026-10-06-0942-plane-vor-dem-gewitter
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-06T09:42:06+02:00
+publish_at: 2026-10-07T09:42:06+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
