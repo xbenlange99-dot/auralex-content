@@ -1,9 +1,9 @@
 ---
 id: 2026-10-06-1744-leck-suche-nicht-notiert
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-06T17:44:04+02:00
+publish_at: 2026-10-13T17:44:04+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
