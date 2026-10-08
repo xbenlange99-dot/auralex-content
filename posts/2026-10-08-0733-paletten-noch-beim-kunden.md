@@ -1,9 +1,9 @@
 ---
 id: 2026-10-08-0733-paletten-noch-beim-kunden
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-08T07:33:56+02:00
+publish_at: 2026-10-09T07:33:56+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
