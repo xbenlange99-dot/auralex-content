@@ -1,9 +1,9 @@
 ---
 id: 2026-10-07-1254-geselle-geht-in-rente
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-07T12:54:35+02:00
+publish_at: 2026-10-08T12:54:35+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
