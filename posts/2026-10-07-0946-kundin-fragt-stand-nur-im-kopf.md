@@ -1,9 +1,9 @@
 ---
 id: 2026-10-07-0946-kundin-fragt-stand-nur-im-kopf
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-07T09:46:30+02:00
+publish_at: 2026-10-08T09:46:30+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
