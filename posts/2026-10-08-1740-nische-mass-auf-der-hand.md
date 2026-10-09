@@ -1,9 +1,9 @@
 ---
 id: 2026-10-08-1740-nische-mass-auf-der-hand
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-08T17:40:39+02:00
+publish_at: 2026-10-09T17:40:39+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
