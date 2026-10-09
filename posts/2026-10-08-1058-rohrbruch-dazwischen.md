@@ -1,9 +1,9 @@
 ---
 id: 2026-10-08-1058-rohrbruch-dazwischen
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-08T10:58:34+02:00
+publish_at: 2026-10-09T10:58:34+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
