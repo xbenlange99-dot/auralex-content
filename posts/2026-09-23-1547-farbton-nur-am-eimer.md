@@ -1,9 +1,9 @@
 ---
 id: 2026-09-23-1547-farbton-nur-am-eimer
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-23T15:47:06+02:00
+publish_at: 2026-10-10T15:47:06+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
