@@ -1,9 +1,9 @@
 ---
 id: 2026-10-10-1035-sturmnacht-ohne-liste
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-10T10:35:55+02:00
+publish_at: 2026-10-11T10:35:55+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
