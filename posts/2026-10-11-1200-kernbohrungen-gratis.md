@@ -1,9 +1,9 @@
 ---
 id: 2026-10-11-1200-kernbohrungen-gratis
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-11T12:00:09+02:00
+publish_at: 2026-10-12T12:00:09+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
