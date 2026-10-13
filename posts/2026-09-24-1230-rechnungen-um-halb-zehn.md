@@ -1,9 +1,9 @@
 ---
 id: 2026-09-24-1230-rechnungen-um-halb-zehn
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-24T12:30:52+02:00
+publish_at: 2026-10-13T12:30:52+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
