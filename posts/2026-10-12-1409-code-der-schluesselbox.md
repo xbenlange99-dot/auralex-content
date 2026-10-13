@@ -1,9 +1,9 @@
 ---
 id: 2026-10-12-1409-code-der-schluesselbox
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-12T14:09:32+02:00
+publish_at: 2026-10-13T14:09:32+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
