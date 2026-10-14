@@ -1,9 +1,9 @@
 ---
 id: 2026-10-13-0947-garderobe-an-der-haustuer
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-13T09:47:14+02:00
+publish_at: 2026-10-14T09:47:14+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
