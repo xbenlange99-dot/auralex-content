@@ -1,9 +1,9 @@
 ---
 id: 2026-10-13-1740-zusage-an-der-tuer
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-13T17:40:17+02:00
+publish_at: 2026-10-14T17:40:17+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
