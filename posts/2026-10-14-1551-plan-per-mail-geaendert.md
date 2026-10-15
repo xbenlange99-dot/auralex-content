@@ -1,9 +1,9 @@
 ---
 id: 2026-10-14-1551-plan-per-mail-geaendert
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-14T15:51:01+02:00
+publish_at: 2026-10-15T15:51:01+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
