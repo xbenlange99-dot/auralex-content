@@ -1,9 +1,9 @@
 ---
 id: 2026-09-26-0846-pumpe-b-im-keller
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-26T08:46:09+02:00
+publish_at: 2026-10-15T08:46:09+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
