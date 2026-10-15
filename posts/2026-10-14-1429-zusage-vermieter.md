@@ -1,9 +1,9 @@
 ---
 id: 2026-10-14-1429-zusage-vermieter
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-14T14:29:26+02:00
+publish_at: 2026-10-15T14:29:26+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
