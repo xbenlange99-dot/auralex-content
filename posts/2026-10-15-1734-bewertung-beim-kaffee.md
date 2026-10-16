@@ -1,9 +1,9 @@
 ---
 id: 2026-10-15-1734-bewertung-beim-kaffee
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-15T17:34:23+02:00
+publish_at: 2026-10-16T17:34:23+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
