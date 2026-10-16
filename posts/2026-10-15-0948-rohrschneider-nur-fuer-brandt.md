@@ -1,9 +1,9 @@
 ---
 id: 2026-10-15-0948-rohrschneider-nur-fuer-brandt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-15T09:48:45+02:00
+publish_at: 2026-10-16T09:48:45+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
