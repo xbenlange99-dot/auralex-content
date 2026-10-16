@@ -1,9 +1,9 @@
 ---
 id: 2026-09-26-1048-griffe-lieber-schwarz
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-26T10:48:29+02:00
+publish_at: 2026-10-16T10:48:29+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
