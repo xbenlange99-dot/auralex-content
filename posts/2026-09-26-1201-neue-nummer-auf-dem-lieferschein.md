@@ -1,9 +1,9 @@
 ---
 id: 2026-09-26-1201-neue-nummer-auf-dem-lieferschein
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-26T12:01:53+02:00
+publish_at: 2026-10-16T12:01:53+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
