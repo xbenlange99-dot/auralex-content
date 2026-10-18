@@ -1,9 +1,9 @@
 ---
 id: 2026-09-27-1151-zwischen-milch-und-brot
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-27T11:51:14+02:00
+publish_at: 2026-10-18T11:51:14+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
