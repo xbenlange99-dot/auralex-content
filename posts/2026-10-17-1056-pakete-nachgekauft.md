@@ -1,9 +1,9 @@
 ---
 id: 2026-10-17-1056-pakete-nachgekauft
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-17T10:56:00+02:00
+publish_at: 2026-10-18T10:56:00+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
