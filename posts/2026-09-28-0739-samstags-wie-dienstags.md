@@ -1,9 +1,9 @@
 ---
 id: 2026-09-28-0739-samstags-wie-dienstags
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-28T07:39:35+02:00
+publish_at: 2026-10-26T07:39:35+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
