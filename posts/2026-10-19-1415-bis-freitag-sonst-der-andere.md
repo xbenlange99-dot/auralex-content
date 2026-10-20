@@ -1,9 +1,9 @@
 ---
 id: 2026-10-19-1415-bis-freitag-sonst-der-andere
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-19T14:15:14+02:00
+publish_at: 2026-10-26T14:15:14+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
