@@ -1,9 +1,9 @@
 ---
 id: 2026-10-19-1601-wartung-nur-im-keller
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-19T16:01:06+02:00
+publish_at: 2026-10-20T16:01:06+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
