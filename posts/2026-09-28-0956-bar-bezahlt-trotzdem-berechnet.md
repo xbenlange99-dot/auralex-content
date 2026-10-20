@@ -1,9 +1,9 @@
 ---
 id: 2026-09-28-0956-bar-bezahlt-trotzdem-berechnet
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-28T09:56:14+02:00
+publish_at: 2026-10-20T09:56:14+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
