@@ -1,9 +1,9 @@
 ---
 id: 2026-10-19-1109-drei-aufmasse-ein-zettel
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-19T11:09:22+02:00
+publish_at: 2026-10-26T11:09:22+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
