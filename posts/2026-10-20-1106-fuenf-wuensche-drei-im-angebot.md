@@ -1,9 +1,9 @@
 ---
 id: 2026-10-20-1106-fuenf-wuensche-drei-im-angebot
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-20T11:06:15+02:00
+publish_at: 2026-10-21T11:06:15+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
