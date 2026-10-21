@@ -1,9 +1,9 @@
 ---
 id: 2026-09-28-1545-schluessel-bei-der-nachbarin
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-28T15:45:52+02:00
+publish_at: 2026-10-26T15:45:52+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
