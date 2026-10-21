@@ -1,9 +1,9 @@
 ---
 id: 2026-10-20-1245-zwei-zentimeter-nur-im-kopf
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-20T12:45:02+02:00
+publish_at: 2026-10-27T12:45:02+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
