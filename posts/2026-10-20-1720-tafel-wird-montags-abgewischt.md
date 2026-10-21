@@ -1,9 +1,9 @@
 ---
 id: 2026-10-20-1720-tafel-wird-montags-abgewischt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-20T17:20:15+02:00
+publish_at: 2026-10-27T17:20:15+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
