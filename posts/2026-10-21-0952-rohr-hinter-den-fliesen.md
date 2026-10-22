@@ -1,9 +1,9 @@
 ---
 id: 2026-10-21-0952-rohr-hinter-den-fliesen
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-21T09:52:09+02:00
+publish_at: 2026-10-22T09:52:09+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
