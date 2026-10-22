@@ -1,9 +1,9 @@
 ---
 id: 2026-10-21-1545-typenschild-nie-fotografiert
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-21T15:45:11+02:00
+publish_at: 2026-10-22T15:45:11+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
