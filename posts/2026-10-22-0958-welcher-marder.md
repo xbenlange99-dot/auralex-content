@@ -1,9 +1,9 @@
 ---
 id: 2026-10-22-0958-welcher-marder
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-22T09:58:18+02:00
+publish_at: 2026-10-23T09:58:18+02:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
