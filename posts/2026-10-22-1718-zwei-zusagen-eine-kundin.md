@@ -1,9 +1,9 @@
 ---
 id: 2026-10-22-1718-zwei-zusagen-eine-kundin
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-22T17:18:03+02:00
+publish_at: 2026-10-29T17:18:03+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
