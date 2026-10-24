@@ -1,9 +1,9 @@
 ---
 id: 2026-09-29-1245-frist-aufs-gesellen-handy
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-29T12:36:32+02:00
+publish_at: 2026-10-27T12:36:32+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
