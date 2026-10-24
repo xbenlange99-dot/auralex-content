@@ -1,9 +1,9 @@
 ---
 id: 2026-10-23-1008-gelaender-beim-verzinker
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-23T10:08:16+02:00
+publish_at: 2026-10-30T10:08:16+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
