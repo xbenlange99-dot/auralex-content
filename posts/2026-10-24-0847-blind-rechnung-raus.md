@@ -1,9 +1,9 @@
 ---
 id: 2026-10-24-0847-blind-rechnung-raus
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-24T08:47:19+02:00
+publish_at: 2026-10-25T08:47:19+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
