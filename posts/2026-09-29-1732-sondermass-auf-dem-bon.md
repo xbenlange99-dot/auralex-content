@@ -1,9 +1,9 @@
 ---
 id: 2026-09-29-1732-sondermass-auf-dem-bon
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-09-29T17:32:25+02:00
+publish_at: 2026-10-27T17:32:25+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
