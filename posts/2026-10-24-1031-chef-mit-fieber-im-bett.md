@@ -1,9 +1,9 @@
 ---
 id: 2026-10-24-1031-chef-mit-fieber-im-bett
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-24T10:31:32+02:00
+publish_at: 2026-10-31T10:31:32+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
