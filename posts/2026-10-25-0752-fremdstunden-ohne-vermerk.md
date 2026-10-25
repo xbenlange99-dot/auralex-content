@@ -1,9 +1,9 @@
 ---
 id: 2026-10-25-0752-fremdstunden-ohne-vermerk
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-25T07:52:36+01:00
+publish_at: 2026-11-01T07:52:36+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
