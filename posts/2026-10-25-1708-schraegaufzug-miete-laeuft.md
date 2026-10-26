@@ -1,10 +1,10 @@
 ---
 id: 2026-10-25-1708-schraegaufzug-miete-laeuft
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-10-25T17:08:35+01:00
+publish_at: 2026-10-26T17:08:35+01:00
 assets:
   - reel-01.mp4
 ---
