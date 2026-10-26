@@ -1,9 +1,9 @@
 ---
 id: 2026-10-25-1055-hotline-nummer-auf-der-hand
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-25T10:55:58+01:00
+publish_at: 2026-11-01T10:55:58+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
