@@ -1,9 +1,9 @@
 ---
 id: 2026-10-25-0952-kontrolle-stunden-von-heute
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-10-25T09:52:32+01:00
+publish_at: 2026-11-01T09:52:32+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
