@@ -1,10 +1,10 @@
 ---
 id: 2026-10-26-1612-wasser-oben-abgestellt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-10-26T16:12:36+01:00
+publish_at: 2026-11-02T16:12:36+01:00
 assets:
   - reel-01.mp4
 ---
