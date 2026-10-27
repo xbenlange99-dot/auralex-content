@@ -1,10 +1,10 @@
 ---
 id: 2026-10-26-1254-siphon-fehlt-um-neun
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-10-26T12:54:09+01:00
+publish_at: 2026-10-27T12:54:09+01:00
 assets:
   - reel-01.mp4
 ---
