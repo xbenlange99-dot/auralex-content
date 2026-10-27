@@ -1,10 +1,10 @@
 ---
 id: 2026-10-26-1715-schuhe-aus-bei-frau-behrens
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-10-26T17:15:18+01:00
+publish_at: 2026-11-02T17:15:18+01:00
 assets:
   - reel-01.mp4
 ---
