@@ -1,10 +1,10 @@
 ---
 id: 2026-10-27-1234-steckdosen-gratis-gesetzt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-10-27T12:34:14+01:00
+publish_at: 2026-10-28T12:34:14+01:00
 assets:
   - reel-01.mp4
 ---
