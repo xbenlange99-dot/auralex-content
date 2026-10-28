@@ -9,6 +9,6 @@ assets:
   - reel-01.mp4
 ---
 
-Montag beim Abkleben sieht Ihr Geselle den Kratzer im Parkett. Er sagt nichts. Zwei Wochen später ruft die Kundin an. Was haben Sie dann in der Hand?
+Montag beim Abkleben sieht Ihr Geselle den Kratzer im Parkett. Er sagt nichts. Nach der Übergabe ruft die Kundin an: Das waren Ihre Leute. Was haben Sie dann in der Hand?
 
 #handwerk #handwerksbetrieb #meisterbetrieb #baustelle #maler #malerbetrieb
