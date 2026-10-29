@@ -1,10 +1,10 @@
 ---
 id: 2026-10-28-1246-kran-da-schild-nicht
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-10-28T12:46:40+01:00
+publish_at: 2026-11-04T12:46:40+01:00
 assets:
   - reel-01.mp4
 ---
