@@ -1,10 +1,10 @@
 ---
 id: 2026-10-28-0947-kratzer-war-schon-da
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-10-28T09:47:56+01:00
+publish_at: 2026-11-04T09:47:56+01:00
 assets:
   - reel-01.mp4
 ---
