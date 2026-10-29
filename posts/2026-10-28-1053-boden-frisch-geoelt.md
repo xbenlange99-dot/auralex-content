@@ -1,10 +1,10 @@
 ---
 id: 2026-10-28-1053-boden-frisch-geoelt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-10-28T10:53:35+01:00
+publish_at: 2026-11-04T10:53:35+01:00
 assets:
   - reel-01.mp4
 ---
