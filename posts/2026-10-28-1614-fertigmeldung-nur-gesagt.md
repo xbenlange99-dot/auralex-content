@@ -1,10 +1,10 @@
 ---
 id: 2026-10-28-1614-fertigmeldung-nur-gesagt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-10-28T16:14:15+01:00
+publish_at: 2026-11-04T16:14:15+01:00
 assets:
   - reel-01.mp4
 ---
