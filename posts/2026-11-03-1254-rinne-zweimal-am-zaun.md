@@ -1,10 +1,10 @@
 ---
 id: 2026-11-03-1254-rinne-zweimal-am-zaun
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-03T12:54:41+01:00
+publish_at: 2026-11-10T12:54:41+01:00
 assets:
   - reel-01.mp4
 ---
