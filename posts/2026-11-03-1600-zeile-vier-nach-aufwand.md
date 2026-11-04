@@ -1,10 +1,10 @@
 ---
 id: 2026-11-03-1600-zeile-vier-nach-aufwand
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-03T16:00:02+01:00
+publish_at: 2026-11-10T16:00:02+01:00
 assets:
   - reel-01.mp4
 ---
