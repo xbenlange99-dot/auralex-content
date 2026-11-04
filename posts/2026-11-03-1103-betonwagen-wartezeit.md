@@ -1,10 +1,10 @@
 ---
 id: 2026-11-03-1103-betonwagen-wartezeit
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-03T11:03:35+01:00
+publish_at: 2026-11-04T11:03:35+01:00
 assets:
   - reel-01.mp4
 ---
