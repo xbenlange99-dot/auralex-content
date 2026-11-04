@@ -1,10 +1,10 @@
 ---
 id: 2026-10-29-0945-druckprobe-nachweis
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-10-29T09:45:27+01:00
+publish_at: 2026-11-04T09:45:27+01:00
 assets:
   - reel-01.mp4
 ---
