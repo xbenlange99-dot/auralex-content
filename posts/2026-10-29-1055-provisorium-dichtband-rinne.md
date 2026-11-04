@@ -1,10 +1,10 @@
 ---
 id: 2026-10-29-1055-provisorium-dichtband-rinne
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-10-29T10:55:10+01:00
+publish_at: 2026-11-05T10:55:10+01:00
 assets:
   - reel-01.mp4
 ---
