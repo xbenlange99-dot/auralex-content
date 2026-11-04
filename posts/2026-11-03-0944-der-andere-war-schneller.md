@@ -1,10 +1,10 @@
 ---
 id: 2026-11-03-0944-der-andere-war-schneller
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-03T09:44:46+01:00
+publish_at: 2026-11-10T09:44:46+01:00
 assets:
   - reel-01.mp4
 ---
