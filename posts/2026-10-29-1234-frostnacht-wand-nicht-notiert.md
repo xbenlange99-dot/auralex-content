@@ -1,10 +1,10 @@
 ---
 id: 2026-10-29-1234-frostnacht-wand-nicht-notiert
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-10-29T12:34:23+01:00
+publish_at: 2026-11-05T12:34:23+01:00
 assets:
   - reel-01.mp4
 ---
