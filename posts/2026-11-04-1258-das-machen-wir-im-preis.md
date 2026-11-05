@@ -1,10 +1,10 @@
 ---
 id: 2026-11-04-1258-das-machen-wir-im-preis
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-04T12:58:38+01:00
+publish_at: 2026-11-05T12:58:38+01:00
 assets:
   - reel-01.mp4
 ---
