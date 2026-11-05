@@ -1,10 +1,10 @@
 ---
 id: 2026-11-04-1107-schluessel-in-der-jacke
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-04T11:07:34+01:00
+publish_at: 2026-11-11T11:07:34+01:00
 assets:
   - reel-01.mp4
 ---
