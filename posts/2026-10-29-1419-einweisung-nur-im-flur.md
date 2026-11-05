@@ -1,10 +1,10 @@
 ---
 id: 2026-10-29-1419-einweisung-nur-im-flur
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-10-29T14:19:26+01:00
+publish_at: 2026-11-05T14:19:26+01:00
 assets:
   - reel-01.mp4
 ---
