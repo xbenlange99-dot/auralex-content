@@ -1,10 +1,10 @@
 ---
 id: 2026-11-05-1056-nachteinsatz-nur-im-kopf
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-05T10:56:19+01:00
+publish_at: 2026-11-12T10:56:19+01:00
 assets:
   - reel-01.mp4
 ---
