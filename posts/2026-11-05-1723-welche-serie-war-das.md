@@ -1,10 +1,10 @@
 ---
 id: 2026-11-05-1723-welche-serie-war-das
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-05T17:23:31+01:00
+publish_at: 2026-11-06T17:23:31+01:00
 assets:
   - reel-01.mp4
 ---
