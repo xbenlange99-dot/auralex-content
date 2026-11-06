@@ -1,10 +1,10 @@
 ---
 id: 2026-11-05-1409-einfahrt-nur-die-adresse
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-05T14:09:05+01:00
+publish_at: 2026-11-06T14:09:05+01:00
 assets:
   - reel-01.mp4
 ---
