@@ -1,10 +1,10 @@
 ---
 id: 2026-11-05-1558-heizung-im-flur-erklaert
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-05T15:58:02+01:00
+publish_at: 2026-11-06T15:58:02+01:00
 assets:
   - reel-01.mp4
 ---
