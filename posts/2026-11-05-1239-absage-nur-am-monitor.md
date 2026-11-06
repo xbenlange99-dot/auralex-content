@@ -1,10 +1,10 @@
 ---
 id: 2026-11-05-1239-absage-nur-am-monitor
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-05T12:39:06+01:00
+publish_at: 2026-11-12T12:39:06+01:00
 assets:
   - reel-01.mp4
 ---
