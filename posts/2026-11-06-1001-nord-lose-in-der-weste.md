@@ -1,10 +1,10 @@
 ---
 id: 2026-11-06-1001-nord-lose-in-der-weste
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-06T10:01:55+01:00
+publish_at: 2026-11-13T10:01:55+01:00
 assets:
   - reel-01.mp4
 ---
