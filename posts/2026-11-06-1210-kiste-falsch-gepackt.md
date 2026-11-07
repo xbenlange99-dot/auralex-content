@@ -1,10 +1,10 @@
 ---
 id: 2026-11-06-1210-kiste-falsch-gepackt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-06T12:10:53+01:00
+publish_at: 2026-11-13T12:10:53+01:00
 assets:
   - reel-01.mp4
 ---
