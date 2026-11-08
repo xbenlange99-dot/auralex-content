@@ -1,10 +1,10 @@
 ---
 id: 2026-11-07-1046-nichts-liegt-bereit
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-07T10:46:29+01:00
+publish_at: 2026-11-08T10:46:29+01:00
 assets:
   - reel-01.mp4
 ---
