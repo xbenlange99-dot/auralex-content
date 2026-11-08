@@ -1,10 +1,10 @@
 ---
 id: 2026-11-01-1005-nische-nur-gesagt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-01T10:05:20+01:00
+publish_at: 2026-11-08T10:05:20+01:00
 assets:
   - reel-01.mp4
 ---
