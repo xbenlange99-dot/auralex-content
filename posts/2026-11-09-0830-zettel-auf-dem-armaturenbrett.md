@@ -1,6 +1,6 @@
 ---
 id: 2026-11-09-0830-zettel-auf-dem-armaturenbrett
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-11-09T08:30:00+01:00
