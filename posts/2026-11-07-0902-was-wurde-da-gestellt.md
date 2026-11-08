@@ -1,10 +1,10 @@
 ---
 id: 2026-11-07-0902-was-wurde-da-gestellt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-07T09:02:45+01:00
+publish_at: 2026-11-08T09:02:45+01:00
 assets:
   - reel-01.mp4
 ---
