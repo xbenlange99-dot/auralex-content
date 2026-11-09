@@ -1,10 +1,10 @@
 ---
 id: 2026-11-01-1156-geruest-miete-laeuft
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-01T11:56:00+01:00
+publish_at: 2026-11-15T11:56:00+01:00
 assets:
   - reel-01.mp4
 ---
