@@ -1,10 +1,10 @@
 ---
 id: 2026-11-08-1654-buero-weiss-von-nichts
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-08T16:54:30+01:00
+publish_at: 2026-11-09T16:54:30+01:00
 assets:
   - reel-01.mp4
 ---
