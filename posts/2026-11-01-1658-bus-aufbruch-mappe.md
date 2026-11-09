@@ -1,10 +1,10 @@
 ---
 id: 2026-11-01-1658-bus-aufbruch-mappe
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-01T16:58:38+01:00
+publish_at: 2026-11-15T16:58:38+01:00
 assets:
   - reel-01.mp4
 ---
