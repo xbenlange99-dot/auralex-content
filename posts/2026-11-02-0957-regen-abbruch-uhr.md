@@ -1,10 +1,10 @@
 ---
 id: 2026-11-02-0957-regen-abbruch-uhr
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-02T09:57:36+01:00
+publish_at: 2026-11-10T09:57:36+01:00
 assets:
   - reel-01.mp4
 ---
