@@ -1,9 +1,9 @@
 ---
 id: 2026-11-09-1422-speicher-passt-nicht
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-09T14:22:47+01:00
+publish_at: 2026-11-10T14:22:47+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
