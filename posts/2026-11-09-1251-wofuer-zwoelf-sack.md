@@ -1,9 +1,9 @@
 ---
 id: 2026-11-09-1251-wofuer-zwoelf-sack
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-09T12:51:02+01:00
+publish_at: 2026-11-10T12:51:02+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
