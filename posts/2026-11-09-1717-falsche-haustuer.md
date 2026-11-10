@@ -1,9 +1,9 @@
 ---
 id: 2026-11-09-1717-falsche-haustuer
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-09T17:17:06+01:00
+publish_at: 2026-11-10T17:17:06+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
