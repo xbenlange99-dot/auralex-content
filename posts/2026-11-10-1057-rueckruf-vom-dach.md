@@ -1,9 +1,9 @@
 ---
 id: 2026-11-10-1057-rueckruf-vom-dach
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-10T10:57:06+01:00
+publish_at: 2026-11-11T10:57:06+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
