@@ -9,6 +9,6 @@ assets:
   - reel-01.mp4
 ---
 
-Ihr Geselle weiß um halb acht, dass es später wird. Die Kundin erfährt es um elf, weil sie selbst anruft. Wer bei Ihnen sagt ihr eigentlich Bescheid?
+Ihr Geselle weiß um Viertel vor acht, dass es später wird. Die Kundin erfährt es um elf, weil sie selbst anruft. Wer bei Ihnen sagt ihr eigentlich Bescheid?
 
 #handwerk #handwerksbetrieb #meisterbetrieb #baustelle #kundentermin
