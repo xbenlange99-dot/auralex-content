@@ -1,10 +1,10 @@
 ---
 id: 2026-11-02-1247-kratzer-im-parkett
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-02T12:47:16+01:00
+publish_at: 2026-11-16T12:47:16+01:00
 assets:
   - reel-01.mp4
 ---
