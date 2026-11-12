@@ -1,9 +1,9 @@
 ---
 id: 2026-11-11-1256-hat-sich-das-bad-gelohnt
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-11T12:56:50+01:00
+publish_at: 2026-11-12T12:56:50+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
