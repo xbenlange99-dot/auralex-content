@@ -1,9 +1,9 @@
 ---
 id: 2026-11-11-0956-balken-unterm-helm
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-11T09:56:34+01:00
+publish_at: 2026-11-12T09:56:34+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
