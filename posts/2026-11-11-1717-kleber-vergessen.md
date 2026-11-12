@@ -1,9 +1,9 @@
 ---
 id: 2026-11-11-1717-kleber-vergessen
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-11T17:17:54+01:00
+publish_at: 2026-11-12T17:17:54+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
