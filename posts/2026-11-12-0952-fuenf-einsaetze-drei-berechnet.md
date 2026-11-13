@@ -1,9 +1,9 @@
 ---
 id: 2026-11-12-0952-fuenf-einsaetze-drei-berechnet
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-12T09:52:16+01:00
+publish_at: 2026-11-13T09:52:16+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
