@@ -1,9 +1,9 @@
 ---
 id: 2026-11-12-1412-was-weiss-die-kaffeemaschine
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-12T14:12:04+01:00
+publish_at: 2026-11-13T14:12:04+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
