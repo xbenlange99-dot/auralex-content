@@ -1,9 +1,9 @@
 ---
 id: 2026-11-12-1051-wie-letztes-jahr
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-12T10:51:22+01:00
+publish_at: 2026-11-13T10:51:22+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
