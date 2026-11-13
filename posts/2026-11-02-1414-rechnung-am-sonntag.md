@@ -1,10 +1,10 @@
 ---
 id: 2026-11-02-1414-rechnung-am-sonntag
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 cover: cover.jpg
-publish_at: 2026-11-02T14:14:09+01:00
+publish_at: 2026-11-16T14:14:09+01:00
 assets:
   - reel-01.mp4
 ---
