@@ -1,9 +1,9 @@
 ---
 id: 2026-11-13-1008-zwei-baustellen-ein-zettel
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-13T10:08:22+01:00
+publish_at: 2026-11-14T10:08:22+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
