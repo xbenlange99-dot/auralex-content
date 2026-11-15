@@ -1,6 +1,6 @@
 ---
 id: 2026-11-15-0800-papa-kommst-du-fruehstuecken
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-11-15T08:00:59+01:00
