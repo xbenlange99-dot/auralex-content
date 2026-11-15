@@ -1,9 +1,9 @@
 ---
 id: 2026-11-14-1201-wer-zahlt-die-hebebuehne
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-14T12:01:39+01:00
+publish_at: 2026-11-15T12:01:39+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
