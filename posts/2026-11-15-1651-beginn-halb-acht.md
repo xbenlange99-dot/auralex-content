@@ -1,9 +1,9 @@
 ---
 id: 2026-11-15-1651-beginn-halb-acht
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-15T16:51:40+01:00
+publish_at: 2026-11-16T16:51:40+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
