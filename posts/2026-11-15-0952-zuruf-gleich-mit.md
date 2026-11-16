@@ -1,9 +1,9 @@
 ---
 id: 2026-11-15-0952-zuruf-gleich-mit
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-15T09:52:04+01:00
+publish_at: 2026-11-22T09:52:04+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
