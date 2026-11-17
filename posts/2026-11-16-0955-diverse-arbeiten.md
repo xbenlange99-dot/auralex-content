@@ -1,9 +1,9 @@
 ---
 id: 2026-11-16-0955-diverse-arbeiten
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-16T09:55:20+01:00
+publish_at: 2026-11-17T09:55:20+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
