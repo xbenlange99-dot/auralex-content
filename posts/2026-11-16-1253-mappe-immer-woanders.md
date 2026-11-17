@@ -1,9 +1,9 @@
 ---
 id: 2026-11-16-1253-mappe-immer-woanders
-status: ready
+status: scheduled
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-16T12:53:25+01:00
+publish_at: 2026-11-23T12:53:25+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
