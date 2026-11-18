@@ -1,9 +1,9 @@
 ---
 id: 2026-11-17-1258-empfehlung-beim-kaffee
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-17T12:58:57+01:00
+publish_at: 2026-11-18T12:58:57+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
