@@ -1,9 +1,9 @@
 ---
 id: 2026-11-17-1730-breite-oder-hoehe
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-17T17:30:08+01:00
+publish_at: 2026-11-18T17:30:08+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
