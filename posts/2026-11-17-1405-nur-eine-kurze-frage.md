@@ -1,9 +1,9 @@
 ---
 id: 2026-11-17-1405-nur-eine-kurze-frage
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-17T14:05:27+01:00
+publish_at: 2026-11-18T14:05:27+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
