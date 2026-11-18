@@ -1,9 +1,9 @@
 ---
 id: 2026-11-17-1552-schein-im-fussraum
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-17T15:52:11+01:00
+publish_at: 2026-11-24T15:52:11+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
