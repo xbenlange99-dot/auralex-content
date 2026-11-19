@@ -1,9 +1,9 @@
 ---
 id: 2026-11-18-1232-aufraeumen-nach-kiste-zu
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-18T12:32:48+01:00
+publish_at: 2026-11-19T12:32:48+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
