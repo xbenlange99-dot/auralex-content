@@ -1,9 +1,9 @@
 ---
 id: 2026-11-18-1602-privat-ausgelegt
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-18T16:02:42+01:00
+publish_at: 2026-11-19T16:02:42+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
