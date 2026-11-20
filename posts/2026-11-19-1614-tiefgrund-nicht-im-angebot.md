@@ -1,9 +1,9 @@
 ---
 id: 2026-11-19-1614-tiefgrund-nicht-im-angebot
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-19T16:14:52+01:00
+publish_at: 2026-11-20T16:14:52+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
