@@ -1,9 +1,9 @@
 ---
 id: 2026-11-19-1058-mappe-faehrt-mit
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-19T10:58:30+01:00
+publish_at: 2026-11-26T10:58:30+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
