@@ -1,9 +1,9 @@
 ---
 id: 2026-11-19-1259-restpunkte-abnahme
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-19T12:59:59+01:00
+publish_at: 2026-11-20T12:59:59+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
