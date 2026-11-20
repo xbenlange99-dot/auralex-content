@@ -1,9 +1,9 @@
 ---
 id: 2026-11-19-1427-erster-frost-sieben-anrufe
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-19T14:27:58+01:00
+publish_at: 2026-11-20T14:27:58+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
