@@ -1,9 +1,9 @@
 ---
 id: 2026-11-20-1001-drei-kunden-eine-kiste
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-20T10:01:29+01:00
+publish_at: 2026-11-21T10:01:29+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
