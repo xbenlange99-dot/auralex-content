@@ -1,9 +1,9 @@
 ---
 id: 2026-11-21-0907-wer-zahlt-die-suche
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-21T09:07:58+01:00
+publish_at: 2026-11-22T09:07:58+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
