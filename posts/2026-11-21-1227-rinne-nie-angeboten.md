@@ -1,9 +1,9 @@
 ---
 id: 2026-11-21-1227-rinne-nie-angeboten
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-21T12:27:55+01:00
+publish_at: 2026-11-22T12:27:55+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
