@@ -1,9 +1,9 @@
 ---
 id: 2026-11-21-1057-zettel-an-der-tuer
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-21T10:57:27+01:00
+publish_at: 2026-11-22T10:57:27+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
