@@ -1,6 +1,6 @@
 ---
 id: 2026-11-22-0813-mappe-im-falschen-bus
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
 publish_at: 2026-11-22T08:13:29+01:00
