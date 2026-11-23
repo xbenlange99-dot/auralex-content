@@ -1,9 +1,9 @@
 ---
 id: 2026-11-22-1703-bon-hinter-der-scheibe
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-22T17:03:13+01:00
+publish_at: 2026-11-23T17:03:13+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
