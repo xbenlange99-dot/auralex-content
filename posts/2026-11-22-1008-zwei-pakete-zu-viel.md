@@ -1,9 +1,9 @@
 ---
 id: 2026-11-22-1008-zwei-pakete-zu-viel
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-22T10:08:49+01:00
+publish_at: 2026-11-23T10:08:49+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
