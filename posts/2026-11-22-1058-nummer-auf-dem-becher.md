@@ -1,9 +1,9 @@
 ---
 id: 2026-11-22-1058-nummer-auf-dem-becher
-status: ready
+status: error
 format: video
 channels: [facebook, instagram]
-publish_at: 2026-11-22T10:58:19+01:00
+publish_at: 2026-11-29T10:58:19+01:00
 cover: cover.jpg
 assets:
   - reel-01.mp4
